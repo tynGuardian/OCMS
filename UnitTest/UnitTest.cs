@@ -2,6 +2,7 @@
 using OCMS.MODEL;
 using OCMS.Bussiness;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace UnitTest
 {
@@ -36,11 +37,9 @@ namespace UnitTest
         {
             MemberBussiness _bll = new MemberBussiness();
 
-            var model = new MemberModel();
+            List<MemberModel> listMember = _bll.GetMember();
 
-            model = _bll.GetMember();
-
-            Assert.IsNotNull(model);
+            Assert.IsNotNull(listMember);
         }
     }
 }
