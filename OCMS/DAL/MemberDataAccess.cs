@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,37 +12,41 @@ namespace OCMS.DAL
     public class MemberDataAccess
     {
 
-        public MemberModel GetMember()
+        public List<MemberModel> GetMember()
         {
             try
             {
                 DBResource newConnection = new DBResource();
                 //newConnection.DBOpen();
 
-                MemberModel model = new MemberModel();
+                List<MemberModel> listModel = new List<MemberModel>();
+                MemberModel memberModel;
 
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
-                   
+
                     string query = "dbo.GetMembersPerAccount";
-                    SqlCommand cmd = new SqlCommand(query,myConnection);
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
 
-                    //using (SqlDataReader dr = cmd.ExecuteReader())
-                    //{
-                    //    while (dr.Read())
-                    //    {
-                    //        model.memberCode = dr["MemberCode"].ToString();
-                    //        model.Name = dr["NAME"].ToString();
-                    //        model.Age = dr.GetInt32(dr.GetOrdinal("age"));
-                    //        model.Gender = dr["gender"].ToString();
-                    //        model.CompanyName = dr["ACCOUNT_NAME"].ToString();
-                    //    }
-                    //    myConnection.Close();
-                    //}
+                            memberModel = new MemberModel();
+                            memberModel.memberCode = dr["MemberCode"].ToString();
+                            memberModel.Name = dr["NAME"].ToString();
+                            memberModel.Age = dr.GetInt32(dr.GetOrdinal("age"));
+                            memberModel.Gender = dr["gender"].ToString();
+                            memberModel.CompanyName = dr["ACCOUNT_NAME"].ToString();
+                            listModel.Add(memberModel);
+
+                        }
+                        myConnection.Close();
+                    }
                 }
-                return model;
+                return listModel;
 
             }
             catch (Exception ex)

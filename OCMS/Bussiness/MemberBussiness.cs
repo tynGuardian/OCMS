@@ -13,15 +13,18 @@ namespace OCMS.Bussiness
     {
         MemberDataAccess _dataAccess = new MemberDataAccess();
 
-        public DataTable MemberModel GetMember()
+        //populated datagrid view
+        public List<MemberModel> GetMember()
         {
             try
             {
 
                 DataTable dt = new DataTable();
 
-                _dataAccess.GetMember();
-                 
+                List<MemberModel> listMember = _dataAccess.GetMember().ToList();
+
+                return listMember;
+
             }
             catch (Exception ex)
             {

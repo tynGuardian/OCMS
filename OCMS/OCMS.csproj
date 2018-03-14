@@ -53,10 +53,10 @@
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="DAL\MemberDataAccess.cs" />
     <Compile Include="DBResource.cs" />
-    <Compile Include="frmOMList.cs">
+    <Compile Include="VIEW\frmOMList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOMList.Designer.cs">
+    <Compile Include="VIEW\frmOMList.Designer.cs">
       <DependentUpon>frmOMList.cs</DependentUpon>
     </Compile>
     <Compile Include="MODEL\Baseline.cs" />
@@ -97,7 +97,7 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOMList.resx">
+    <EmbeddedResource Include="VIEW\frmOMList.resx">
       <DependentUpon>frmOMList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmAbout.resx">

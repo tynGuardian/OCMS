@@ -29,12 +29,10 @@ namespace OCMS
 
         private void frmOMList_Load(object sender, EventArgs e)
         {
-            //bool openOMList = Class.clsGlobal.CheckOpened("frmOMList");
-            //MemberBussiness _bll = new MemberBussiness();
-            //var gridData = new List<MemberModel>();
-            //gridData = _bll.GetMember();
-            //dgvMember.DataSource = gridData
-            //                    .Select(d => new MemberModel()).ToList();
+
+            MemberBussiness _bll = new MemberBussiness();
+            dgvMember.DataSource = _bll.GetMember().ToList();
+
         }
     }
 }
