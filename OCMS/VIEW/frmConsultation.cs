@@ -15,5 +15,10 @@ namespace OCMS.VIEW
         {
             InitializeComponent();
         }
+
+        private void frmConsultation_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
