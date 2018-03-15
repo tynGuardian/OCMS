@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
+using OCMS.Bussiness;
 
 namespace OCMS
 {
@@ -45,7 +47,7 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace OCMS
                 //{
                 //    closeChildToolStripMenuItem.Enabled = false;
                 //}
-                
+
             }
             catch (Exception ex)
             {
@@ -82,6 +84,27 @@ namespace OCMS
             }
         }
 
-        
+        private void importListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MemberBussiness _bll = new MemberBussiness();
+            frmOMList frmOMList = new frmOMList();
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+
+                //frmOMList.dgvMember.DataSource = _bll.GetMemberExcel(filePath, fileName);
+
+                frmOMList.excelMemModel = _bll.GetMemberExcel(filePath, fileName);
+                frmOMList.MdiParent = this;
+                frmOMList.WindowState = FormWindowState.Maximized;
+                frmOMList.dgvMember.MaximumSize = MaximumSize;
+                frmOMList.Show();
+            }
+        }
+
     }
 }
+

@@ -41,5 +41,18 @@ namespace UnitTest
 
             Assert.IsNotNull(listMember);
         }
+
+        [TestMethod]
+        public void GetMeberExcel()
+        {
+            MemberBussiness _bll = new MemberBussiness();
+
+            string filePath = "D:\\OCMS\\OH_MasterList\\CITIBANK SAVINGS, INC..xlsx";
+            string fileName = "CITIBANK SAVINGS, INC.";
+
+            List<MemberModel> listMemModel = _bll.GetMemberExcel(filePath, fileName);
+
+            Assert.IsNotNull(listMemModel);
+        }
     }
 }

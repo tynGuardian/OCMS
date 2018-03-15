@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using OCMS.Bussiness;
 using OCMS.MODEL;
+using OCMS.VIEW;
 
 namespace OCMS
 {
@@ -17,9 +14,14 @@ namespace OCMS
         public frmOMList()
         {
             InitializeComponent();
+            int newHeight = 61;
+            panel1.MaximumSize = new Size(this.Width + 180, newHeight);
+            panel1.Size = new Size(this.Width + 180, newHeight);
         }
 
         private static frmOMList m_OMList;
+        public List<MemberModel> excelMemModel;
+
         public static frmOMList GetChildInstance()
         {
             if (m_OMList == null) //if not created yet, Create an instance
@@ -31,7 +33,40 @@ namespace OCMS
         {
 
             MemberBussiness _bll = new MemberBussiness();
-            dgvMember.DataSource = _bll.GetMember().ToList();
+            //dgvMember.DataSource = _bll.GetMember().ToList();
+
+            dgvMember.DataSource = excelMemModel;
+            //dgvMember.MaximumSize = 
+        }
+
+        private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dgvMember.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                MemberModel memModel = new MemberModel();
+
+                if (dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString() != null)
+                {
+                    memModel.EmpID = dgvMember.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    memModel.CompanyName = dgvMember.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    memModel.MemberCode = dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    memModel.LName = dgvMember.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    memModel.FName = dgvMember.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    memModel.MName = dgvMember.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    memModel.BDate = dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    memModel.Age = dgvMember.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    memModel.Gender = dgvMember.Rows[e.RowIndex].Cells[8].Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("There are no specified member code", "OCMS");
+                }
+
+                frmConsultation frmConsultation = new frmConsultation(memModel);
+                frmConsultation.ShowDialog();
+            }
+
 
         }
     }
