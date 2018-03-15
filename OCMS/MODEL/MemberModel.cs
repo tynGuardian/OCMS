@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ComponentModel;
 
 namespace OCMS.MODEL
@@ -33,9 +31,9 @@ namespace OCMS.MODEL
         [DisplayName("Company Name")]
         public string CompanyName { get; set; }
 
-        public static implicit operator List<object>(MemberModel v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator List<object>(MemberModel v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -46,13 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bussiness\MedicineBusiness.cs" />
     <Compile Include="Class\clsMain.cs" />
     <Compile Include="Bussiness\ConsultationBusiness.cs" />
     <Compile Include="Bussiness\MemberBussiness.cs" />
     <Compile Include="DAL\ConsultationDataAccess.cs" />
     <Compile Include="DAL\DataAccess.cs" />
+    <Compile Include="DAL\MedicineDataAccess.cs" />
     <Compile Include="DAL\MemberDataAccess.cs" />
     <Compile Include="DBResource.cs" />
+    <Compile Include="MODEL\DiagnosisModel.cs" />
+    <Compile Include="MODEL\DispositionModel.cs" />
+    <Compile Include="MODEL\MedicineModel.cs" />
     <Compile Include="VIEW\frmOMList.cs">
       <SubType>Form</SubType>
     </Compile>

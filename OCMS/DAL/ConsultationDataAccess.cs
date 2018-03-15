@@ -47,5 +47,91 @@ namespace OCMS.DAL
 
         }
 
+        public List<DispositionModel> getDisposition()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<DispositionModel> listModel = new List<DispositionModel>();
+                DispositionModel dispositionModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetDisposition";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            dispositionModel = new DispositionModel();
+
+                            dispositionModel.dispositionId = Convert.ToInt32(dr["disposition_id"]);
+                            dispositionModel.disposition = dr["disposition"].ToString();
+
+                            listModel.Add(dispositionModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<DiagnosisModel> getDiagnosis()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<DiagnosisModel> listModel = new List<DiagnosisModel>();
+                DiagnosisModel diagnosisModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetDiagnosis";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            diagnosisModel = new DiagnosisModel();
+
+                            diagnosisModel.diag_desc = dr["diag_desc"].ToString();
+                            diagnosisModel.diag_code = dr["diag_code"].ToString();
+                            diagnosisModel.icd10_code = dr["icd10_code"].ToString();
+                            diagnosisModel.icd10_4c = dr["icd10_4c"].ToString();
+
+                            listModel.Add(diagnosisModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

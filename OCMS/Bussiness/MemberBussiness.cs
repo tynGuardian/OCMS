@@ -20,8 +20,6 @@ namespace OCMS.Bussiness
             try
             {
 
-                DataTable dt = new DataTable();
-
                 List<MemberModel> listMember = _dataAccess.GetMember();
 
                 return listMember;
@@ -55,7 +53,7 @@ namespace OCMS.Bussiness
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid uploaded data","OCMS", MessageBoxButtons.OK,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Invalid uploaded data", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 throw ex;
             }
         }

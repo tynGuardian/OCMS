@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.grpPatient = new System.Windows.Forms.GroupBox();
+            this.txtTimeIn = new System.Windows.Forms.TextBox();
+            this.txtGender = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtEmpName = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@
             this.lblMed = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.tbConsultation = new System.Windows.Forms.TabControl();
-            this.txtEmpName = new System.Windows.Forms.TextBox();
-            this.txtAge = new System.Windows.Forms.TextBox();
-            this.txtGender = new System.Windows.Forms.TextBox();
-            this.txtTimeIn = new System.Windows.Forms.TextBox();
             this.grpPatient.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tbConsultation.SuspendLayout();
@@ -74,6 +74,42 @@
             this.grpPatient.Size = new System.Drawing.Size(460, 85);
             this.grpPatient.TabIndex = 0;
             this.grpPatient.TabStop = false;
+            // 
+            // txtTimeIn
+            // 
+            this.txtTimeIn.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtTimeIn.Enabled = false;
+            this.txtTimeIn.Location = new System.Drawing.Point(350, 47);
+            this.txtTimeIn.Name = "txtTimeIn";
+            this.txtTimeIn.Size = new System.Drawing.Size(104, 20);
+            this.txtTimeIn.TabIndex = 7;
+            // 
+            // txtGender
+            // 
+            this.txtGender.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtGender.Enabled = false;
+            this.txtGender.Location = new System.Drawing.Point(120, 51);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.Size = new System.Drawing.Size(145, 20);
+            this.txtGender.TabIndex = 6;
+            // 
+            // txtAge
+            // 
+            this.txtAge.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtAge.Enabled = false;
+            this.txtAge.Location = new System.Drawing.Point(350, 16);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(44, 20);
+            this.txtAge.TabIndex = 5;
+            // 
+            // txtEmpName
+            // 
+            this.txtEmpName.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtEmpName.Enabled = false;
+            this.txtEmpName.Location = new System.Drawing.Point(120, 17);
+            this.txtEmpName.Name = "txtEmpName";
+            this.txtEmpName.Size = new System.Drawing.Size(145, 20);
+            this.txtEmpName.TabIndex = 4;
             // 
             // lblDate
             // 
@@ -142,10 +178,11 @@
             // 
             // cmbDisposition
             // 
+            this.cmbDisposition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDisposition.FormattingEnabled = true;
             this.cmbDisposition.Location = new System.Drawing.Point(84, 253);
             this.cmbDisposition.Name = "cmbDisposition";
-            this.cmbDisposition.Size = new System.Drawing.Size(338, 24);
+            this.cmbDisposition.Size = new System.Drawing.Size(338, 21);
             this.cmbDisposition.TabIndex = 18;
             // 
             // listMedicine
@@ -168,10 +205,11 @@
             // 
             // cmbDiagnosis
             // 
+            this.cmbDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDiagnosis.FormattingEnabled = true;
             this.cmbDiagnosis.Location = new System.Drawing.Point(84, 284);
             this.cmbDiagnosis.Name = "cmbDiagnosis";
-            this.cmbDiagnosis.Size = new System.Drawing.Size(338, 24);
+            this.cmbDiagnosis.Size = new System.Drawing.Size(338, 21);
             this.cmbDiagnosis.TabIndex = 11;
             // 
             // btnAddComplaint
@@ -184,6 +222,7 @@
             this.btnAddComplaint.TabIndex = 16;
             this.btnAddComplaint.Text = "Add";
             this.btnAddComplaint.UseVisualStyleBackColor = false;
+            this.btnAddComplaint.Click += new System.EventHandler(this.btnAddComplaint_Click);
             // 
             // lblDiagnosis
             // 
@@ -217,6 +256,7 @@
             // 
             // txtComplaint
             // 
+            this.txtComplaint.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtComplaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComplaint.Location = new System.Drawing.Point(84, 16);
             this.txtComplaint.Name = "txtComplaint";
@@ -225,7 +265,7 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(326, 135);
+            this.txtQuantity.Location = new System.Drawing.Point(329, 135);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(43, 22);
             this.txtQuantity.TabIndex = 7;
@@ -243,10 +283,11 @@
             // 
             // cmbMedicine
             // 
+            this.cmbMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicine.FormattingEnabled = true;
             this.cmbMedicine.Location = new System.Drawing.Point(84, 134);
             this.cmbMedicine.Name = "cmbMedicine";
-            this.cmbMedicine.Size = new System.Drawing.Size(167, 24);
+            this.cmbMedicine.Size = new System.Drawing.Size(181, 21);
             this.cmbMedicine.TabIndex = 13;
             // 
             // listComplaint
@@ -272,7 +313,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(257, 135);
+            this.lblQuantity.Location = new System.Drawing.Point(267, 137);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(59, 16);
             this.lblQuantity.TabIndex = 5;
@@ -287,42 +328,6 @@
             this.tbConsultation.SelectedIndex = 0;
             this.tbConsultation.Size = new System.Drawing.Size(468, 421);
             this.tbConsultation.TabIndex = 2;
-            // 
-            // txtEmpName
-            // 
-            this.txtEmpName.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtEmpName.Enabled = false;
-            this.txtEmpName.Location = new System.Drawing.Point(120, 17);
-            this.txtEmpName.Name = "txtEmpName";
-            this.txtEmpName.Size = new System.Drawing.Size(145, 20);
-            this.txtEmpName.TabIndex = 4;
-            // 
-            // txtAge
-            // 
-            this.txtAge.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtAge.Enabled = false;
-            this.txtAge.Location = new System.Drawing.Point(350, 16);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(44, 20);
-            this.txtAge.TabIndex = 5;
-            // 
-            // txtGender
-            // 
-            this.txtGender.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtGender.Enabled = false;
-            this.txtGender.Location = new System.Drawing.Point(120, 51);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(145, 20);
-            this.txtGender.TabIndex = 6;
-            // 
-            // txtTimeIn
-            // 
-            this.txtTimeIn.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtTimeIn.Enabled = false;
-            this.txtTimeIn.Location = new System.Drawing.Point(350, 47);
-            this.txtTimeIn.Name = "txtTimeIn";
-            this.txtTimeIn.Size = new System.Drawing.Size(104, 20);
-            this.txtTimeIn.TabIndex = 7;
             // 
             // frmConsultation
             // 
