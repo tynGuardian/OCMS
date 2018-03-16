@@ -81,8 +81,7 @@ namespace OCMS.DAL
             try
             {
                 DBResource newConnection = new DBResource();
-                //newConnection.DBOpen();
-
+               
                 List<MemberModel> listModel = new List<MemberModel>();
                 MemberModel memberModel;
 

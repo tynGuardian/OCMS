@@ -15,7 +15,11 @@ namespace OCMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+
+            frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
+            frmConfirmationPage.ShowDialog();
+
+            //Application.Run(new frmConfirmationPage());
         }
     }
 }

@@ -5,7 +5,6 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 using System.Data;
-using excel = Microsoft.Office.Interop.Excel;
 using System.Xml;
 using System.Xml.Xsl;
 

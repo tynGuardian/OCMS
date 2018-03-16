@@ -33,10 +33,9 @@ namespace OCMS
         {
 
             MemberBussiness _bll = new MemberBussiness();
-            //dgvMember.DataSource = _bll.GetMember().ToList();
 
             dgvMember.DataSource = excelMemModel;
-            //dgvMember.MaximumSize = 
+         
         }
 
         private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
