@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using OCMS.VIEW;
 
 namespace OCMS.Class
 {
@@ -7,6 +8,9 @@ namespace OCMS.Class
     public class clsGlobal
     {
         public static frmMain g_objfrmMain;
+        public static string lblrole;
+        public static frmConfirmationPage g_objfrmConfirmationPage;
+        
 
         public sealed class Global
         {
