@@ -58,6 +58,7 @@
     <Compile Include="MODEL\DiagnosisModel.cs" />
     <Compile Include="MODEL\DispositionModel.cs" />
     <Compile Include="MODEL\MedicineModel.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="VIEW\frmOMList.cs">
       <SubType>Form</SubType>
     </Compile>
