@@ -70,7 +70,7 @@
             this.dgvMember.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMember.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMember.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.dgvMember.Cursor = System.Windows.Forms.Cursors.Default;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,7 +86,7 @@
             this.dgvMember.RowHeadersVisible = false;
             this.dgvMember.Size = new System.Drawing.Size(861, 468);
             this.dgvMember.TabIndex = 14;
-            this.dgvMember.UseWaitCursor = true;
+            this.dgvMember.UseWaitCursor = false;
             this.dgvMember.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellDoubleClick);
             // 
             // panel1
