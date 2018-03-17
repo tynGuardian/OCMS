@@ -16,10 +16,10 @@ namespace OCMS
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
-            frmConfirmationPage.ShowDialog();
+            //frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
+            //frmConfirmationPage.ShowDialog();
 
-            //Application.Run(new frmConfirmationPage());
+            Application.Run(new frmMain());
         }
     }
 }

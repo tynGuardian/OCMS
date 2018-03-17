@@ -171,7 +171,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(460, 392);
+            this.tabPage1.Size = new System.Drawing.Size(460, 363);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consultation";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -180,43 +180,43 @@
             // 
             this.cmbDisposition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDisposition.FormattingEnabled = true;
-            this.cmbDisposition.Location = new System.Drawing.Point(84, 253);
+            this.cmbDisposition.Location = new System.Drawing.Point(84, 221);
             this.cmbDisposition.Name = "cmbDisposition";
-            this.cmbDisposition.Size = new System.Drawing.Size(338, 21);
+            this.cmbDisposition.Size = new System.Drawing.Size(359, 21);
             this.cmbDisposition.TabIndex = 18;
             // 
             // listMedicine
             // 
             this.listMedicine.FormattingEnabled = true;
             this.listMedicine.ItemHeight = 16;
-            this.listMedicine.Location = new System.Drawing.Point(84, 162);
+            this.listMedicine.Location = new System.Drawing.Point(84, 275);
             this.listMedicine.Name = "listMedicine";
-            this.listMedicine.Size = new System.Drawing.Size(337, 84);
+            this.listMedicine.Size = new System.Drawing.Size(359, 68);
             this.listMedicine.TabIndex = 19;
             // 
             // listDiagnosis
             // 
             this.listDiagnosis.FormattingEnabled = true;
             this.listDiagnosis.ItemHeight = 16;
-            this.listDiagnosis.Location = new System.Drawing.Point(84, 315);
+            this.listDiagnosis.Location = new System.Drawing.Point(84, 147);
             this.listDiagnosis.Name = "listDiagnosis";
-            this.listDiagnosis.Size = new System.Drawing.Size(337, 68);
+            this.listDiagnosis.Size = new System.Drawing.Size(359, 68);
             this.listDiagnosis.TabIndex = 17;
             // 
             // cmbDiagnosis
             // 
             this.cmbDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDiagnosis.FormattingEnabled = true;
-            this.cmbDiagnosis.Location = new System.Drawing.Point(84, 284);
+            this.cmbDiagnosis.Location = new System.Drawing.Point(84, 248);
             this.cmbDiagnosis.Name = "cmbDiagnosis";
-            this.cmbDiagnosis.Size = new System.Drawing.Size(338, 21);
+            this.cmbDiagnosis.Size = new System.Drawing.Size(359, 21);
             this.cmbDiagnosis.TabIndex = 11;
             // 
             // btnAddComplaint
             // 
             this.btnAddComplaint.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnAddComplaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddComplaint.Location = new System.Drawing.Point(375, 15);
+            this.btnAddComplaint.Location = new System.Drawing.Point(397, 16);
             this.btnAddComplaint.Name = "btnAddComplaint";
             this.btnAddComplaint.Size = new System.Drawing.Size(46, 23);
             this.btnAddComplaint.TabIndex = 16;
@@ -228,7 +228,7 @@
             // 
             this.lblDiagnosis.AutoSize = true;
             this.lblDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiagnosis.Location = new System.Drawing.Point(5, 289);
+            this.lblDiagnosis.Location = new System.Drawing.Point(5, 253);
             this.lblDiagnosis.Name = "lblDiagnosis";
             this.lblDiagnosis.Size = new System.Drawing.Size(72, 16);
             this.lblDiagnosis.TabIndex = 10;
@@ -248,7 +248,7 @@
             // 
             this.lblDisposition.AutoSize = true;
             this.lblDisposition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisposition.Location = new System.Drawing.Point(9, 254);
+            this.lblDisposition.Location = new System.Drawing.Point(9, 222);
             this.lblDisposition.Name = "lblDisposition";
             this.lblDisposition.Size = new System.Drawing.Size(78, 16);
             this.lblDisposition.TabIndex = 8;
@@ -260,12 +260,12 @@
             this.txtComplaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComplaint.Location = new System.Drawing.Point(84, 16);
             this.txtComplaint.Name = "txtComplaint";
-            this.txtComplaint.Size = new System.Drawing.Size(281, 22);
+            this.txtComplaint.Size = new System.Drawing.Size(310, 22);
             this.txtComplaint.TabIndex = 3;
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(329, 135);
+            this.txtQuantity.Location = new System.Drawing.Point(350, 118);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(43, 22);
             this.txtQuantity.TabIndex = 7;
@@ -274,7 +274,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(376, 135);
+            this.btnAdd.Location = new System.Drawing.Point(397, 118);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(46, 23);
             this.btnAdd.TabIndex = 14;
@@ -285,25 +285,27 @@
             // 
             this.cmbMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(84, 134);
+            this.cmbMedicine.Location = new System.Drawing.Point(84, 117);
             this.cmbMedicine.Name = "cmbMedicine";
-            this.cmbMedicine.Size = new System.Drawing.Size(181, 21);
+            this.cmbMedicine.Size = new System.Drawing.Size(208, 21);
             this.cmbMedicine.TabIndex = 13;
             // 
             // listComplaint
             // 
             this.listComplaint.FormattingEnabled = true;
+            this.listComplaint.HorizontalScrollbar = true;
             this.listComplaint.ItemHeight = 16;
             this.listComplaint.Location = new System.Drawing.Point(84, 44);
             this.listComplaint.Name = "listComplaint";
-            this.listComplaint.Size = new System.Drawing.Size(337, 84);
+            this.listComplaint.Size = new System.Drawing.Size(359, 68);
             this.listComplaint.TabIndex = 15;
+            this.listComplaint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listComplaint_MouseDoubleClick);
             // 
             // lblMed
             // 
             this.lblMed.AutoSize = true;
             this.lblMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMed.Location = new System.Drawing.Point(12, 134);
+            this.lblMed.Location = new System.Drawing.Point(12, 117);
             this.lblMed.Name = "lblMed";
             this.lblMed.Size = new System.Drawing.Size(73, 16);
             this.lblMed.TabIndex = 4;
@@ -313,7 +315,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(267, 137);
+            this.lblQuantity.Location = new System.Drawing.Point(292, 121);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(59, 16);
             this.lblQuantity.TabIndex = 5;
@@ -326,7 +328,7 @@
             this.tbConsultation.Location = new System.Drawing.Point(7, 107);
             this.tbConsultation.Name = "tbConsultation";
             this.tbConsultation.SelectedIndex = 0;
-            this.tbConsultation.Size = new System.Drawing.Size(468, 421);
+            this.tbConsultation.Size = new System.Drawing.Size(468, 392);
             this.tbConsultation.TabIndex = 2;
             // 
             // frmConsultation
@@ -334,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(488, 531);
+            this.ClientSize = new System.Drawing.Size(488, 502);
             this.Controls.Add(this.tbConsultation);
             this.Controls.Add(this.grpPatient);
             this.MaximizeBox = false;

@@ -38,18 +38,18 @@ namespace OCMS.Bussiness
             try
             {
                 FileInfo file = new FileInfo(FilePath);
+                DataTable dt = new DataTable();
                 List<MemberModel> listMemModel;
 
                 if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
                 else
                 {
-
-                    DataTable dt = new DataTable();
-
                     listMemModel = _dataAccess.GetMemberExcel(FilePath, FileName);
-
+                    Cursor.Current = Cursors.WaitCursor;
                 }
-                return listMemModel;
+
+                var list = listMemModel.OrderBy(d => d.LName);
+                return list.ToList();
             }
             catch (Exception ex)
             {

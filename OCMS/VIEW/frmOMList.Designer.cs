@@ -84,9 +84,10 @@
             this.dgvMember.Location = new System.Drawing.Point(3, 67);
             this.dgvMember.Name = "dgvMember";
             this.dgvMember.RowHeadersVisible = false;
+            this.dgvMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvMember.Size = new System.Drawing.Size(861, 468);
             this.dgvMember.TabIndex = 14;
-            this.dgvMember.UseWaitCursor = false;
+            this.dgvMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellClick);
             this.dgvMember.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMember_CellDoubleClick);
             // 
             // panel1
@@ -116,6 +117,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblSearch
             // 

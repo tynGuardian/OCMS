@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using OCMS.Bussiness;
 using OCMS.MODEL;
 using OCMS.VIEW;
+using OCMS.Class;
+using System.Data;
 
 namespace OCMS
 {
@@ -38,8 +40,68 @@ namespace OCMS
          
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            string searchfor = txtSearch.Text;
+            //DataTable utility = Class.clsUtility.ToDataTable(excelMemModel);
+            
+            dgvMember.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        
+            try
+            {
+
+                foreach ( DataGridViewRow row in dgvMember.Rows )
+                {
+                    //search for lastname
+                    if (row.Cells[2].Value.ToString().Equals(searchfor.ToUpper()))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                    //search for firstname
+                    else if (row.Cells[3].Value.ToString().Equals(searchfor.ToUpper()))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                    //search for membercode
+                    else if (row.Cells[1].Value.ToString().Equals(searchfor.ToUpper()))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                    //search for employeeid
+                    else if (row.Cells[0].Value.ToString().Equals(searchfor.ToUpper()))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                    //search for middle name
+                    else if (row.Cells[4].Value.ToString().Equals(searchfor.ToUpper()))
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Cursor.Current = Cursors.Default;
+
+            //DISABLE CLICKING THE HEADER CODE
+            if (e.RowIndex == -1) return;
+
+            DataGridViewRow row = dgvMember.Rows[e.RowIndex];
+            //END
 
             if (dgvMember.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
@@ -47,19 +109,27 @@ namespace OCMS
 
                 if (dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString() != null)
                 {
-                    memModel.EmpID = dgvMember.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    memModel.CompanyName = dgvMember.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    memModel.MemberCode = dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    memModel.LName = dgvMember.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    memModel.FName = dgvMember.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    memModel.MName = dgvMember.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    memModel.BDate = dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    memModel.Age = dgvMember.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    memModel.Gender = dgvMember.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    memModel.EmpID = dgvMember.Rows[e.RowIndex].Cells[0].Value.ToString() ?? "";
+
+                    memModel.MemberCode = dgvMember.Rows[e.RowIndex].Cells[1].Value.ToString() ?? "";
+
+                    memModel.LName = dgvMember.Rows[e.RowIndex].Cells[2].Value.ToString() ?? "";
+
+                    memModel.FName = dgvMember.Rows[e.RowIndex].Cells[3].Value.ToString() ?? "";
+
+                    memModel.MName = dgvMember.Rows[e.RowIndex].Cells[4].Value.ToString() ?? "";
+
+                    memModel.BDate = dgvMember.Rows[e.RowIndex].Cells[5].Value.ToString() ?? "";
+
+                    memModel.Age = dgvMember.Rows[e.RowIndex].Cells[6].Value.ToString() ?? "";
+
+                    memModel.Gender = dgvMember.Rows[e.RowIndex].Cells[7].Value.ToString() ?? "";
+
+                    memModel.CompanyName = dgvMember.Rows[e.RowIndex].Cells[8].Value.ToString() ?? "";
                 }
                 else
                 {
-                    MessageBox.Show("There are no specified member code", "OCMS");
+                    MessageBox.Show("There are field with no member code", "OCMS");
                 }
 
                 frmConsultation frmConsultation = new frmConsultation(memModel);
@@ -68,5 +138,13 @@ namespace OCMS
 
 
         }
+
+        private void dgvMember_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+
+            DataGridViewRow row = dgvMember.Rows[e.RowIndex];
+        }
+        
     }
 }

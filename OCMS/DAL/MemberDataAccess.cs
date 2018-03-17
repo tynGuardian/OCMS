@@ -23,7 +23,6 @@ namespace OCMS.DAL
                           FilePath + ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
 
                 OleDbConnection OleDb = new OleDbConnection(constr);
-                //OleDbCommand OleComm = new OleDbCommand("Select * From [{0}$]", OleDb);
                 OleDb.Open();
 
                 DataTable dt = new DataTable();
@@ -34,39 +33,18 @@ namespace OCMS.DAL
                 new MemberModel
                 {
 
-                    EmpID = row.Field<string>("EMP_NO"),
-                    CompanyName = row.Field<string>("ACCOUNT_NAME"),
-                    MemberCode = row.Field<string>("MEMBERCODE"),
-                    LName = row.Field<string>("LAST_NAME"),
-                    FName = row.Field<string>("FIRST_NAME"),
-                    MName = row.Field<string>("MIDDLE_NAME"),
-                    BDate = row.Field<string>("MEM_BDAY"),
-                    Age = row.Field<string>("Age"),
-                    Gender = row.Field<string>("gender").ToUpper()
-                
+                    EmpID = row.Field<string>("EMP_NO") ?? " ",
+                    CompanyName = row.Field<string>("ACCOUNT_NAME") ?? " ",
+                    MemberCode = row.Field<string>("MEMBERCODE") ?? " ",
+                    LName = row.Field<string>("LAST_NAME") ?? " ",
+                    FName = row.Field<string>("FIRST_NAME") ?? " ",
+                    MName = row.Field<string>("MIDDLE_NAME") ?? " ",
+                    BDate = row.Field<string>("MEM_BDAY") ?? " ",
+                    Age = row.Field<string>("Age") ?? " ",
+                    Gender = row.Field<string>("gender").ToUpper() ?? " "
+
                 }).ToList();
-
-                //using (OleDbDataReader OleReader = OleDa.re)
-                //{
-                //    while (OleReader.Read())
-                //    {
-                //        memberModel = new MemberModel();
-
-                //        memberModel.EmpID = OleReader[0].ToString();
-                //        memberModel.CompanyName = OleReader[1].ToString();
-                //        memberModel.MemberCode = OleReader[2].ToString();
-                //        memberModel.LName = OleReader[3].ToString();
-                //        memberModel.FName = OleReader[4].ToString();
-                //        memberModel.MName = OleReader[5].ToString();
-                //        memberModel.BDate = Convert.ToDateTime(OleReader[6]).ToString("dd/MM/yyyy");
-                //        memberModel.Age = Convert.ToInt32(OleReader.GetOrdinal("Age"));
-                //        memberModel.Gender = OleReader[8].ToString();
-
-                //        listModel.Add(memberModel);
-                //    }
-                //    OleDb.Close();
-                //}
-
+                
                 return items.ToList();
             }
             catch (Exception ex)
@@ -124,8 +102,6 @@ namespace OCMS.DAL
                 throw ex;
             }
         }
-
-
-
+        
     }
 }

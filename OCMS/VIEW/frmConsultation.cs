@@ -56,9 +56,27 @@ namespace OCMS.VIEW
 
                 btnAddComplaint.Enabled = false;
                 MessageBox.Show("Maximum complaint encoded", "OCMS");
-
             }
 
+            txtComplaint.Focus();
+        }
+
+        private void listComplaint_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this complaint ?", "OCMS", MessageBoxButtons.YesNo);
+
+            if (msg == DialogResult.Yes)
+            {
+                ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(listComplaint);
+                selectedItems = listComplaint.SelectedItems;
+
+                if (listComplaint.SelectedIndex != -1)
+                {
+                    for (int i = selectedItems.Count - 1; i >= 0; i--)
+                        listComplaint.Items.Remove(selectedItems[i]);
+                }
+                
+            }
         }
     }
 }
