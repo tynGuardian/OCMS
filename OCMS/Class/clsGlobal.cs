@@ -10,7 +10,8 @@ namespace OCMS.Class
         public static frmMain g_objfrmMain;
         public static string lblrole;
         public static frmConfirmationPage g_objfrmConfirmationPage;
-        
+        public static string userGlbl;
+
 
         public sealed class Global
         {
@@ -37,5 +38,6 @@ namespace OCMS.Class
                 throw ex;
             }
         }
+
     }
 }

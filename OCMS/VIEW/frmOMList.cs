@@ -37,60 +37,35 @@ namespace OCMS
             MemberBussiness _bll = new MemberBussiness();
 
             dgvMember.DataSource = excelMemModel;
-         
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+            DataTable utility = Class.clsUtility.ToDataTable(excelMemModel);
+            dgvMember.DataSource = utility;
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-            string searchfor = txtSearch.Text;
-            //DataTable utility = Class.clsUtility.ToDataTable(excelMemModel);
-            
-            dgvMember.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        
             try
             {
+                DataTable utility = Class.clsUtility.ToDataTable(excelMemModel);
+                dgvMember.DataSource = utility;
 
-                foreach ( DataGridViewRow row in dgvMember.Rows )
-                {
-                    //search for lastname
-                    if (row.Cells[2].Value.ToString().Equals(searchfor.ToUpper()))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                    //search for firstname
-                    else if (row.Cells[3].Value.ToString().Equals(searchfor.ToUpper()))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                    //search for membercode
-                    else if (row.Cells[1].Value.ToString().Equals(searchfor.ToUpper()))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                    //search for employeeid
-                    else if (row.Cells[0].Value.ToString().Equals(searchfor.ToUpper()))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                    //search for middle name
-                    else if (row.Cells[4].Value.ToString().Equals(searchfor.ToUpper()))
-                    {
-                        row.Selected = true;
-                        break;
-                    }
-                    
-                }
+                (dgvMember.DataSource as DataTable).DefaultView.RowFilter =
+                    string.Format("FName LIKE '%{0}%' OR LName LIKE '%{0}%'", txtSearch.Text);
+                (dgvMember.DataSource as DataTable).DefaultView.ToTable();
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Invalid search" + " " + ex.Message);
+                return;
             }
+           
+
         }
 
         private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -145,6 +120,5 @@ namespace OCMS
 
             DataGridViewRow row = dgvMember.Rows[e.RowIndex];
         }
-        
     }
 }

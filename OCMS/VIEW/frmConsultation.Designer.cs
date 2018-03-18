@@ -38,22 +38,28 @@
             this.lblAge = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lvMedicine = new System.Windows.Forms.ListView();
+            this.Medicine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnDiagnosis = new System.Windows.Forms.Button();
             this.cmbDisposition = new System.Windows.Forms.ComboBox();
-            this.listMedicine = new System.Windows.Forms.ListBox();
-            this.listDiagnosis = new System.Windows.Forms.ListBox();
             this.cmbDiagnosis = new System.Windows.Forms.ComboBox();
             this.btnAddComplaint = new System.Windows.Forms.Button();
             this.lblDiagnosis = new System.Windows.Forms.Label();
             this.lblComplaint = new System.Windows.Forms.Label();
             this.lblDisposition = new System.Windows.Forms.Label();
             this.txtComplaint = new System.Windows.Forms.TextBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtMedQuantity = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.cmbMedicine = new System.Windows.Forms.ComboBox();
             this.listComplaint = new System.Windows.Forms.ListBox();
             this.lblMed = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.tbConsultation = new System.Windows.Forms.TabControl();
+            this.btnSaveConsultation = new System.Windows.Forms.Button();
+            this.lvDiagnosis = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpPatient.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tbConsultation.SuspendLayout();
@@ -69,7 +75,7 @@
             this.grpPatient.Controls.Add(this.lblGender);
             this.grpPatient.Controls.Add(this.lblAge);
             this.grpPatient.Controls.Add(this.lblName);
-            this.grpPatient.Location = new System.Drawing.Point(11, 16);
+            this.grpPatient.Location = new System.Drawing.Point(11, 17);
             this.grpPatient.Name = "grpPatient";
             this.grpPatient.Size = new System.Drawing.Size(460, 85);
             this.grpPatient.TabIndex = 0;
@@ -153,16 +159,17 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lvDiagnosis);
+            this.tabPage1.Controls.Add(this.lvMedicine);
+            this.tabPage1.Controls.Add(this.btnDiagnosis);
             this.tabPage1.Controls.Add(this.cmbDisposition);
-            this.tabPage1.Controls.Add(this.listMedicine);
-            this.tabPage1.Controls.Add(this.listDiagnosis);
             this.tabPage1.Controls.Add(this.cmbDiagnosis);
             this.tabPage1.Controls.Add(this.btnAddComplaint);
             this.tabPage1.Controls.Add(this.lblDiagnosis);
             this.tabPage1.Controls.Add(this.lblComplaint);
             this.tabPage1.Controls.Add(this.lblDisposition);
             this.tabPage1.Controls.Add(this.txtComplaint);
-            this.tabPage1.Controls.Add(this.txtQuantity);
+            this.tabPage1.Controls.Add(this.txtMedQuantity);
             this.tabPage1.Controls.Add(this.btnAdd);
             this.tabPage1.Controls.Add(this.cmbMedicine);
             this.tabPage1.Controls.Add(this.listComplaint);
@@ -176,40 +183,58 @@
             this.tabPage1.Text = "Consultation";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lvMedicine
+            // 
+            this.lvMedicine.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Medicine,
+            this.Quantity});
+            this.lvMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvMedicine.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvMedicine.Location = new System.Drawing.Point(84, 146);
+            this.lvMedicine.Name = "lvMedicine";
+            this.lvMedicine.Size = new System.Drawing.Size(358, 72);
+            this.lvMedicine.TabIndex = 21;
+            this.lvMedicine.UseCompatibleStateImageBehavior = false;
+            this.lvMedicine.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvMedicine_MouseDoubleClick);
+            // 
+            // Medicine
+            // 
+            this.Medicine.Text = "Medicine";
+            this.Medicine.Width = 300;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Text = "Quantity";
+            this.Quantity.Width = 100;
+            // 
+            // btnDiagnosis
+            // 
+            this.btnDiagnosis.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiagnosis.Location = new System.Drawing.Point(397, 255);
+            this.btnDiagnosis.Name = "btnDiagnosis";
+            this.btnDiagnosis.Size = new System.Drawing.Size(46, 23);
+            this.btnDiagnosis.TabIndex = 20;
+            this.btnDiagnosis.Text = "Add";
+            this.btnDiagnosis.UseVisualStyleBackColor = false;
+            this.btnDiagnosis.Click += new System.EventHandler(this.btnDiagnosis_Click);
+            // 
             // cmbDisposition
             // 
             this.cmbDisposition.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDisposition.FormattingEnabled = true;
-            this.cmbDisposition.Location = new System.Drawing.Point(84, 221);
+            this.cmbDisposition.Location = new System.Drawing.Point(84, 224);
             this.cmbDisposition.Name = "cmbDisposition";
             this.cmbDisposition.Size = new System.Drawing.Size(359, 21);
             this.cmbDisposition.TabIndex = 18;
-            // 
-            // listMedicine
-            // 
-            this.listMedicine.FormattingEnabled = true;
-            this.listMedicine.ItemHeight = 16;
-            this.listMedicine.Location = new System.Drawing.Point(84, 275);
-            this.listMedicine.Name = "listMedicine";
-            this.listMedicine.Size = new System.Drawing.Size(359, 68);
-            this.listMedicine.TabIndex = 19;
-            // 
-            // listDiagnosis
-            // 
-            this.listDiagnosis.FormattingEnabled = true;
-            this.listDiagnosis.ItemHeight = 16;
-            this.listDiagnosis.Location = new System.Drawing.Point(84, 147);
-            this.listDiagnosis.Name = "listDiagnosis";
-            this.listDiagnosis.Size = new System.Drawing.Size(359, 68);
-            this.listDiagnosis.TabIndex = 17;
             // 
             // cmbDiagnosis
             // 
             this.cmbDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDiagnosis.FormattingEnabled = true;
-            this.cmbDiagnosis.Location = new System.Drawing.Point(84, 248);
+            this.cmbDiagnosis.Location = new System.Drawing.Point(84, 255);
             this.cmbDiagnosis.Name = "cmbDiagnosis";
-            this.cmbDiagnosis.Size = new System.Drawing.Size(359, 21);
+            this.cmbDiagnosis.Size = new System.Drawing.Size(310, 21);
             this.cmbDiagnosis.TabIndex = 11;
             // 
             // btnAddComplaint
@@ -228,7 +253,7 @@
             // 
             this.lblDiagnosis.AutoSize = true;
             this.lblDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiagnosis.Location = new System.Drawing.Point(5, 253);
+            this.lblDiagnosis.Location = new System.Drawing.Point(5, 257);
             this.lblDiagnosis.Name = "lblDiagnosis";
             this.lblDiagnosis.Size = new System.Drawing.Size(72, 16);
             this.lblDiagnosis.TabIndex = 10;
@@ -248,7 +273,7 @@
             // 
             this.lblDisposition.AutoSize = true;
             this.lblDisposition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisposition.Location = new System.Drawing.Point(9, 222);
+            this.lblDisposition.Location = new System.Drawing.Point(5, 225);
             this.lblDisposition.Name = "lblDisposition";
             this.lblDisposition.Size = new System.Drawing.Size(78, 16);
             this.lblDisposition.TabIndex = 8;
@@ -263,41 +288,42 @@
             this.txtComplaint.Size = new System.Drawing.Size(310, 22);
             this.txtComplaint.TabIndex = 3;
             // 
-            // txtQuantity
+            // txtMedQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(350, 118);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(43, 22);
-            this.txtQuantity.TabIndex = 7;
+            this.txtMedQuantity.Location = new System.Drawing.Point(350, 121);
+            this.txtMedQuantity.Name = "txtMedQuantity";
+            this.txtMedQuantity.Size = new System.Drawing.Size(43, 22);
+            this.txtMedQuantity.TabIndex = 7;
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(397, 118);
+            this.btnAdd.Location = new System.Drawing.Point(397, 121);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(46, 23);
             this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cmbMedicine
             // 
             this.cmbMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicine.FormattingEnabled = true;
-            this.cmbMedicine.Location = new System.Drawing.Point(84, 117);
+            this.cmbMedicine.Location = new System.Drawing.Point(84, 120);
             this.cmbMedicine.Name = "cmbMedicine";
             this.cmbMedicine.Size = new System.Drawing.Size(208, 21);
             this.cmbMedicine.TabIndex = 13;
             // 
             // listComplaint
             // 
+            this.listComplaint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listComplaint.FormattingEnabled = true;
             this.listComplaint.HorizontalScrollbar = true;
-            this.listComplaint.ItemHeight = 16;
             this.listComplaint.Location = new System.Drawing.Point(84, 44);
             this.listComplaint.Name = "listComplaint";
-            this.listComplaint.Size = new System.Drawing.Size(359, 68);
+            this.listComplaint.Size = new System.Drawing.Size(359, 69);
             this.listComplaint.TabIndex = 15;
             this.listComplaint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listComplaint_MouseDoubleClick);
             // 
@@ -305,7 +331,7 @@
             // 
             this.lblMed.AutoSize = true;
             this.lblMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMed.Location = new System.Drawing.Point(12, 117);
+            this.lblMed.Location = new System.Drawing.Point(5, 122);
             this.lblMed.Name = "lblMed";
             this.lblMed.Size = new System.Drawing.Size(73, 16);
             this.lblMed.TabIndex = 4;
@@ -315,7 +341,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(292, 121);
+            this.lblQuantity.Location = new System.Drawing.Point(292, 124);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(59, 16);
             this.lblQuantity.TabIndex = 5;
@@ -331,6 +357,42 @@
             this.tbConsultation.Size = new System.Drawing.Size(468, 392);
             this.tbConsultation.TabIndex = 2;
             // 
+            // btnSaveConsultation
+            // 
+            this.btnSaveConsultation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveConsultation.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnSaveConsultation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveConsultation.Location = new System.Drawing.Point(11, -7);
+            this.btnSaveConsultation.Name = "btnSaveConsultation";
+            this.btnSaveConsultation.Size = new System.Drawing.Size(56, 28);
+            this.btnSaveConsultation.TabIndex = 21;
+            this.btnSaveConsultation.Text = "&Save";
+            this.btnSaveConsultation.UseVisualStyleBackColor = false;
+            this.btnSaveConsultation.Click += new System.EventHandler(this.btnSaveConsultation_Click);
+            // 
+            // lvDiagnosis
+            // 
+            this.lvDiagnosis.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvDiagnosis.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvDiagnosis.Location = new System.Drawing.Point(84, 282);
+            this.lvDiagnosis.Name = "lvDiagnosis";
+            this.lvDiagnosis.Size = new System.Drawing.Size(358, 75);
+            this.lvDiagnosis.TabIndex = 22;
+            this.lvDiagnosis.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Medicine";
+            this.columnHeader1.Width = 300;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Quantity";
+            this.columnHeader2.Width = 100;
+            // 
             // frmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +401,7 @@
             this.ClientSize = new System.Drawing.Size(488, 502);
             this.Controls.Add(this.tbConsultation);
             this.Controls.Add(this.grpPatient);
+            this.Controls.Add(this.btnSaveConsultation);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConsultation";
@@ -363,15 +426,13 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cmbDisposition;
-        private System.Windows.Forms.ListBox listMedicine;
-        private System.Windows.Forms.ListBox listDiagnosis;
         private System.Windows.Forms.ComboBox cmbDiagnosis;
         private System.Windows.Forms.Button btnAddComplaint;
         private System.Windows.Forms.Label lblDiagnosis;
         private System.Windows.Forms.Label lblComplaint;
         private System.Windows.Forms.Label lblDisposition;
         private System.Windows.Forms.TextBox txtComplaint;
-        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtMedQuantity;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cmbMedicine;
         private System.Windows.Forms.ListBox listComplaint;
@@ -382,5 +443,13 @@
         private System.Windows.Forms.TextBox txtGender;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.TextBox txtEmpName;
+        private System.Windows.Forms.Button btnDiagnosis;
+        private System.Windows.Forms.Button btnSaveConsultation;
+        private System.Windows.Forms.ListView lvMedicine;
+        private System.Windows.Forms.ColumnHeader Medicine;
+        private System.Windows.Forms.ColumnHeader Quantity;
+        private System.Windows.Forms.ListView lvDiagnosis;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

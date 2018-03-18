@@ -19,6 +19,7 @@ namespace OCMS.Bussiness
 
                 _dataAccess.SaveConsultation(model);
                 return true;
+
             }
             catch (Exception ex)
             {

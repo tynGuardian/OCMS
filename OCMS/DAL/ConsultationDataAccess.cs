@@ -24,12 +24,11 @@ namespace OCMS.DAL
                 comm.CommandType = CommandType.StoredProcedure;
 
                 comm.Parameters.AddWithValue("@consultaton_id", model.ConsultatonId);
-                comm.Parameters.AddWithValue("@member_code", model.MemberCOde);
+                comm.Parameters.AddWithValue("@member_code", model.MemberCode);
                 comm.Parameters.AddWithValue("@time_in", model.TimeIn);
                 comm.Parameters.AddWithValue("@time_out", model.TimeOut);
                 comm.Parameters.AddWithValue("@complaints", model.Complaints);
                 comm.Parameters.AddWithValue("@medicine", model.Medicine);
-                comm.Parameters.AddWithValue("@quantity", model.Quantity);
                 comm.Parameters.AddWithValue("@disposition", model.Disposition);
                 comm.Parameters.AddWithValue("@diag_code", model.DiagCode);
                 comm.Parameters.AddWithValue("@created_by", model.CreatedBy);

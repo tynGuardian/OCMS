@@ -16,12 +16,11 @@ namespace UnitTest
             var db = new ConsultationModel();
 
             db.ConsultatonId = "123GG";
-            db.MemberCOde = "12345678";
+            db.MemberCode = "12345678";
             db.TimeIn = DateTime.Now;
             db.TimeOut = DateTime.Now;
             db.Complaints = "head ache";
             db.Medicine = "biogesic";
-            db.Quantity = 1;
             db.Disposition = "n/a";
             db.DiagCode = "Dx8252"; //head ache due to sleep deprivation
             db.CreatedBy = "knguardian";
@@ -54,5 +53,6 @@ namespace UnitTest
 
             Assert.IsNotNull(listMemModel);
         }
+
     }
 }
