@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bussiness\MedicineBusiness.cs" />
+    <Compile Include="Bussiness\OMReportBusiness.cs" />
     <Compile Include="Bussiness\UsersBusiness.cs" />
     <Compile Include="Class\clsMain.cs" />
     <Compile Include="Bussiness\ConsultationBusiness.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="DAL\MedicineDataAccess.cs" />
     <Compile Include="DAL\MemberDataAccess.cs" />
+    <Compile Include="DAL\OMReportDataAccess.cs" />
     <Compile Include="DAL\UsersDataAccess.cs" />
     <Compile Include="DBResource.cs" />
     <Compile Include="MODEL\DiagnosisModel.cs" />
