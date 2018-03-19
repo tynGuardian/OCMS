@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using OCMS.VIEW;
 
 namespace OCMS
 {
@@ -19,7 +20,7 @@ namespace OCMS
             //frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
             //frmConfirmationPage.ShowDialog();
 
-            Application.Run(new frmMain());
+            Application.Run(new frmOMReport());
         }
     }
 }

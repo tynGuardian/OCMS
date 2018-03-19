@@ -34,6 +34,9 @@
     <StartupObject>OCMS.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,6 +66,8 @@
     <Compile Include="MODEL\DiagnosisModel.cs" />
     <Compile Include="MODEL\DispositionModel.cs" />
     <Compile Include="MODEL\MedicineModel.cs" />
+    <Compile Include="MODEL\OMReportModel.cs" />
+    <Compile Include="MODEL\patientComplaintModel.cs" />
     <Compile Include="MODEL\UsersModel.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="frmConfirmationPage.cs">
@@ -112,6 +117,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VIEW\frmOMReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmOMReport.Designer.cs">
+      <DependentUpon>frmOMReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\frmPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmPatient.Designer.cs">
+      <DependentUpon>frmPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\frmUsersInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +162,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VIEW\frmOMReport.resx">
+      <DependentUpon>frmOMReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\frmPatient.resx">
+      <DependentUpon>frmPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmUsersInformation.resx">
       <DependentUpon>frmUsersInformation.cs</DependentUpon>
     </EmbeddedResource>

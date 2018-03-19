@@ -33,10 +33,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvMember = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.panel1.SuspendLayout();
@@ -103,19 +103,31 @@
             this.panel1.Size = new System.Drawing.Size(861, 58);
             this.panel1.TabIndex = 11;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(338, 13);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(67, 34);
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "&Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(69, 21);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(64, 20);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(191, 20);
+            this.txtSearch.Size = new System.Drawing.Size(191, 21);
             this.txtSearch.TabIndex = 9;
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(266, 21);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(270, 13);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(67, 22);
+            this.btnSearch.Size = new System.Drawing.Size(67, 34);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -124,23 +136,12 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(9, 21);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(54, 16);
+            this.lblSearch.Size = new System.Drawing.Size(49, 15);
             this.lblSearch.TabIndex = 7;
             this.lblSearch.Text = "Search:";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(334, 21);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(67, 22);
-            this.btnRefresh.TabIndex = 10;
-            this.btnRefresh.Text = "&Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frmOMList
             // 

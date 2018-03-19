@@ -38,6 +38,9 @@
             this.lblAge = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lvDiagnosis = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvMedicine = new System.Windows.Forms.ListView();
             this.Medicine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,9 +60,6 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.tbConsultation = new System.Windows.Forms.TabControl();
             this.btnSaveConsultation = new System.Windows.Forms.Button();
-            this.lvDiagnosis = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpPatient.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tbConsultation.SuspendLayout();
@@ -182,6 +182,29 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consultation";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lvDiagnosis
+            // 
+            this.lvDiagnosis.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.lvDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvDiagnosis.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvDiagnosis.Location = new System.Drawing.Point(84, 282);
+            this.lvDiagnosis.Name = "lvDiagnosis";
+            this.lvDiagnosis.Size = new System.Drawing.Size(358, 75);
+            this.lvDiagnosis.TabIndex = 22;
+            this.lvDiagnosis.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Medicine";
+            this.columnHeader1.Width = 300;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Quantity";
+            this.columnHeader2.Width = 100;
             // 
             // lvMedicine
             // 
@@ -369,29 +392,6 @@
             this.btnSaveConsultation.Text = "&Save";
             this.btnSaveConsultation.UseVisualStyleBackColor = false;
             this.btnSaveConsultation.Click += new System.EventHandler(this.btnSaveConsultation_Click);
-            // 
-            // lvDiagnosis
-            // 
-            this.lvDiagnosis.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.lvDiagnosis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvDiagnosis.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lvDiagnosis.Location = new System.Drawing.Point(84, 282);
-            this.lvDiagnosis.Name = "lvDiagnosis";
-            this.lvDiagnosis.Size = new System.Drawing.Size(358, 75);
-            this.lvDiagnosis.TabIndex = 22;
-            this.lvDiagnosis.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Medicine";
-            this.columnHeader1.Width = 300;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Quantity";
-            this.columnHeader2.Width = 100;
             // 
             // frmConsultation
             // 

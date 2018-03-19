@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using OCMS.MODEL;
 using OCMS.Bussiness;
 using NsExcel = Microsoft.Office.Interop.Excel;
-using System.IO;
 using System.Diagnostics;
 
 
@@ -41,8 +36,8 @@ namespace OCMS.VIEW
 
         private void frmOMReport_Load(object sender, EventArgs e)
         {
-            
-
+            DTPfrom.Value = DateTime.Now;
+            DTPTo.Value = DateTime.Now;
 
         }
         private void ListToExcel(List<OMReportModel> list)

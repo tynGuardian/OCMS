@@ -105,6 +105,12 @@ namespace OCMS
             }
         }
 
+        private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VIEW.frmOMReport objOMReport = new VIEW.frmOMReport();
+            objOMReport.MdiParent = this;
+            objOMReport.Show();
+        }
     }
 }
 

@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileOML = new System.Windows.Forms.ToolStripMenuItem();
+            this.importListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeChildToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,7 @@
             this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.importListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oMREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +82,15 @@
             this.mnuFileOML.Size = new System.Drawing.Size(250, 22);
             this.mnuFileOML.Text = "&Operation Master List";
             this.mnuFileOML.Click += new System.EventHandler(this.operationMasterListToolStripMenuItem_Click);
+            // 
+            // importListToolStripMenuItem
+            // 
+            this.importListToolStripMenuItem.Name = "importListToolStripMenuItem";
+            this.importListToolStripMenuItem.ShortcutKeyDisplayString = "F11";
+            this.importListToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.importListToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.importListToolStripMenuItem.Text = "&Import List";
+            this.importListToolStripMenuItem.Click += new System.EventHandler(this.importListToolStripMenuItem_Click);
             // 
             // closeChildToolStripMenuItem
             // 
@@ -138,6 +148,8 @@
             // 
             // reportToolStripMenuItem
             // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oMREPORTToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
             this.reportToolStripMenuItem.Text = "Report";
@@ -167,14 +179,12 @@
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(32, 19);
             // 
-            // importListToolStripMenuItem
+            // oMREPORTToolStripMenuItem
             // 
-            this.importListToolStripMenuItem.Name = "importListToolStripMenuItem";
-            this.importListToolStripMenuItem.ShortcutKeyDisplayString = "F11";
-            this.importListToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.importListToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.importListToolStripMenuItem.Text = "&Import List";
-            this.importListToolStripMenuItem.Click += new System.EventHandler(this.importListToolStripMenuItem_Click);
+            this.oMREPORTToolStripMenuItem.Name = "oMREPORTToolStripMenuItem";
+            this.oMREPORTToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.oMREPORTToolStripMenuItem.Text = "&OM REPORT (By Range)";
+            this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -214,6 +224,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem importListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oMREPORTToolStripMenuItem;
     }
 }
 
