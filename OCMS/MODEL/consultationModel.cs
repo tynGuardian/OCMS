@@ -23,6 +23,8 @@ namespace OCMS.MODEL
         public string Disposition { get; set; }
 
         public string DiagCode { get; set; }
+
+        public string empID { get; set; }
      
     }
 }

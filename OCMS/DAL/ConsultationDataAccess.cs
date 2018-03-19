@@ -33,6 +33,7 @@ namespace OCMS.DAL
                 comm.Parameters.AddWithValue("@diag_code", model.DiagCode);
                 comm.Parameters.AddWithValue("@created_by", model.CreatedBy);
                 comm.Parameters.AddWithValue("@created_date", model.CreatedDate);
+                comm.Parameters.AddWithValue("@employee_id", model.empID);
 
                 comm.ExecuteNonQuery();
                 newConnection.DBClose();

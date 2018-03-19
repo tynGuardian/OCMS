@@ -13,7 +13,7 @@ namespace OCMS.VIEW
 {
     public partial class frmConsultation : Form
     {
-        private string membercode;
+        private string membercode, employee_id;
         //TO DO DISABLE ENABLE DIAGNOSIS IF NOT DOCTOR
         bool isRole = false;
 
@@ -27,6 +27,7 @@ namespace OCMS.VIEW
             txtGender.Text = model.Gender;
             txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
             membercode = model.MemberCode;
+            employee_id = model.EmpID;
         }
 
         private void frmConsultation_Load(object sender, EventArgs e)
@@ -169,6 +170,7 @@ namespace OCMS.VIEW
 
                 consultationModel.CreatedBy = "knguardian";
                 consultationModel.CreatedDate = DateTime.Now;
+                consultationModel.empID = employee_id;
 
                 _bll.saveConsultation(consultationModel);
                 MessageBox.Show("Successfully saved!", "OCMS");
