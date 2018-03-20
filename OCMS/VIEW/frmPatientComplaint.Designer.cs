@@ -29,24 +29,25 @@
         private void InitializeComponent()
         {
             this.grpPatient = new System.Windows.Forms.GroupBox();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkAgree = new System.Windows.Forms.CheckBox();
+            this.grpConsent = new System.Windows.Forms.GroupBox();
             this.btnPSave = new System.Windows.Forms.Button();
             this.btnPAddComplaint = new System.Windows.Forms.Button();
             this.listPComplaint = new System.Windows.Forms.ListBox();
-            this.txtPComp = new System.Windows.Forms.TextBox();
             this.lblComplaint = new System.Windows.Forms.Label();
             this.txtFName = new System.Windows.Forms.TextBox();
             this.lblFName = new System.Windows.Forms.Label();
             this.txtLName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.grpConsent = new System.Windows.Forms.GroupBox();
-            this.chkAgree = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbCompany = new System.Windows.Forms.ComboBox();
+            this.cmbComplaint = new System.Windows.Forms.ComboBox();
             this.grpPatient.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpPatient
             // 
+            this.grpPatient.Controls.Add(this.cmbComplaint);
             this.grpPatient.Controls.Add(this.cmbCompany);
             this.grpPatient.Controls.Add(this.label2);
             this.grpPatient.Controls.Add(this.chkAgree);
@@ -54,7 +55,6 @@
             this.grpPatient.Controls.Add(this.btnPSave);
             this.grpPatient.Controls.Add(this.btnPAddComplaint);
             this.grpPatient.Controls.Add(this.listPComplaint);
-            this.grpPatient.Controls.Add(this.txtPComp);
             this.grpPatient.Controls.Add(this.lblComplaint);
             this.grpPatient.Controls.Add(this.txtFName);
             this.grpPatient.Controls.Add(this.lblFName);
@@ -67,6 +67,43 @@
             this.grpPatient.TabIndex = 0;
             this.grpPatient.TabStop = false;
             this.grpPatient.Text = "Patient Details";
+            // 
+            // cmbCompany
+            // 
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(92, 79);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(273, 24);
+            this.cmbCompany.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Company:";
+            // 
+            // chkAgree
+            // 
+            this.chkAgree.AutoSize = true;
+            this.chkAgree.Location = new System.Drawing.Point(65, 246);
+            this.chkAgree.Name = "chkAgree";
+            this.chkAgree.Size = new System.Drawing.Size(15, 14);
+            this.chkAgree.TabIndex = 21;
+            this.chkAgree.UseVisualStyleBackColor = true;
+            this.chkAgree.CheckStateChanged += new System.EventHandler(this.chkAgree_CheckStateChanged);
+            // 
+            // grpConsent
+            // 
+            this.grpConsent.Location = new System.Drawing.Point(4, 274);
+            this.grpConsent.Name = "grpConsent";
+            this.grpConsent.Size = new System.Drawing.Size(364, 71);
+            this.grpConsent.TabIndex = 20;
+            this.grpConsent.TabStop = false;
+            this.grpConsent.Text = "Consent";
             // 
             // btnPSave
             // 
@@ -102,14 +139,6 @@
             this.listPComplaint.Size = new System.Drawing.Size(273, 82);
             this.listPComplaint.TabIndex = 17;
             this.listPComplaint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listPComplaint_MouseDoubleClick);
-            // 
-            // txtPComp
-            // 
-            this.txtPComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPComp.Location = new System.Drawing.Point(92, 113);
-            this.txtPComp.Name = "txtPComp";
-            this.txtPComp.Size = new System.Drawing.Size(215, 22);
-            this.txtPComp.TabIndex = 5;
             // 
             // lblComplaint
             // 
@@ -157,42 +186,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Last Name:";
             // 
-            // grpConsent
+            // cmbComplaint
             // 
-            this.grpConsent.Location = new System.Drawing.Point(4, 274);
-            this.grpConsent.Name = "grpConsent";
-            this.grpConsent.Size = new System.Drawing.Size(364, 71);
-            this.grpConsent.TabIndex = 20;
-            this.grpConsent.TabStop = false;
-            this.grpConsent.Text = "Consent";
-            // 
-            // chkAgree
-            // 
-            this.chkAgree.AutoSize = true;
-            this.chkAgree.Location = new System.Drawing.Point(65, 246);
-            this.chkAgree.Name = "chkAgree";
-            this.chkAgree.Size = new System.Drawing.Size(15, 14);
-            this.chkAgree.TabIndex = 21;
-            this.chkAgree.UseVisualStyleBackColor = true;
-            this.chkAgree.CheckStateChanged += new System.EventHandler(this.chkAgree_CheckStateChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Company:";
-            // 
-            // cmbCompany
-            // 
-            this.cmbCompany.FormattingEnabled = true;
-            this.cmbCompany.Location = new System.Drawing.Point(92, 79);
-            this.cmbCompany.Name = "cmbCompany";
-            this.cmbCompany.Size = new System.Drawing.Size(273, 24);
-            this.cmbCompany.TabIndex = 23;
+            this.cmbComplaint.FormattingEnabled = true;
+            this.cmbComplaint.Location = new System.Drawing.Point(92, 113);
+            this.cmbComplaint.Name = "cmbComplaint";
+            this.cmbComplaint.Size = new System.Drawing.Size(215, 24);
+            this.cmbComplaint.TabIndex = 24;
             // 
             // frmPatientComplaint
             // 
@@ -207,6 +207,7 @@
             this.Name = "frmPatientComplaint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient Complaint";
+            this.Load += new System.EventHandler(this.frmPatientComplaint_Load);
             this.grpPatient.ResumeLayout(false);
             this.grpPatient.PerformLayout();
             this.ResumeLayout(false);
@@ -220,7 +221,6 @@
         private System.Windows.Forms.Label lblFName;
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPComp;
         private System.Windows.Forms.Label lblComplaint;
         private System.Windows.Forms.Button btnPSave;
         private System.Windows.Forms.Button btnPAddComplaint;
@@ -229,5 +229,6 @@
         private System.Windows.Forms.GroupBox grpConsent;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbCompany;
+        private System.Windows.Forms.ComboBox cmbComplaint;
     }
 }

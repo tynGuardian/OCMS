@@ -28,5 +28,20 @@ namespace OCMS.Bussiness
             }
         }
 
+        public List<ComplaintModel> getComplaint()
+        {
+            try
+            {
+                List<ComplaintModel> complaintList = _dataAccess.getComplaint();
+
+                return complaintList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

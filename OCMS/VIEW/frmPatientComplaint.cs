@@ -25,8 +25,8 @@ namespace OCMS.VIEW
 
         private void btnAddComplaint_Click(object sender, EventArgs e)
         {
-            listPComplaint.Items.Add(txtPComp.Text.ToUpper());
-            txtPComp.Clear();
+            listPComplaint.Items.Add(cmbComplaint.Text.ToUpper());
+            
             if (listPComplaint.Items.Count >= 3)
             {
 
@@ -34,7 +34,7 @@ namespace OCMS.VIEW
                 MessageBox.Show("Maximum complaint encoded", "OCMS");
             }
 
-            txtPComp.Focus();
+            cmbComplaint.Focus();
         }
 
         private void listPComplaint_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -88,6 +88,7 @@ namespace OCMS.VIEW
                 PatientComplaintModel.CreatedDate = DateTime.Now;
                 PatientComplaintModel.CreatedBy = (txtLName.Text.ToString() + ", " + txtFName.Text.ToString()).ToUpper();
                 PatientComplaintModel.Agree = true;
+                PatientComplaintModel.Company = cmbCompany.Text.ToUpper();
 
                 _bll.SavePatientComplaint(PatientComplaintModel);
 
@@ -99,6 +100,17 @@ namespace OCMS.VIEW
                 MessageBox.Show("We are unable to save you complaint!" + " ," + ex.Message, "OCMS");
                 return;
             }
+        }
+
+        private void frmPatientComplaint_Load(object sender, EventArgs e)
+        {
+
+            //BEGIN GET COMPLAINT
+            cmbComplaint.DataSource = _bll.getComplaint();
+            cmbComplaint.DisplayMember = "complaint";
+            cmbComplaint.ValueMember = "complaint";
+            //END
+
         }
     }
 }

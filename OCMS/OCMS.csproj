@@ -65,6 +65,7 @@
     <Compile Include="DAL\PatientConsultationDataAccess.cs" />
     <Compile Include="DAL\UsersDataAccess.cs" />
     <Compile Include="DBResource.cs" />
+    <Compile Include="MODEL\ComplaintModel.cs" />
     <Compile Include="MODEL\DiagnosisModel.cs" />
     <Compile Include="MODEL\DispositionModel.cs" />
     <Compile Include="MODEL\MedicineModel.cs" />
@@ -125,11 +126,11 @@
     <Compile Include="VIEW\frmOMReport.Designer.cs">
       <DependentUpon>frmOMReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\frmPatient.cs">
+    <Compile Include="VIEW\frmPatientComplaint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\frmPatient.Designer.cs">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <Compile Include="VIEW\frmPatientComplaint.Designer.cs">
+      <DependentUpon>frmPatientComplaint.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\frmUsersInformation.cs">
       <SubType>Form</SubType>
@@ -167,8 +168,8 @@
     <EmbeddedResource Include="VIEW\frmOMReport.resx">
       <DependentUpon>frmOMReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\frmPatient.resx">
-      <DependentUpon>frmPatient.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\frmPatientComplaint.resx">
+      <DependentUpon>frmPatientComplaint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmUsersInformation.resx">
       <DependentUpon>frmUsersInformation.cs</DependentUpon>

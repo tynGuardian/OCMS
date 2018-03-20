@@ -44,5 +44,95 @@ namespace OCMS.DAL
                 throw ex;
             }
         }
+
+        public List<ComplaintModel> getComplaint()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<ComplaintModel> listModel = new List<ComplaintModel>();
+                ComplaintModel complaintModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetComplaint";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            complaintModel = new ComplaintModel();
+
+                            complaintModel.ComplaintId = dr.GetInt32(dr.GetOrdinal("complaint_id"));
+                            complaintModel.Complaint = dr["complaint"].ToString();
+
+                            listModel.Add(complaintModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<PatientComplaintModel> getPatientComplaint()
+        {
+            try
+            {
+                DBResource newConnection = new DBResource();
+
+                List<PatientComplaintModel> listModel = new List<PatientComplaintModel>();
+                PatientComplaintModel PatientComplaintModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetMembersPerAccount";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+
+                            PatientComplaintModel = new PatientComplaintModel();
+
+                            PatientComplaintModel.ConsultatonId = dr["consultaton_id"].ToString() ?? " ";
+                            PatientComplaintModel.LastName = dr["last_name"].ToString() ?? " ";
+                            PatientComplaintModel.FirstName = dr["first_name"].ToString() ?? " ";
+                            PatientComplaintModel.Complaints = dr["patient_complaints"].ToString() ?? " ";
+                            PatientComplaintModel.CreatedDate = Convert.ToDateTime(dr["created_date"]);
+                            PatientComplaintModel.Company = dr["company"].ToString() ?? " ";
+                            //dr.GetInt32(dr.GetOrdinal("Age"));
+
+                            listModel.Add(PatientComplaintModel);
+
+                        }
+                        myConnection.Close();
+                    }
+                }
+                return listModel;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }
