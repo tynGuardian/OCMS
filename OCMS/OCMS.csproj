@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Bussiness\MedicineBusiness.cs" />
     <Compile Include="Bussiness\OMReportBusiness.cs" />
+    <Compile Include="Bussiness\PatientComplainBusiness.cs" />
     <Compile Include="Bussiness\UsersBusiness.cs" />
     <Compile Include="Class\clsMain.cs" />
     <Compile Include="Bussiness\ConsultationBusiness.cs" />
@@ -61,13 +62,14 @@
     <Compile Include="DAL\MedicineDataAccess.cs" />
     <Compile Include="DAL\MemberDataAccess.cs" />
     <Compile Include="DAL\OMReportDataAccess.cs" />
+    <Compile Include="DAL\PatientConsultationDataAccess.cs" />
     <Compile Include="DAL\UsersDataAccess.cs" />
     <Compile Include="DBResource.cs" />
     <Compile Include="MODEL\DiagnosisModel.cs" />
     <Compile Include="MODEL\DispositionModel.cs" />
     <Compile Include="MODEL\MedicineModel.cs" />
     <Compile Include="MODEL\OMReportModel.cs" />
-    <Compile Include="MODEL\patientComplaintModel.cs" />
+    <Compile Include="MODEL\PatientComplaintModel.cs" />
     <Compile Include="MODEL\UsersModel.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="frmConfirmationPage.cs">

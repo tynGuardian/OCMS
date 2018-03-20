@@ -5,16 +5,20 @@ using System.Text;
 
 namespace OCMS.MODEL
 {
-    public class patientComplaintModel :  Baseline
+    public class PatientComplaintModel : Baseline
     {
 
         public string ConsultatonId { get; set; }
 
-        public DateTime? TimeIn { get; set; }
+        public string LastName { get; set; }
 
-        public DateTime? TimeOut { get; set; }
+        public string FirstName { get; set; }
 
         public string Complaints { get; set; }
-        
+
+        public bool Agree { get; set; }
+
+        public string Company { get; set; }
+
     }
 }

@@ -20,7 +20,7 @@ namespace OCMS
             //frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
             //frmConfirmationPage.ShowDialog();
 
-            Application.Run(new frmOMReport());
+            Application.Run(new frmPatientComplaint());
         }
     }
 }

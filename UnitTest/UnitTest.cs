@@ -54,5 +54,24 @@ namespace UnitTest
             Assert.IsNotNull(listMemModel);
         }
 
+        [TestMethod]
+        public void savePatientComp()
+        {
+            PatientComplainBusiness _bll = new PatientComplainBusiness();
+
+            var ds = new  PatientComplaintModel();
+
+            ds.ConsultatonId = Guid.NewGuid().ToString();
+            ds.LastName = "Guardian";
+            ds.FirstName = "Kristine";
+            ds.Complaints = "Head Ache,Migraine";
+            ds.CreatedDate = DateTime.Now;
+            ds.CreatedBy = "Patient";
+            ds.Agree = true;
+
+            _bll.SavePatientComplaint(ds);
+            Assert.AreEqual(true, true);
+        }
+
     }
 }
