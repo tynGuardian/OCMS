@@ -14,23 +14,23 @@ namespace OCMS.Bussiness
     {
         MemberDataAccess _dataAccess = new MemberDataAccess();
 
-        //Populate Grid using SQL Conn
-        public List<MemberModel> GetMember()
-        {
-            try
-            {
+        ////Populate Grid using SQL Conn
+        //public List<MemberModel> GetMember()
+        //{
+        //    try
+        //    {
 
-                List<MemberModel> listMember = _dataAccess.GetMember();
+        //        List<MemberModel> listMember = _dataAccess.GetMember();
 
-                return listMember;
+        //        return listMember;
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw ex;
-            }
-        }
+        //        throw ex;
+        //    }
+        //}
 
         //Populate Grid using Excel File
         public List<MemberModel> GetMemberExcel(string FilePath, string FileName)
