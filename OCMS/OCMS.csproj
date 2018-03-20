@@ -65,6 +65,7 @@
     <Compile Include="DAL\PatientConsultationDataAccess.cs" />
     <Compile Include="DAL\UsersDataAccess.cs" />
     <Compile Include="DBResource.cs" />
+    <Compile Include="MODEL\CompanyModel.cs" />
     <Compile Include="MODEL\ComplaintModel.cs" />
     <Compile Include="MODEL\DiagnosisModel.cs" />
     <Compile Include="MODEL\DispositionModel.cs" />

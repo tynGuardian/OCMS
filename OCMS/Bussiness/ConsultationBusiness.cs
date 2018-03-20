@@ -73,5 +73,20 @@ namespace OCMS.Bussiness
                 throw ex;
             }
         }
+
+        public List<CompanyModel> getCompany()
+        {
+            try
+            {
+
+                List<CompanyModel> compList = _dataAccess.getCompany();
+                return compList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

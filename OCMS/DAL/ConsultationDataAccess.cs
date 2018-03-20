@@ -132,5 +132,47 @@ namespace OCMS.DAL
             }
         }
 
+        public List<CompanyModel> getCompany()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<CompanyModel> listModel = new List<CompanyModel>();
+                CompanyModel CompanyModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetCompany";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            CompanyModel = new CompanyModel();
+
+                            CompanyModel.CompanyID = Convert.ToInt32(dr["company_id"]);
+                            CompanyModel.Company = dr["company"].ToString();
+
+                            listModel.Add(CompanyModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }
