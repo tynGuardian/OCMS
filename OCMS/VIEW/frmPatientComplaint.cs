@@ -114,9 +114,9 @@ namespace OCMS.VIEW
             ConsultationBusiness consultationBusiness = new ConsultationBusiness();
 
             //BEGIN GET COMPLAINT
-            cmbComplaint.DataSource = consultationBusiness.getCompany();
-            cmbComplaint.DisplayMember = "company";
-            cmbComplaint.ValueMember = "company";
+            cmbCompany.DataSource = consultationBusiness.getCompany();
+            cmbCompany.DisplayMember = "company";
+            cmbCompany.ValueMember = "company";
             //END
 
         }
