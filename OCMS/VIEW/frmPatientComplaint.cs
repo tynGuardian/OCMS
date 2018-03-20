@@ -111,6 +111,14 @@ namespace OCMS.VIEW
             cmbComplaint.ValueMember = "complaint";
             //END
 
+            ConsultationBusiness consultationBusiness = new ConsultationBusiness();
+
+            //BEGIN GET COMPLAINT
+            cmbComplaint.DataSource = consultationBusiness.getCompany();
+            cmbComplaint.DisplayMember = "company";
+            cmbComplaint.ValueMember = "company";
+            //END
+
         }
     }
 }
