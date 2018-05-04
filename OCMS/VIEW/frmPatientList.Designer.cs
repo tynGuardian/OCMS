@@ -73,12 +73,12 @@
             this.dgvPatient.GridColor = System.Drawing.Color.White;
             this.dgvPatient.Location = new System.Drawing.Point(3, 83);
             this.dgvPatient.Name = "dgvPatient";
+            this.dgvPatient.ReadOnly = true;
             this.dgvPatient.RowHeadersVisible = false;
             this.dgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvPatient.Size = new System.Drawing.Size(861, 452);
             this.dgvPatient.TabIndex = 3;
             this.dgvPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatient_CellClick);
-            this.dgvPatient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatient_CellContentClick);
             this.dgvPatient.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPatient_ColumnHeaderMouseClick);
             // 
             // tableLayoutPanel1

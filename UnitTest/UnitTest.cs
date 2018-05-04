@@ -1,5 +1,6 @@
 ﻿using System;
 using OCMS.MODEL;
+using OCMS.Class;
 using OCMS.Bussiness;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -73,5 +74,12 @@ namespace UnitTest
             Assert.AreEqual(true, true);
         }
 
+        [TestMethod]
+        public void DecryptPassword()
+        {
+            string  password = clsUtility.Decrypt("b1l/WnI1RVR0J04xTgAaMkOI3flOHyTUGLjrU5UBanA=");
+
+            Assert.IsNotNull(password);
+        }
     }
 }

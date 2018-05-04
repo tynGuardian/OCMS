@@ -10,7 +10,6 @@ using OCMS.Class;
 using System.Deployment.Application;
 using Microsoft.VisualBasic;
 
-
 namespace OCMS
 {
     public partial class frmMain : Form
@@ -66,12 +65,12 @@ namespace OCMS
             {
                 AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
                 SystemVersion = AssemblyVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + SystemVersion;
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
             }
             else
             {
                 SystemVersion = Application.ProductVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + SystemVersion;
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
             }
 
             tmr = new System.Windows.Forms.Timer();
@@ -94,6 +93,7 @@ namespace OCMS
         //    }
 
         //}
+
         private void mnuWindowCascade_Click(object sender, EventArgs e)
         {
             this.menuStrip1.MdiWindowListItem = mnuWindowCascade;
@@ -114,7 +114,7 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("OnSite Clinic Management System version " + Application.ProductVersion.ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
@@ -182,17 +182,21 @@ namespace OCMS
 
         private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             VIEW.frmOMReport objOMReport = new VIEW.frmOMReport();
             objOMReport.StartPosition = FormStartPosition.CenterScreen;
             objOMReport.Show();
+            Cursor = Cursors.Default;
         }
 
         private void patientMasterListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             VIEW.frmPatientList objfrmpatientlist = new VIEW.frmPatientList();
             objfrmpatientlist.MdiParent = this;
             objfrmpatientlist.WindowState = FormWindowState.Maximized;
             objfrmpatientlist.Show();
+            Cursor = Cursors.Default;
         }
 
         private void importEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -231,7 +235,7 @@ namespace OCMS
 
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void createUserLoginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,15 +244,10 @@ namespace OCMS
             objFrmUserInfo.StartPosition = FormStartPosition.CenterScreen;
             objFrmUserInfo.Show();
         }
-
-        private void label2_Click(object sender, EventArgs e)
+       
+        private void tmr_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            toolStripLabel3.Text = "Date and Time: " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt");
         }
 
         private void addCompanyDeploymentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -257,11 +256,6 @@ namespace OCMS
 
             Properties.Settings.Default.Company = input;
             Properties.Settings.Default.Save();
-        }
-        
-        private void tmr_Tick(object sender, EventArgs e)
-        {
-            toolStripLabel3.Text = "Date and Time: " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt");
         }
     }
 }

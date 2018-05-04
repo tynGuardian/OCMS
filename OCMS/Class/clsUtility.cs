@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace OCMS.Class
 {
-    class clsUtility
+    public class clsUtility
     {
 
         public static string Encrypt(string clearText)

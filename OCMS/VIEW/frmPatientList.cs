@@ -40,6 +40,8 @@ namespace OCMS.VIEW
             dgvPatient.Columns[8].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[9].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[11].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
+            dgvPatient.Columns[12].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
+            dgvPatient.Columns[13].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
 
             if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
             {
@@ -49,11 +51,6 @@ namespace OCMS.VIEW
                 pi.SetValue(dgvPatient, true, null);
             }
 
-        }
-
-        private void dgvPatient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //dgvPatient.Columns[0].Visible = false;
         }
 
         private void dgvPatient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -80,7 +77,7 @@ namespace OCMS.VIEW
                     listPatientModel.Medicine = dgvPatient.Rows[e.RowIndex].Cells[5].Value.ToString() ?? "";
                     listPatientModel.Company = dgvPatient.Rows[e.RowIndex].Cells[7].Value.ToString() ?? "";
                     listPatientModel.diagnosis = dgvPatient.Rows[e.RowIndex].Cells[8].Value.ToString() ?? "";
-                    listPatientModel.CreatedDate = Convert.ToDateTime(dgvPatient.Rows[e.RowIndex].Cells[11].Value.ToString());
+                    listPatientModel.CreatedDate = Convert.ToDateTime(dgvPatient.Rows[e.RowIndex].Cells[13].Value.ToString());
                     listPatientModel.disposition = dgvPatient.Rows[e.RowIndex].Cells[9].Value.ToString() ?? "";
                 }
 
@@ -114,7 +111,10 @@ namespace OCMS.VIEW
         {
             PatientComplainBusiness _bll = new PatientComplainBusiness();
 
+            Cursor = Cursors.WaitCursor;
             dgvPatient.DataSource = _bll.getPatientList();
+            Cursor = Cursors.WaitCursor;
+
             //dgvPatient.Columns[0].Visible = false;
             //dgvPatient.Columns[1].Visible = false;
             //dgvPatient.Columns[2].Visible = false;
@@ -148,5 +148,6 @@ namespace OCMS.VIEW
             if (e.KeyChar == (char)13)
                 e.Handled = true;
         }
+
     }
 }
