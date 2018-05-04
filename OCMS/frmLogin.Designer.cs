@@ -29,100 +29,192 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textUsername = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.textPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textUsername = new System.Windows.Forms.TextBox();
-            this.textPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.cmbRole);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.textUsername);
+            this.groupBox1.Controls.Add(this.btnLogin);
+            this.groupBox1.Controls.Add(this.textPassword);
+            this.groupBox1.Location = new System.Drawing.Point(262, 147);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(222, 152);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(5, 20);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 16;
+            this.pictureBox3.TabStop = false;
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbRole.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(40, 25);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(158, 24);
+            this.cmbRole.TabIndex = 0;
+            this.cmbRole.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
+            this.cmbRole.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
+            this.cmbRole.Leave += new System.EventHandler(this.comboBox1_Leave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(5, 86);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 53);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(121, 115);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "EXIT";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // textUsername
+            // 
+            this.textUsername.BackColor = System.Drawing.Color.White;
+            this.textUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textUsername.Enabled = false;
+            this.textUsername.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUsername.Location = new System.Drawing.Point(40, 55);
+            this.textUsername.Name = "textUsername";
+            this.textUsername.Size = new System.Drawing.Size(158, 21);
+            this.textUsername.TabIndex = 1;
+            this.textUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textUsername_KeyDown);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.Enabled = false;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.Location = new System.Drawing.Point(40, 115);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 30);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "LOGIN";
+            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_2);
+            // 
+            // textPassword
+            // 
+            this.textPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textPassword.Enabled = false;
+            this.textPassword.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPassword.Location = new System.Drawing.Point(40, 87);
+            this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
+            this.textPassword.Size = new System.Drawing.Size(158, 21);
+            this.textPassword.TabIndex = 2;
+            this.textPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textPassword_KeyDown);
+            // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 18);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(264, 322);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Username:";
+            this.label3.Size = new System.Drawing.Size(230, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Don\'t have an Access? Sign Up here.";
+            this.label3.Visible = false;
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 44);
+            this.label4.Location = new System.Drawing.Point(39, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Password:";
-            // 
-            // textUsername
-            // 
-            this.textUsername.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textUsername.Location = new System.Drawing.Point(70, 18);
-            this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(154, 20);
-            this.textUsername.TabIndex = 2;
-            // 
-            // textPassword
-            // 
-            this.textPassword.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPassword.Location = new System.Drawing.Point(70, 44);
-            this.textPassword.Name = "textPassword";
-            this.textPassword.PasswordChar = '*';
-            this.textPassword.Size = new System.Drawing.Size(154, 20);
-            this.textPassword.TabIndex = 3;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Font = new System.Drawing.Font("Franklin Gothic Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(103, 70);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.textUsername);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textPassword);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(228, 94);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 100);
-            this.panel1.TabIndex = 5;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(465, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 17);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.label4.Size = new System.Drawing.Size(49, 15);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Login As:";
             // 
             // frmLogin
             // 
-            this.ClientSize = new System.Drawing.Size(499, 225);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(518, 446);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,12 +225,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textUsername;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox textPassword;
+        private System.Windows.Forms.ComboBox cmbRole;
+        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textUsername;
-        private System.Windows.Forms.TextBox textPassword;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

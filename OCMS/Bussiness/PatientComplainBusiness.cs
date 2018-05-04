@@ -43,5 +43,34 @@ namespace OCMS.Bussiness
             }
         }
 
+        public List<PatientComplaintModel> getPatientList(int search)
+        {
+            try
+            {
+                List<PatientComplaintModel> complaintList = _dataAccess.getPatientComplaint(search);
+
+                return complaintList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<PatientComplaintModel> getPatientList()
+        {
+            try
+            {
+                List<PatientComplaintModel> complaintList = _dataAccess.getPatientComplaint();
+
+                return complaintList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

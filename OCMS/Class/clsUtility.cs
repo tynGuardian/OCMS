@@ -57,7 +57,6 @@ namespace OCMS.Class
             }
             return cipherText;
         }
-
         public static DataTable ToDataTable<T>(List<T> items)
         {
             DataTable dataTable = new DataTable(typeof(T).Name);

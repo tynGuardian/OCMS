@@ -2,16 +2,33 @@
 using System.IO;
 using System.Windows.Forms;
 using OCMS.Bussiness;
+using OCMS.MODEL;
+using System.Collections.Generic;
+using System.Threading;
+using System.ComponentModel;
+using OCMS.Class;
+using System.Deployment.Application;
+using Microsoft.VisualBasic;
+
 
 namespace OCMS
 {
     public partial class frmMain : Form
     {
 
-
+        private BackgroundWorker worker = new BackgroundWorker();
+        Version AssemblyVersion = new Version();
+        string SystemVersion;
         public frmMain()
         {
             InitializeComponent();
+            if (clsGlobal.lblrole == "Nurse")
+            {
+                VIEW.frmPatientList objfrmpatientlist = new VIEW.frmPatientList();
+                objfrmpatientlist.MdiParent = this;
+                objfrmpatientlist.WindowState = FormWindowState.Maximized;
+                objfrmpatientlist.Show();
+            }
         }
 
         private void operationMasterListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,9 +41,59 @@ namespace OCMS
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
+            
+            toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
+            if (clsGlobal.lblprivilege == "Power User")
+            {
+                windowToolStripMenuItem.Visible = false;
+                reportToolStripMenuItem.Visible = false;
+                patientMasterListToolStripMenuItem.Visible = false;
+                importEmployeeToolStripMenuItem.Visible = false;
+                closeChildToolStripMenuItem.Visible = false;
+            }
+            else if (clsGlobal.lblprivilege == "Admin")
+            {
+                addCompanyDeploymentToolStripMenuItem.Visible = false;
+            }
+            else if (clsGlobal.lblprivilege == "User")
+            {
+                createUserLoginToolStripMenuItem.Visible = false;
+                addCompanyDeploymentToolStripMenuItem.Visible = false;
+            }
 
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                SystemVersion = AssemblyVersion.ToString();
+                this.Text = "On-Site Clinic Management System Ver. " + SystemVersion;
+            }
+            else
+            {
+                SystemVersion = Application.ProductVersion.ToString();
+                this.Text = "On-Site Clinic Management System Ver. " + SystemVersion;
+            }
+
+            tmr = new System.Windows.Forms.Timer();
+            tmr.Interval = 1000;
+            tmr.Tick += new EventHandler(tmr_Tick);
+            tmr.Enabled = true;
         }
+        //public Version AssemblyVersion
+        //{
+        //    get
+        //    {
+        //        if(ApplicationDeployment.IsNetworkDeployed)
+        //        {
+        //            return ApplicationDeployment.CurrentDeployment.CurrentVersion;
+        //        }
+        //        else
+        //        {
+        //            return Application.ProductVersion.ToString();
+        //        }
+        //    }
 
+        //}
         private void mnuWindowCascade_Click(object sender, EventArgs e)
         {
             this.menuStrip1.MdiWindowListItem = mnuWindowCascade;
@@ -52,7 +119,15 @@ namespace OCMS
 
         private void mnuFileExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Hide();
+            //Close();
+            //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
+            //objfrmConfirmationPage.ShowDialog();
+            
+            this.Hide();
+            frmLogin objfrmLogin = new frmLogin();
+            objfrmLogin.Closed += (s, args) => this.Close();
+            objfrmLogin.ShowDialog();
         }
 
         private void closeChildToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,8 +183,85 @@ namespace OCMS
         private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VIEW.frmOMReport objOMReport = new VIEW.frmOMReport();
-            objOMReport.MdiParent = this;
+            objOMReport.StartPosition = FormStartPosition.CenterScreen;
             objOMReport.Show();
+        }
+
+        private void patientMasterListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VIEW.frmPatientList objfrmpatientlist = new VIEW.frmPatientList();
+            objfrmpatientlist.MdiParent = this;
+            objfrmpatientlist.WindowState = FormWindowState.Maximized;
+            objfrmpatientlist.Show();
+        }
+
+        private void importEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeBusiness _bll = new EmployeeBusiness();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+                List<GetDuplicateGEIDModel> listofDuplicate;
+                
+                _bll.GetEmployeeExcel(filePath, fileName);
+                _bll.SaveListEmployee();
+
+                listofDuplicate = _bll.GetDuplicateGEID(filePath, fileName);
+
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                Directory.CreateDirectory(path + "\\ListofDuplicate");
+                string fullpath = path + "\\ListofDuplicate\\DuplicateGEID_" + fileName.Replace(".xls", "") + "_" + DateTime.Now.ToString("dd-MM-yyyy") + ".txt";
+                StreamWriter writer = new StreamWriter(fullpath, false, System.Text.Encoding.GetEncoding("windows-1252"));
+                writer.WriteLine("GEID Number ; Employee Name ; Legal Vehicle");
+                if (listofDuplicate.Count > 0)
+                {
+                    
+                    for (int i = 0; i <= listofDuplicate.Count - 1; i++)
+                    {
+                        writer.WriteLine(listofDuplicate[i].GEID + " ; " + listofDuplicate[i].EmpName + " ; " + listofDuplicate[i].LegalVehicle);
+                    }
+                    MessageBox.Show("Please check the list of duplicate GEID # in: " + fullpath, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                writer.Close();
+                MessageBox.Show("Successfully Import List of Employee!", "OCMS", MessageBoxButtons.OK);
+            }
+        }
+
+        private void windowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createUserLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VIEW.frmUsersInformation objFrmUserInfo = new VIEW.frmUsersInformation();
+            objFrmUserInfo.StartPosition = FormStartPosition.CenterScreen;
+            objFrmUserInfo.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCompanyDeploymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Please enter the company", "", Properties.Settings.Default.Company, -1, -1);
+
+            Properties.Settings.Default.Company = input;
+            Properties.Settings.Default.Save();
+        }
+        
+        private void tmr_Tick(object sender, EventArgs e)
+        {
+            toolStripLabel3.Text = "Date and Time: " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt");
         }
     }
 }

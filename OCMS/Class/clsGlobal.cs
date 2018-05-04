@@ -9,6 +9,10 @@ namespace OCMS.Class
     {
         public static frmMain g_objfrmMain;
         public static string lblrole;
+        public static string lblprivilege;
+        public static string usercode;
+        public static string LastName;
+        public static string FirstName;
         public static frmConfirmationPage g_objfrmConfirmationPage;
         public static string userGlbl;
 

@@ -106,7 +106,7 @@ namespace OCMS
                 {
                     MessageBox.Show("There are field with no member code", "OCMS");
                 }
-
+               
                 frmConsultation frmConsultation = new frmConsultation(memModel);
                 frmConsultation.ShowDialog();
             }

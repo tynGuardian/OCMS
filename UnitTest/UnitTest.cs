@@ -31,15 +31,15 @@ namespace UnitTest
             Assert.AreEqual(true, true);
         }
 
-        [TestMethod]
-        public void getMember()
-        {
-            MemberBussiness _bll = new MemberBussiness();
+        //[TestMethod]
+        //public void getMember()
+        //{
+        //    MemberBussiness _bll = new MemberBussiness();
 
-            List<MemberModel> listMember = _bll.GetMember();
+        //    List<MemberModel> listMember = _bll.GetMember();
 
-            Assert.IsNotNull(listMember);
-        }
+        //    Assert.IsNotNull(listMember);
+        //}
 
         [TestMethod]
         public void GetMeberExcel()
