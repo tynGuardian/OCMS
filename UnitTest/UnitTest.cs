@@ -16,12 +16,11 @@ namespace UnitTest
             var db = new ConsultationModel();
 
             db.ConsultatonId = "123GG";
-            db.MemberCOde = "12345678";
+            db.MemberCode = "12345678";
             db.TimeIn = DateTime.Now;
             db.TimeOut = DateTime.Now;
             db.Complaints = "head ache";
             db.Medicine = "biogesic";
-            db.Quantity = 1;
             db.Disposition = "n/a";
             db.DiagCode = "Dx8252"; //head ache due to sleep deprivation
             db.CreatedBy = "knguardian";
@@ -41,5 +40,38 @@ namespace UnitTest
 
             Assert.IsNotNull(listMember);
         }
+
+        [TestMethod]
+        public void GetMeberExcel()
+        {
+            MemberBussiness _bll = new MemberBussiness();
+
+            string filePath = "D:\\OCMS\\OH_MasterList\\CITIBANK SAVINGS, INC..xlsx";
+            string fileName = "CITIBANK SAVINGS, INC.";
+
+            List<MemberModel> listMemModel = _bll.GetMemberExcel(filePath, fileName);
+
+            Assert.IsNotNull(listMemModel);
+        }
+
+        [TestMethod]
+        public void savePatientComp()
+        {
+            PatientComplainBusiness _bll = new PatientComplainBusiness();
+
+            var ds = new  PatientComplaintModel();
+
+            ds.ConsultatonId = Guid.NewGuid().ToString();
+            ds.LastName = "Guardian";
+            ds.FirstName = "Kristine";
+            ds.Complaints = "Head Ache,Migraine";
+            ds.CreatedDate = DateTime.Now;
+            ds.CreatedBy = "Patient";
+            ds.Agree = true;
+
+            _bll.SavePatientComplaint(ds);
+            Assert.AreEqual(true, true);
+        }
+
     }
 }

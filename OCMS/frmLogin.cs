@@ -29,6 +29,10 @@ namespace OCMS
         {
             UsersBusiness usersbusiness = new UsersBusiness();
             var user = new UsersModel();
+
+            //clsGlobal.userGlbl = textUsername.Text;
+            //TO Do, Add Role
+
             user.usercode = textUsername.Text;
             user.userpass = clsUtility.Encrypt(textPassword.Text);
             if (usersbusiness.validateUserInfo(user) == true)

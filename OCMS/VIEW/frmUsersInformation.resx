@@ -117,7 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        R0lGODlhEAAOAIcAAAAAAMYAAP8AAP97e/+9vf//////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /yH/C05FVFNDQVBFMi4wAwEBAAAh+QQAAAAAACwAAAAAEAAOAAAIVAAJCBxIsCAAAgMSKlyoMMDBAQIi
+        SpwY0SHCiAUKTMxY8aFEjgJACrAI8WNGjRJJUhTZ8aJJlioxohQZkyXImBQp4syZ8mCAn0CDBgVAtKjR
+        o0QDAgA7
+</value>
+  </data>
+  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBwoGBwcHBg4KBgcHBxYHBwYGCg8ICQcKIBEWIiARFRMY
+        HCggGBolGx8fITEhJSkrLi4uFx8zODMsNygtLiv/2wBDAQoKCg0NDRoNDxcrGRUdKysrKysrKzcrKysr
+        KysrKysrKysrLSsrKysrKysrKysrKysrKysrKysrKystKysrKyv/wAARCADNAPYDASIAAhEBAxEB/8QA
+        GAABAQEBAQAAAAAAAAAAAAAAAAMCAQb/xAAWEAEBAQAAAAAAAAAAAAAAAAAAERL/xAAXAQEBAQEAAAAA
+        AAAAAAAAAAAAAwEF/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAMAwEAAhEDEQA/APd0qdKrHTUpU6Ug
+        pSp0pBSlTpSClKnSkFKVOlIKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlIKUqdKQUpU6UgpSp0pBSidc
+        IMUqdKrGKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlIKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlIKU
+        qdKQUpU6UgpROhBOlTpVYKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlIKUqdKQUpU6UgpSp0pBSlTpSC
+        lKnSkFKVOlIKUqdKQUpU6UgpROhBPRpPRpWCmjSejRBTRpPRogpo0nTRBTRpPRogpo0no0QU0aT0aIKa
+        NJ00QU0aT0aIKaNJ6NEFNGk9GiCmjSejRBTRpPRogpo0no0QU0aT0UgpoT0EE9Gk6VWCmjSdKQU0aTpS
+        CmjSdKQU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCm
+        hOhBOlTpVYKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlIKUqdKQUpU6UgpSp0pBSlTpSClKnSkFKVOlI
+        KUqdKQUpU6UgpXUqEE67UqVSClKnSkFKVOlIK1yp0pBSlTpSCtcqdKQUrtSpSClKnSkFKVOlIKUqdKQV
+        rlTpSClKnSkFKVOlIK1yp0pBSu1KlIK0SoQY0aT0aVgpo0no0QU0aT0aIKaNJ6NEFNGk9GiCmjSejRBT
+        RpPRogpo0no0QU0aT0aIKaNJ6NEFNGk9GiCmjSejRBTRpPRogpo0no0QU0aT0aIKaE9BBPRpPRpWCmjS
+        ejRBTRpPRogpo0no0QU0aT0aIKaNJ6NEFNGk9GiCmjSejRBTRpPRogpo0no0QU0aT0aIKaNJ6NEFNGk9
+        GiCmjSejRBTRpPRogpoT0EE9Gk6VWMU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCmjSdKQU0aTpSCmjSd
+        KQU0VOlIKaNJ0pBTRpOlIKaNJ0pBTRpOlIKaNJ0pBTQnQgnoqdKrBTRU6UgpSp0pBSlTpSClNJ0pBSmk
+        6UgpSp0pBSmk6UgpSp0pBTRU6UgpSp0pBTRU6UgpoqdKQUpU6UgpoqdKQU0J0IJ0qejSsFNGk9GiClKn
+        o0QUpU9GiClNJ6NEFNFT0aIKU0no0QUpU9GiCmjSejRBSlT0aIKUqejRBTRU9GiClNJ6NEFNFT0aIKU0
+        no0QU0J6CCejTFKrBvRpilIN6NMUpBvRpilIN6NMUpBvRpilIN6NMUpBvRpilIN6NMUpBvRpilIN6NMU
+        pBvRpilIN6NMUpBvRpilIN6NMUpBvQxQg//Z
+</value>
+  </data>
 </root>

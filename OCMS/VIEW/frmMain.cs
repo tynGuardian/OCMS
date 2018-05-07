@@ -105,7 +105,7 @@ namespace OCMS
             }
         }
 
-        private void generateOMReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VIEW.frmOMReport objOMReport = new VIEW.frmOMReport();
             objOMReport.MdiParent = this;

@@ -10,7 +10,7 @@ namespace OCMS.MODEL
 
         public string ConsultatonId { get; set; }
 
-        public string MemberCOde { get; set; }
+        public string MemberCode { get; set; }
 
         public DateTime? TimeIn { get; set; }
 
@@ -19,8 +19,6 @@ namespace OCMS.MODEL
         public string Complaints { get; set; }
 
         public string Medicine { get; set; }
-
-        public int Quantity { get; set; }
 
         public string Disposition { get; set; }
 

@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using OCMS.MODEL;
+using OCMS.DAL;
+
+namespace OCMS.Bussiness
+{
+    public class PatientComplainBusiness
+    {
+
+        PatientConsultationDataAccess _dataAccess = new PatientConsultationDataAccess();
+
+        public bool SavePatientComplaint(PatientComplaintModel model)
+        {
+            
+            try
+            {
+                 _dataAccess.SavePatientComp(model);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+    }
+}
