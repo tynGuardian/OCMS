@@ -15,6 +15,7 @@ namespace OCMS.MODEL
         public string userpass { get; set; }
         public string role { get; set; }
         public string licenseno { get; set; }
+        public string privilege { get; set; }
         public int active { get; set; }
 
     }

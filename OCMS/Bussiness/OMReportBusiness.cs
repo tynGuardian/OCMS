@@ -21,6 +21,10 @@ namespace OCMS.Bussiness
 
         }
 
-        
+        public void ExportDataToexcel(string datefrom, string dateto)
+        {
+            List<OMReportModel> _reportaccess = ReportAccess.RetrieveReport(datefrom, dateto);
+
+        }
     }
 }

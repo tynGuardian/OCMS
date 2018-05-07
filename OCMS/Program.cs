@@ -14,13 +14,13 @@ namespace OCMS
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
 
-            //frmConfirmationPage frmConfirmationPage = new frmConfirmationPage();
-            //frmConfirmationPage.ShowDialog();
+            //frmLogin objfrmLogin = new frmLogin();
+            //objfrmLogin.ShowDialog();
 
-            Application.Run(new frmPatientComplaint());
+            frmMain objfrmLogin = new frmMain();
+            objfrmLogin.ShowDialog();
+
         }
     }
 }

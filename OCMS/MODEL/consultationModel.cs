@@ -9,6 +9,7 @@ namespace OCMS.MODEL
     {
 
         public string ConsultatonId { get; set; }
+        public string GEID { get; set; }
 
         public string MemberCode { get; set; }
 

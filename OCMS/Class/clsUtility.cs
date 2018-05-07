@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace OCMS.Class
 {
-    class clsUtility
+    public class clsUtility
     {
 
         public static string Encrypt(string clearText)
@@ -57,7 +57,6 @@ namespace OCMS.Class
             }
             return cipherText;
         }
-
         public static DataTable ToDataTable<T>(List<T> items)
         {
             DataTable dataTable = new DataTable(typeof(T).Name);

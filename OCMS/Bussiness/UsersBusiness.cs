@@ -49,5 +49,19 @@ namespace OCMS.Bussiness
                 throw ex;
             }
         }
+        public List<RoleModel> getRole(int option)
+        {
+            try
+            {
+                List<RoleModel> roleList = usersdata.getRole(option);
+
+                return roleList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

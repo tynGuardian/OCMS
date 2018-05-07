@@ -24,6 +24,7 @@ namespace OCMS.DAL
                 comm.CommandType = CommandType.StoredProcedure;
 
                 comm.Parameters.AddWithValue("@consultaton_id", model.ConsultatonId);
+                comm.Parameters.AddWithValue("@GEID", model.GEID);
                 comm.Parameters.AddWithValue("@member_code", model.MemberCode);
                 comm.Parameters.AddWithValue("@time_in", model.TimeIn);
                 comm.Parameters.AddWithValue("@time_out", model.TimeOut);
@@ -31,8 +32,19 @@ namespace OCMS.DAL
                 comm.Parameters.AddWithValue("@medicine", model.Medicine);
                 comm.Parameters.AddWithValue("@disposition", model.Disposition);
                 comm.Parameters.AddWithValue("@diag_code", model.DiagCode);
-                comm.Parameters.AddWithValue("@created_by", model.CreatedBy);
-                comm.Parameters.AddWithValue("@created_date", model.CreatedDate);
+
+                if (Class.clsGlobal.lblrole == "Nurse")
+                {
+                    comm.Parameters.AddWithValue("@update_by_nurse", model.CreatedBy);
+                    comm.Parameters.AddWithValue("@update_date_nurse", model.CreatedDate);
+                }
+                else
+                {
+                    comm.Parameters.AddWithValue("@update_by_doctor", model.CreatedBy);
+                    comm.Parameters.AddWithValue("@update_date_doctor", model.CreatedDate);
+                }
+
+                comm.Parameters.AddWithValue("@role", Class.clsGlobal.lblrole);
 
                 comm.ExecuteNonQuery();
                 newConnection.DBClose();
@@ -118,6 +130,48 @@ namespace OCMS.DAL
                             diagnosisModel.icd10_4c = dr["icd10_4c"].ToString();
 
                             listModel.Add(diagnosisModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<CompanyModel> getCompany()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<CompanyModel> listModel = new List<CompanyModel>();
+                CompanyModel CompanyModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetCompany";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            CompanyModel = new CompanyModel();
+
+                            CompanyModel.CompanyID = Convert.ToInt32(dr["company_id"]);
+                            CompanyModel.Company = dr["company"].ToString();
+
+                            listModel.Add(CompanyModel);
                         }
                         myConnection.Close();
                     }

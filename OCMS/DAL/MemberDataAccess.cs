@@ -53,55 +53,6 @@ namespace OCMS.DAL
                 throw ex;
             }
         }
-
-        public List<MemberModel> GetMember()
-        {
-            try
-            {
-                DBResource newConnection = new DBResource();
-               
-                List<MemberModel> listModel = new List<MemberModel>();
-                MemberModel memberModel;
-
-                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
-                {
-
-                    string query = "dbo.GetMembersPerAccount";
-                    SqlCommand cmd = new SqlCommand(query, myConnection);
-                    myConnection.Open();
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-
-                            memberModel = new MemberModel();
-
-                            memberModel.EmpID = dr["EMP_NO"].ToString();
-                            memberModel.CompanyName = dr["ACCOUNT_NAME"].ToString();
-                            memberModel.MemberCode = dr["MemberCode"].ToString();
-                            memberModel.LName = dr["lastname"].ToString();
-                            memberModel.FName = dr["firstname"].ToString();
-                            memberModel.MName = dr["middle_name"].ToString();
-                            memberModel.BDate = Convert.ToDateTime(dr["MEM_BDAY"]).ToString("dd/MM/yyyy");
-                            //memberModel.Age = dr.GetInt32(dr.GetOrdinal("Age"));
-                            memberModel.Gender = dr["gender"].ToString();
-
-                            listModel.Add(memberModel);
-
-                        }
-                        myConnection.Close();
-                    }
-                }
-                return listModel;
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
         
     }
 }
