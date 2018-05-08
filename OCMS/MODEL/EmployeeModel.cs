@@ -15,7 +15,7 @@ namespace OCMS.MODEL
         public string EmployeeName { get; set; }
         public string Sex { get; set; }
         public string CS { get; set; }
-        public DateTime? BirthDate { get; set; }
+        public /*DateTime? */ string BirthDate { get; set; }
         public DateTime? EffectiveDate { get; set; }
         public DateTime? ValidityDate { get; set; }
         public string Relation { get; set; }

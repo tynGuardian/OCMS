@@ -21,6 +21,8 @@ namespace OCMS.Bussiness
                 DataTable dt = new DataTable();
                 List<EmployeeModel> listEmployeeModel;
 
+                //To Do:
+                //Complete error message, err message + title + icon
                 if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
                 else
                 {
@@ -33,8 +35,8 @@ namespace OCMS.Bussiness
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid uploaded data", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                throw ex;
+                MessageBox.Show("Invalid uploaded data: " +  ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                throw new Exception(ex.InnerException.Message);
             }
         }
         public bool SaveListEmployee()
@@ -49,7 +51,7 @@ namespace OCMS.Bussiness
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception(ex.Message.ToString());
             }
         }
         public List<GetEmployeeDetailsModel> GetEmployeeDetails(string GEID)

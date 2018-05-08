@@ -42,7 +42,7 @@ namespace OCMS.DAL
                     EmployeeName = row.Field<string>("Name") ?? " ",
                     Sex = row.Field<string>("Sex") ?? " ",
                     CS = row.Field<string>("CS") ?? " ",
-                    BirthDate = row.Field<DateTime>("Birthday"),
+                    BirthDate = row.Field<string>("Birthday"),
                     EffectiveDate = row.Field<DateTime>("Effective Date"),
                     ValidityDate = row.Field<DateTime>("Validity Date"),
                     Relation = row.Field<string>("Relation") ?? " ",
@@ -111,6 +111,8 @@ namespace OCMS.DAL
             }
 
         }
+
+
         public List<GetEmployeeDetailsModel> GetEmpDetails(string GEID)
         {
             try
@@ -185,6 +187,7 @@ namespace OCMS.DAL
                 throw ex;
             }
         }
+
     }
     
 }
