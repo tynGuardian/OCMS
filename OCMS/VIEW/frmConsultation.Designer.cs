@@ -65,6 +65,7 @@
             this.listComplaint = new System.Windows.Forms.ListBox();
             this.lblMed = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
+            this.txtBday = new System.Windows.Forms.TextBox();
             this.grpPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             // grpPatient
             // 
             this.grpPatient.BackColor = System.Drawing.Color.Transparent;
+            this.grpPatient.Controls.Add(this.txtBday);
             this.grpPatient.Controls.Add(this.dtpTimeOutTime);
             this.grpPatient.Controls.Add(this.dtpTimeOut);
             this.grpPatient.Controls.Add(this.label2);
@@ -469,6 +471,16 @@
             this.lblQuantity.TabIndex = 28;
             this.lblQuantity.Text = "Quantity:";
             // 
+            // txtBday
+            // 
+            this.txtBday.BackColor = System.Drawing.Color.White;
+            this.txtBday.Enabled = false;
+            this.txtBday.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBday.Location = new System.Drawing.Point(302, 66);
+            this.txtBday.Name = "txtBday";
+            this.txtBday.Size = new System.Drawing.Size(144, 22);
+            this.txtBday.TabIndex = 15;
+            // 
             // frmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,5 +551,6 @@
         private System.Windows.Forms.ListBox listComplaint;
         private System.Windows.Forms.Label lblMed;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.TextBox txtBday;
     }
 }

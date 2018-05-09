@@ -15,6 +15,7 @@ namespace OCMS.VIEW
     {
         private bool sortAscending = false;
         List<PatientComplaintModel> listmodel1 = new List<PatientComplaintModel>();
+
         public frmPatientList()
         {
             InitializeComponent();
@@ -55,6 +56,39 @@ namespace OCMS.VIEW
 
         }
 
+        private void dgvPatient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cursor.Current = Cursors.Default;
+
+            //DISABLE CLICKING THE HEADER CODE
+            if (e.RowIndex == -1) return;
+
+            DataGridViewRow row = dgvPatient.Rows[e.RowIndex];
+            //END
+
+            if (dgvPatient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                PatientComplaintModel listPatientModel = new PatientComplaintModel();
+
+                if (dgvPatient.Rows[e.RowIndex].Cells[2].Value.ToString() != null)
+                {
+                    listPatientModel.ConsultatonId = dgvPatient.Rows[e.RowIndex].Cells[0].Value.ToString() ?? "";
+                    listPatientModel.geid = dgvPatient.Rows[e.RowIndex].Cells[1].Value.ToString() ?? "";
+                    listPatientModel.membercode = dgvPatient.Rows[e.RowIndex].Cells[2].Value.ToString() ?? "";
+                    listPatientModel.EmpName = dgvPatient.Rows[e.RowIndex].Cells[3].Value.ToString() ?? "";
+                    listPatientModel.Complaints = dgvPatient.Rows[e.RowIndex].Cells[4].Value.ToString() ?? "";
+                    listPatientModel.Medicine = dgvPatient.Rows[e.RowIndex].Cells[5].Value.ToString() ?? "";
+                    listPatientModel.Company = dgvPatient.Rows[e.RowIndex].Cells[7].Value.ToString() ?? "";
+                    listPatientModel.diagnosis = dgvPatient.Rows[e.RowIndex].Cells[8].Value.ToString() ?? "";
+                    listPatientModel.CreatedDate = Convert.ToDateTime(dgvPatient.Rows[e.RowIndex].Cells[13].Value.ToString());
+                    listPatientModel.disposition = dgvPatient.Rows[e.RowIndex].Cells[9].Value.ToString() ?? "";
+                }
+
+                frmConsultation frmConsultation = new frmConsultation(listPatientModel);
+                frmConsultation.ShowDialog();
+            }
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -71,7 +105,7 @@ namespace OCMS.VIEW
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid search" + " " + ex.Message,"OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid search" + " " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -115,7 +149,7 @@ namespace OCMS.VIEW
             {
                 btnSearch_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.F5)
+            else if (e.KeyCode == Keys.F5)
             {
                 btnRefresh_Click(sender, e);
             }
@@ -158,6 +192,33 @@ namespace OCMS.VIEW
                 frmConsultation frmConsultation = new frmConsultation(listPatientModel);
                 frmConsultation.ShowDialog();
             }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                EmployeeBusiness _bll = new EmployeeBusiness();
+                List<EmployeeModel> listEncryptModel = new List<EmployeeModel>();
+
+                dgvPatient.DataSource = _bll.getPatientList();
+                listEncryptModel = _bll.getPatientList();
+
+                if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
+                {
+                    Type dgvType = dgvPatient.GetType();
+                    PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                      BindingFlags.Instance | BindingFlags.NonPublic);
+                    pi.SetValue(dgvPatient, true, null);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid search" + " " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
         }
     }
 }

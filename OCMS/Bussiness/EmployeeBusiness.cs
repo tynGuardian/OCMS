@@ -21,6 +21,8 @@ namespace OCMS.Bussiness
                 DataTable dt = new DataTable();
                 List<EmployeeModel> listEmployeeModel;
 
+                //To Do:
+                //Complete error message, err message + title + icon
                 if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
                 else
                 {
@@ -33,7 +35,7 @@ namespace OCMS.Bussiness
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid uploaded data " + ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Invalid uploaded data: " +  ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 throw new Exception(ex.InnerException.Message);
             }
         }
@@ -49,7 +51,7 @@ namespace OCMS.Bussiness
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception(ex.Message.ToString());
             }
         }
         public void UpdateEmployeeDetails(string geid, string vehicle, string memcode, string empname, string bdate)
@@ -120,6 +122,21 @@ namespace OCMS.Bussiness
             {
                 MessageBox.Show("Invalid uploaded data " + ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 throw new Exception(ex.InnerException.Message);
+            }
+        }
+
+        public List<EmployeeModel> getPatientList()
+        {
+            try
+            {
+                List<EmployeeModel> employeeList = _dataAccess.GetEncryptedDetails();
+
+                return employeeList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
