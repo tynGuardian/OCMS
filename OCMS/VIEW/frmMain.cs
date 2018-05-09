@@ -43,7 +43,7 @@ namespace OCMS
         {
             toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
             
-            
+            //MOD BY KNG
             if (Properties.Settings.Default.Company == "")
             {
                 toolStripLabel4.Text = "Company: " ;
