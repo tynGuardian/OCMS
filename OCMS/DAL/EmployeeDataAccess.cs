@@ -188,6 +188,85 @@ namespace OCMS.DAL
             }
         }
 
+        public List<EmployeeModel> GetEncryptedDetails()
+        {
+            try
+            {
+                DBResource newConnection = new DBResource();
+
+                List<EmployeeModel> listModel = new List<EmployeeModel>();
+                EmployeeModel employeeModel;
+                DataTable schemaTable = new DataTable();
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    SqlCommand cmd = new SqlCommand
+                                    (
+                                        "SELECT[Emp_id]                               " +
+                                              ", a.[GEID]                             " +
+                                              ",[CostCenter]                          " +
+                                              ",[LegalVehicle]                        " +
+                                              ",[MemberType]                          " +
+                                              ",[Membercode]                          " +
+                                              ", a.[EmployeeName]                     " +
+                                              ",[Sex]                                 " +
+                                              ",[CS]                                  " +
+                                              ",[BirthDate]                           " +
+                                              ",[EffectiveDate]                       " +
+                                              ",[ValidityDate]                        " +
+                                              ",[Relation]                            " +
+                                              ",[PlanDescription]                     " +
+                                              ",[Area]                                " +
+                                              ", b.patient_complaints                 " +
+                                          "FROM[test_ocms].[dbo].[ocms_employee_mtbl] " +
+                                          "inner join[ocms_patient_complaints] b on a.GEID = b.GEID", myConnection
+                                    );
+
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+
+                            employeeModel = new EmployeeModel();
+
+                            employeeModel.GEID = dr["GEID"].ToString() ?? " ";
+                            //employeeModel.CostCenter = dr["a.CostCenter"].ToString() ?? " ";
+                            //employeeModel.LegalVehicle = dr["LegalVehicle"].ToString() ?? " ";
+                            //employeeModel.MemberType = dr["MemberType"].ToString() ?? " ";
+                            //employeeModel.Membercode = dr["Membercode"].ToString() ?? " ";
+                            //employeeModel.EmployeeName = dr["EmployeeName"].ToString() ?? " ";
+                            //    //Convert.ToDateTime(dr["created_date"]);
+                            //employeeModel.Sex = dr["Sex"].ToString() ?? " ";
+                            //employeeModel.CS = dr["CS"].ToString() ?? " ";
+                            //employeeModel.BirthDate = dr["BirthDate"].ToString() ?? " ";
+                            //employeeModel.EffectiveDate = Convert.ToDateTime(dr["EffectiveDate"]);
+                            //employeeModel.ValidityDate = Convert.ToDateTime(dr["ValidityDate"]);
+                            //employeeModel.Relation = dr["Relation"].ToString() ?? " ";
+                            //employeeModel.PlanDescription = dr["PlanDescription"].ToString() ?? " ";
+                            //employeeModel.Area = dr["Area"].ToString() ?? " ";
+                            //employeeModel.PatientComplaints = dr["patient_complaints"].ToString() ?? " ";
+
+                            listModel.Add(employeeModel);
+
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+
+                return listModel;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
     
 }

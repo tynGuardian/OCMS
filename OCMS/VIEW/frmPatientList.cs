@@ -15,6 +15,7 @@ namespace OCMS.VIEW
     {
         private bool sortAscending = false;
         List<PatientComplaintModel> listmodel1 = new List<PatientComplaintModel>();
+
         public frmPatientList()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace OCMS.VIEW
 
             dgvPatient.DataSource = _bll.getPatientList();
             listmodel1 = _bll.getPatientList();
+
             dgvPatient.Columns[0].Visible = false;
             dgvPatient.Columns[1].Visible = false;
             dgvPatient.Columns[2].Visible = false;
@@ -91,7 +93,7 @@ namespace OCMS.VIEW
             try
             {
                 PatientComplainBusiness _bll = new PatientComplainBusiness();
-                
+
                 DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList());
                 dgvPatient.DataSource = utility;
                 listmodel1 = _bll.getPatientList();
@@ -102,7 +104,7 @@ namespace OCMS.VIEW
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid search" + " " + ex.Message,"OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid search" + " " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -137,7 +139,7 @@ namespace OCMS.VIEW
             {
                 btnSearch_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.F5)
+            else if (e.KeyCode == Keys.F5)
             {
                 btnRefresh_Click(sender, e);
             }
@@ -149,5 +151,32 @@ namespace OCMS.VIEW
                 e.Handled = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                EmployeeBusiness _bll = new EmployeeBusiness();
+                List<EmployeeModel> listEncryptModel = new List<EmployeeModel>();
+
+                dgvPatient.DataSource = _bll.getPatientList();
+                listEncryptModel = _bll.getPatientList();
+
+                if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
+                {
+                    Type dgvType = dgvPatient.GetType();
+                    PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                      BindingFlags.Instance | BindingFlags.NonPublic);
+                    pi.SetValue(dgvPatient, true, null);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid search" + " " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+        }
     }
 }

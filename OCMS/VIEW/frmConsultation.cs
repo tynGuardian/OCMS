@@ -15,7 +15,6 @@ namespace OCMS.VIEW
     public partial class frmConsultation : Form
     {
         private string membercode;
-        //TO DO DISABLE ENABLE DIAGNOSIS IF NOT DOCTOR
         private string consultationID;
         private string GEID;
         private string disposition;
@@ -31,6 +30,7 @@ namespace OCMS.VIEW
             txtGender.Text = model.Gender;
             txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
             membercode = model.MemberCode;
+            txtBday.Text = model.BDate;
         }
         public frmConsultation(PatientComplaintModel patientModel)
         {
@@ -114,23 +114,10 @@ namespace OCMS.VIEW
             {
                 cmbDisposition.Text = disposition;
             }
+
             dtpTimeOut.Text = DateTime.Now.ToString("MM/dd/yyyy");
             dtpTimeOutTime.Text = DateTime.Now.ToString("HH:mm:ss tt");
             AcceptButton = btnSaveConsultation;
-        }
-
-        private void btnAddComplaint_Click(object sender, EventArgs e)
-        {
-            //listComplaint.Items.Add(cmbComplaint.Text.ToUpper());
-            
-            //if (listComplaint.Items.Count >= 3)
-            //{
-
-            //    btnAddComplaint.Enabled = false;
-            //    MessageBox.Show("Maximum complaint encoded", "OCMS");
-            //}
-
-            
         }
 
         private void listComplaint_MouseDoubleClick(object sender, MouseEventArgs e)

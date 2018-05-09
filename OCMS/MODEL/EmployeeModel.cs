@@ -21,6 +21,7 @@ namespace OCMS.MODEL
         public string Relation { get; set; }
         public string PlanDescription { get; set; }
         public string Area { get; set; }
+        public String PatientComplaints { get; set; } 
 
     }
 }

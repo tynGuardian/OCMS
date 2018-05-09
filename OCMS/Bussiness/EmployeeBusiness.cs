@@ -94,5 +94,20 @@ namespace OCMS.Bussiness
                 throw ex;
             }
         }
+
+        public List<EmployeeModel> getPatientList()
+        {
+            try
+            {
+                List<EmployeeModel> employeeList = _dataAccess.GetEncryptedDetails();
+
+                return employeeList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
