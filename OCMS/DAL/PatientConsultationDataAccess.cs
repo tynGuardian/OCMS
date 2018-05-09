@@ -88,7 +88,7 @@ namespace OCMS.DAL
             }
         }
 
-        public List<PatientComplaintModel> getPatientComplaint()
+        public List<PatientComplaintModel> getPatientComplaint(string search)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetMembersPerAccount";
+                    string query = "dbo.GetMembersPerAccount '" + search +"'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 
@@ -116,11 +116,13 @@ namespace OCMS.DAL
                             PatientComplaintModel.EmpName = dr["EmployeeName"].ToString() ?? " ";
                             PatientComplaintModel.Complaints = dr["patient_complaints"].ToString() ?? " ";
                             PatientComplaintModel.Medicine = dr["medicine"].ToString() ?? " ";
+                            PatientComplaintModel.CreatedBy = dr["created_by"].ToString() ?? " ";
                             PatientComplaintModel.CreatedDate = Convert.ToDateTime(dr["created_date"]);
                             PatientComplaintModel.Company = dr["company"].ToString() ?? " ";
                             PatientComplaintModel.membercode = dr["membercode"].ToString() ?? " ";
                             PatientComplaintModel.diagnosis = dr["Diagnosis"].ToString() ?? " ";
                             PatientComplaintModel.disposition = dr["Disposition"].ToString() ?? " ";
+                            PatientComplaintModel.MedicineValue = dr["medicinevalue"].ToString() ?? " ";
 
                             listModel.Add(PatientComplaintModel);
 

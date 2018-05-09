@@ -21,7 +21,7 @@ namespace OCMS.DAL
 
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
-
+                    byte[] b = null;
                     string query = "dbo.GenerateOMReport '" + Convert.ToDateTime(datefrom).ToShortDateString() + "','" + Convert.ToDateTime(dateto).ToShortDateString() + "'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();

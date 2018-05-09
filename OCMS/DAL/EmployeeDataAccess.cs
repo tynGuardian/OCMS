@@ -35,21 +35,21 @@ namespace OCMS.DAL
                 {
 
                     GEID = row.Field<string>("GEID #") ?? " ",
-                    CostCenter = row.Field<string>("Cost Center #") ?? " ",
+                    //CostCenter = row.Field<string>("Cost Center #") ?? " ",
                     LegalVehicle = row.Field<string>("Legal Vehicle") ?? " ",
-                    MemberType = row.Field<string>("Member Type") ?? " ",
+                    //MemberType = row.Field<string>("Member Type") ?? " ",
                     Membercode = row.Field<string>("Medicard #") ?? " ",
                     EmployeeName = row.Field<string>("Name") ?? " ",
                     Sex = row.Field<string>("Sex") ?? " ",
-                    CS = row.Field<string>("CS") ?? " ",
-                    BirthDate = row.Field<string>("Birthday"),
-                    EffectiveDate = row.Field<DateTime>("Effective Date"),
-                    ValidityDate = row.Field<DateTime>("Validity Date"),
-                    Relation = row.Field<string>("Relation") ?? " ",
-                    PlanDescription = row.Field<string>("Plan Description") ?? " ",
-                    Area = row.Field<string>("Area") ?? " "
+                    //CS = row.Field<string>("CS") ?? " ",
+                    BirthDate = row.Field<DateTime>("Birthday").ToString()
+                    //EffectiveDate = row.Field<DateTime>("Effective Date"),
+                    //ValidityDate = row.Field<DateTime>("Validity Date"),
+                    //Relation = row.Field<string>("Relation") ?? " ",
+                    //PlanDescription = row.Field<string>("Plan Description") ?? " ",
+                    //Area = row.Field<string>("Area") ?? " "
 
-                    
+
 
                 }).ToList();
                 EmployeeCount = items.Count;
@@ -70,6 +70,7 @@ namespace OCMS.DAL
 
                 VIEW.frmProgress obj = new VIEW.frmProgress();
                 obj.Show();
+                DateTime? ImportedDate = DateTime.Now;
                 for (int i = 0; i <= EmployeeCount - 1; i++)
                 {
                     Application.DoEvents();
@@ -80,19 +81,21 @@ namespace OCMS.DAL
                     comm.CommandType = CommandType.StoredProcedure;
 
                     comm.Parameters.AddWithValue("@GEID", listMemModel[i].GEID);
-                    comm.Parameters.AddWithValue("@CostCenter", listMemModel[i].CostCenter);
+                    //comm.Parameters.AddWithValue("@CostCenter", listMemModel[i].CostCenter);
                     comm.Parameters.AddWithValue("@LegalVehicle", listMemModel[i].LegalVehicle);
-                    comm.Parameters.AddWithValue("@MemberType", listMemModel[i].MemberType);
+                    //comm.Parameters.AddWithValue("@MemberType", listMemModel[i].MemberType);
                     comm.Parameters.AddWithValue("@Membercode", listMemModel[i].Membercode);
                     comm.Parameters.AddWithValue("@EmployeeName", listMemModel[i].EmployeeName);
                     comm.Parameters.AddWithValue("@Sex", listMemModel[i].Sex);
-                    comm.Parameters.AddWithValue("@CS", listMemModel[i].CS);
+                    //comm.Parameters.AddWithValue("@CS", listMemModel[i].CS);
                     comm.Parameters.AddWithValue("@BirthDate", listMemModel[i].BirthDate);
-                    comm.Parameters.AddWithValue("@EffectiveDate", listMemModel[i].EffectiveDate);
-                    comm.Parameters.AddWithValue("@ValidityDate", listMemModel[i].ValidityDate);
-                    comm.Parameters.AddWithValue("@Relation", listMemModel[i].Relation);
-                    comm.Parameters.AddWithValue("@PlanDescription", listMemModel[i].PlanDescription);
-                    comm.Parameters.AddWithValue("@Area", listMemModel[i].Area);
+                    comm.Parameters.AddWithValue("@ImportedDate", ImportedDate);
+                    comm.Parameters.AddWithValue("@ImportedBy", Class.clsGlobal.usercode);
+                    //comm.Parameters.AddWithValue("@EffectiveDate", listMemModel[i].EffectiveDate);
+                    //comm.Parameters.AddWithValue("@ValidityDate", listMemModel[i].ValidityDate);
+                    //comm.Parameters.AddWithValue("@Relation", listMemModel[i].Relation);
+                    //comm.Parameters.AddWithValue("@PlanDescription", listMemModel[i].PlanDescription);
+                    //comm.Parameters.AddWithValue("@Area", listMemModel[i].Area);
 
                     comm.ExecuteNonQuery();
                     comm.Dispose();
@@ -111,6 +114,83 @@ namespace OCMS.DAL
             }
 
         }
+        public void UpdateEmployeeDetails(string geid, string vehicle, string memcode, string empname, string bdate)
+        {
+            try
+            {
+                DBResource newConnection = new DBResource();
+                
+                
+                newConnection.DBOpen();
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = DBResource.conn;
+                comm.CommandText = "dbo.UpdateEmployeeDetails";
+                comm.CommandType = CommandType.StoredProcedure;
+
+                comm.Parameters.AddWithValue("@GEID", geid);
+                comm.Parameters.AddWithValue("@LegalVehicle", vehicle);
+                comm.Parameters.AddWithValue("@Membercode", memcode);
+                comm.Parameters.AddWithValue("@EmployeeName", empname);
+                comm.Parameters.AddWithValue("@BirthDate", bdate);
+                comm.Parameters.AddWithValue("@UpdateBy", Class.clsGlobal.usercode);
+
+                comm.ExecuteNonQuery();
+                comm.Dispose();
+                newConnection.DBClose();
+                SqlConnection.ClearAllPools();
+               
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public List<EmployeeModel> GetEmpDetails()
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<EmployeeModel> listEmpModel = new List<EmployeeModel>();
+                EmployeeModel EmpDetailsModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetEmployeeDetails '',0";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            EmpDetailsModel = new EmployeeModel();
+                            EmpDetailsModel.GEID = dr["GEID"].ToString();
+                            EmpDetailsModel.LegalVehicle = dr["LegalVehicle"].ToString();
+                            EmpDetailsModel.Membercode = dr["MemberCode"].ToString();
+                            EmpDetailsModel.EmployeeName = dr["EmployeeName"].ToString();
+                            EmpDetailsModel.BirthDate = dr["BirthDate"].ToString();
+                            EmpDetailsModel.Sex = dr["Sex"].ToString();
+
+                            listEmpModel.Add(EmpDetailsModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return listEmpModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
 
         public List<GetEmployeeDetailsModel> GetEmpDetails(string GEID)
@@ -126,7 +206,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetEmployeeDetails'" + GEID + "'";
+                    string query = "dbo.GetEmployeeDetails'" + GEID + "',1";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 

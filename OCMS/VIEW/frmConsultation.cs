@@ -65,7 +65,16 @@ namespace OCMS.VIEW
                     lvMedicine.Items.Add(item);
                 }
             }
-
+            if (patientModel.diagnosis != "")
+            {
+                lvDiagnosis.View = View.Details;
+                lvDiagnosis.Columns.Add("Diagnosis", 300);
+                string[] words = patientModel.diagnosis.Split(';');
+                foreach (string word in words)
+                {
+                    lvDiagnosis.Items.Add(word);
+                }
+            }
             disposition = patientModel.disposition;
             txtEmpName.Text = patientModel.EmpName;
             txtCompany.Text = patientModel.Company;
@@ -397,6 +406,42 @@ namespace OCMS.VIEW
             item = new ListViewItem(arrMed);
             lvDiagnosis.Items.Add(item);
             lvDiagnosis.Columns.RemoveAt(1);
+        }
+
+        private void lvMedicine_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this medicine ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (msg == DialogResult.Yes)
+            {
+                ListView.SelectedListViewItemCollection selectedItems = new ListView.SelectedListViewItemCollection(lvMedicine);
+                selectedItems = lvMedicine.SelectedItems;
+
+                if (lvMedicine.SelectedItems.Count != -1)
+                {
+                    for (int i = selectedItems.Count - 1; i >= 0; i--)
+                        lvMedicine.Items.Remove(selectedItems[i]);
+                }
+
+            }
+        }
+
+        private void lvDiagnosis_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this diagnosis ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (msg == DialogResult.Yes)
+            {
+                ListView.SelectedListViewItemCollection selectedItems = new ListView.SelectedListViewItemCollection(lvDiagnosis);
+                selectedItems = lvDiagnosis.SelectedItems;
+
+                if (lvDiagnosis.SelectedItems.Count != -1)
+                {
+                    for (int i = selectedItems.Count - 1; i >= 0; i--)
+                        lvDiagnosis.Items.Remove(selectedItems[i]);
+                }
+
+            }
         }
     }
 }

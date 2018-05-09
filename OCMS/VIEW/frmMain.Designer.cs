@@ -43,11 +43,11 @@
             this.mnuTileHorizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oMREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCompanyDeploymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -183,23 +183,7 @@
             this.oMREPORTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.oMREPORTToolStripMenuItem.Size = new System.Drawing.Size(273, 24);
             this.oMREPORTToolStripMenuItem.Text = "&OM REPORT (By Range)";
-            this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem2
-            // 
-            this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelpAbout});
-            this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
-            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(50, 25);
-            this.aboutToolStripMenuItem2.Text = "&Help";
-            // 
-            // mnuHelpAbout
-            // 
-            this.mnuHelpAbout.Image = ((System.Drawing.Image)(resources.GetObject("mnuHelpAbout.Image")));
-            this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(152, 24);
-            this.mnuHelpAbout.Text = "&About";
-            this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
+            //this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
             // 
             // maintenanceToolStripMenuItem
             // 
@@ -223,6 +207,22 @@
             this.addCompanyDeploymentToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
             this.addCompanyDeploymentToolStripMenuItem.Text = "Update Company Deployment";
             this.addCompanyDeploymentToolStripMenuItem.Click += new System.EventHandler(this.addCompanyDeploymentToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem2
+            // 
+            this.aboutToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelpAbout});
+            this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
+            this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(50, 25);
+            this.aboutToolStripMenuItem2.Text = "&Help";
+            // 
+            // mnuHelpAbout
+            // 
+            this.mnuHelpAbout.Image = ((System.Drawing.Image)(resources.GetObject("mnuHelpAbout.Image")));
+            this.mnuHelpAbout.Name = "mnuHelpAbout";
+            this.mnuHelpAbout.Size = new System.Drawing.Size(115, 24);
+            this.mnuHelpAbout.Text = "&About";
+            this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -274,8 +274,9 @@
             // 
             // toolStripLabel4
             // 
+            this.toolStripLabel4.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(66, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(63, 22);
             this.toolStripLabel4.Text = ":Company";
             // 
             // toolStripSeparator3

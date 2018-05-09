@@ -54,6 +54,36 @@ namespace OCMS.Bussiness
                 throw new Exception(ex.Message.ToString());
             }
         }
+        public void UpdateEmployeeDetails(string geid, string vehicle, string memcode, string empname, string bdate)
+        {
+            try
+            {
+
+                _dataAccess.UpdateEmployeeDetails(geid, vehicle, memcode,empname,bdate);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<EmployeeModel> GetEmployeeDetails()
+        {
+            try
+            {
+                List<EmployeeModel> listEmployeeModel;
+
+                listEmployeeModel = _dataAccess.GetEmpDetails();
+
+                return listEmployeeModel;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid uploaded data " + ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                throw new Exception(ex.InnerException.Message);
+            }
+        }
         public List<GetEmployeeDetailsModel> GetEmployeeDetails(string GEID)
         {
             try
@@ -66,8 +96,8 @@ namespace OCMS.Bussiness
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid uploaded data", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                throw ex;
+                MessageBox.Show("Invalid uploaded data " + ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                throw new Exception(ex.InnerException.Message);
             }
         }
         public List<GetDuplicateGEIDModel> GetDuplicateGEID(string FilePath, string FileName)
@@ -90,8 +120,8 @@ namespace OCMS.Bussiness
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid uploaded data", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                throw ex;
+                MessageBox.Show("Invalid uploaded data " + ex.Message.ToString(), "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                throw new Exception(ex.InnerException.Message);
             }
         }
 

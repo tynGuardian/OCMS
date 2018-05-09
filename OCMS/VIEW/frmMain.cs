@@ -9,6 +9,7 @@ using System.ComponentModel;
 using OCMS.Class;
 using System.Deployment.Application;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
 
 namespace OCMS
 {
@@ -42,7 +43,16 @@ namespace OCMS
         {
             toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
             
-            toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
+            //MOD BY KNG
+            if (Properties.Settings.Default.Company == "")
+            {
+                toolStripLabel4.Text = "Company: " ;
+            }
+            else
+            {
+                toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
+            }
+
             if (clsGlobal.lblprivilege == "Power User")
             {
                 windowToolStripMenuItem.Visible = false;
@@ -179,7 +189,7 @@ namespace OCMS
             }
         }
 
-        private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        private void generateOMReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
             VIEW.frmOMReport objOMReport = new VIEW.frmOMReport();
@@ -202,15 +212,18 @@ namespace OCMS
         {
             EmployeeBusiness _bll = new EmployeeBusiness();
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            Cursor.Current = Cursors.WaitCursor;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                 List<GetDuplicateGEIDModel> listofDuplicate;
+                List<EmployeeModel> ExistingDetails;
                 
                 _bll.GetEmployeeExcel(filePath, fileName);
                 _bll.SaveListEmployee();
 
+                //Write duplicate list in text file
                 listofDuplicate = _bll.GetDuplicateGEID(filePath, fileName);
 
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -228,8 +241,22 @@ namespace OCMS
                     MessageBox.Show("Please check the list of duplicate GEID # in: " + fullpath, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 writer.Close();
+                // Up to here
+
+                killExcel();
                 MessageBox.Show("Successfully Import List of Employee!", "OCMS", MessageBoxButtons.OK);
+
+                //Check if there is existing employee saved to database
+                ExistingDetails = _bll.GetEmployeeDetails();
+                if (ExistingDetails.Count > 0)
+                {
+                    MessageBox.Show("Please check the list of employee and update the correct details!", "OCMS", MessageBoxButtons.OK);
+                    VIEW.frmEmployeeDetails objfrmEmployeeDetails = new VIEW.frmEmployeeDetails();
+                    objfrmEmployeeDetails.StartPosition = FormStartPosition.CenterScreen;
+                    objfrmEmployeeDetails.Show();
+                }
             }
+            Cursor.Current = Cursors.Default;
         }
 
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,6 +283,21 @@ namespace OCMS
             Properties.Settings.Default.Company = input;
             Properties.Settings.Default.Save();
         }
+        private void killExcel()
+        {
+            Process[] Processes;
+            Processes = System.Diagnostics.
+
+            Process.GetProcessesByName("EXCEL");
+
+            foreach (System.Diagnostics.Process p in Processes)
+            {
+                if (p.MainWindowTitle.Trim() == "")
+                    p.Kill();
+            }
+
+        }
+        
     }
 }
 

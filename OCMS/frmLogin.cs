@@ -291,7 +291,7 @@ namespace OCMS
             //if (e.KeyChar == (char)27)
             //    Close();
         }
-        
+
         private void textUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -302,8 +302,12 @@ namespace OCMS
             {
                 Close();
             }
+            else if (e.KeyCode == Keys.F3)
+            {
+                frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
+                objfrmDatabaseSettings.ShowDialog();
+            }
         }
-
         private void textPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -314,8 +318,12 @@ namespace OCMS
             {
                 Close();
             }
+            else if (e.KeyCode == Keys.F3)
+            {
+                frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
+                objfrmDatabaseSettings.ShowDialog();
+            }
         }
-
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -335,6 +343,19 @@ namespace OCMS
             frmUsersInformation objFrmUserInfo = new frmUsersInformation();
             objFrmUserInfo.Closed += (s, args) => this.Close();
             objFrmUserInfo.ShowDialog();
+        }
+
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Close();
+            }
+            else if (e.KeyCode == Keys.F3)
+            {
+                frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
+                objfrmDatabaseSettings.ShowDialog();
+            }
         }
     }
 }

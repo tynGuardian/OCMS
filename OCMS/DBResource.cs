@@ -15,7 +15,8 @@ namespace OCMS
         //public string connectionString = clsUtility.Decrypt((ConfigurationManager.AppSettings["ConnectionString"].ToString()));
         //Server=devteamsvr001;Database=OCMS;Integrated Security = false; User ID = mpiuser; Password=itdbtw3n+y12
         //Server=devteamsvr001;Database=OCMS;Integrated Security = false; User ID = mpiuser; Password= itdbtw3n+y12
-        public string connectionString = "Server=" + Properties.Settings.Default.ServerName + ";Database=" + Properties.Settings.Default.DatabaseName + ";Integrated Security = false; User ID = " + Properties.Settings.Default.User + ";Password="+ Properties.Settings.Default.Password + ";Column Encryption Setting=disabled" + "";
+        public string connectionString = "Server=" + Properties.Settings.Default.ServerName + ";Database=" + Properties.Settings.Default.DatabaseName + ";Integrated Security = false; User ID = " + Properties.Settings.Default.User + ";Password=" + Properties.Settings.Default.Password + ";Column Encryption Setting=enabled";
+        //public string connectionString = "Server=" + Properties.Settings.Default.ServerName + ";Database=" + Properties.Settings.Default.DatabaseName + ";Integrated Security = false; User ID = " + Properties.Settings.Default.User + ";Password=" + Properties.Settings.Default.Password + "";
         public void DBOpen()
         {
             conn = new SqlConnection(connectionString);
