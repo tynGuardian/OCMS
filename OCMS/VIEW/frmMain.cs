@@ -129,7 +129,6 @@ namespace OCMS
 
         private void mnuFileExit_Click(object sender, EventArgs e)
         {
-            //Hide();
             //Close();
             //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
             //objfrmConfirmationPage.ShowDialog();
