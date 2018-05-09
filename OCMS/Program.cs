@@ -15,11 +15,11 @@ namespace OCMS
         static void Main()
         {
 
-            //frmLogin objfrmLogin = new frmLogin();
-            //objfrmLogin.ShowDialog();
-
-            frmMain objfrmLogin = new frmMain();
+            frmLogin objfrmLogin = new frmLogin();
             objfrmLogin.ShowDialog();
+
+            //frmMain objfrmLogin = new frmMain();
+            //objfrmLogin.ShowDialog();
 
         }
     }

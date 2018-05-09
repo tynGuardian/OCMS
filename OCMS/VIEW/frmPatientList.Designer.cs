@@ -78,7 +78,7 @@
             this.dgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvPatient.Size = new System.Drawing.Size(861, 452);
             this.dgvPatient.TabIndex = 3;
-            this.dgvPatient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatient_CellClick);
+            this.dgvPatient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatient_CellDoubleClick);
             this.dgvPatient.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPatient_ColumnHeaderMouseClick);
             // 
             // tableLayoutPanel1
@@ -168,7 +168,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 538);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPatientList";
             this.Text = "Patient Master List";
             this.Load += new System.EventHandler(this.frmPatientList_Load);

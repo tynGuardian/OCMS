@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using OCMS.VIEW;
+
 
 namespace OCMS.Class
 {
@@ -16,10 +18,14 @@ namespace OCMS.Class
         {
             try
             {
-                frmLogin objfrmMain = new frmLogin();
-                objfrmMain.ShowDialog();
-                clsGlobal.g_objfrmMain = new frmMain();
-                Application.Run(clsGlobal.g_objfrmMain);
+                //frmLogin objfrmMain = new frmLogin();
+                //objfrmMain.ShowDialog();
+                //clsGlobal.g_objfrmMain = new frmMain();
+                //Application.Run(clsGlobal.g_objfrmMain);
+
+                //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
+                //objfrmConfirmationPage.ShowDialog();
+
             }
             catch (Exception ex)
             {

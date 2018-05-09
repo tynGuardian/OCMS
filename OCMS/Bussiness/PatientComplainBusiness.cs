@@ -57,11 +57,11 @@ namespace OCMS.Bussiness
                 throw ex;
             }
         }
-        public List<PatientComplaintModel> getPatientList()
+        public List<PatientComplaintModel> getPatientList(string search)
         {
             try
             {
-                List<PatientComplaintModel> complaintList = _dataAccess.getPatientComplaint();
+                List<PatientComplaintModel> complaintList = _dataAccess.getPatientComplaint(search);
 
                 return complaintList;
             }

@@ -295,11 +295,12 @@
             this.lvDiagnosis.Size = new System.Drawing.Size(358, 75);
             this.lvDiagnosis.TabIndex = 38;
             this.lvDiagnosis.UseCompatibleStateImageBehavior = false;
+            this.lvDiagnosis.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvDiagnosis_MouseDoubleClick_1);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Medicine";
-            this.columnHeader1.Width = 300;
+            this.columnHeader1.Width = 800;
             // 
             // columnHeader2
             // 
@@ -319,6 +320,7 @@
             this.lvMedicine.Size = new System.Drawing.Size(358, 72);
             this.lvMedicine.TabIndex = 37;
             this.lvMedicine.UseCompatibleStateImageBehavior = false;
+            this.lvMedicine.DoubleClick += new System.EventHandler(this.lvMedicine_DoubleClick);
             // 
             // Medicine
             // 
