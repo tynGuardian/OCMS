@@ -83,5 +83,12 @@ namespace OCMS.Class
             //put a breakpoint here and check datatable
             return dataTable;
         }
+        public static int GetAge(DateTime reference, DateTime birthday)
+        {
+            int age = reference.Year - birthday.Year;
+            if (reference < birthday.AddYears(age)) age--;
+
+            return age;
+        }
     }
 }
