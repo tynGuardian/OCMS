@@ -4,33 +4,36 @@ using OCMS.Class;
 using OCMS.Bussiness;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Text;
+using System.Configuration;
+using System.Security.Cryptography;
 
 namespace UnitTest
 {
     [TestClass]
     public class UnitTest
     {
-        [TestMethod]
-        public void saveConsultation()
-        {
-            ConsultationBusiness _bll = new ConsultationBusiness();
-            var db = new ConsultationModel();
+        //    [TestMethod]
+        //    public void saveConsultation()
+        //    {
+        //        ConsultationBusiness _bll = new ConsultationBusiness();
+        //        var db = new ConsultationModel();
 
-            db.ConsultatonId = "123GG";
-            db.MemberCode = "12345678";
-            db.TimeIn = DateTime.Now;
-            db.TimeOut = DateTime.Now;
-            db.Complaints = "head ache";
-            db.Medicine = "biogesic";
-            db.Disposition = "n/a";
-            db.DiagCode = "Dx8252"; //head ache due to sleep deprivation
-            db.CreatedBy = "knguardian";
-            db.CreatedDate = DateTime.Now;
+        //        db.ConsultatonId = "123GG";
+        //        db.MemberCode = "12345678";
+        //        db.TimeIn = DateTime.Now;
+        //        db.TimeOut = DateTime.Now;
+        //        db.Complaints = "head ache";
+        //        db.Medicine = "biogesic";
+        //        db.Disposition = "n/a";
+        //        db.DiagCode = "Dx8252"; //head ache due to sleep deprivation
+        //        db.CreatedBy = "knguardian";
+        //        db.CreatedDate = DateTime.Now;
 
-            _bll.saveConsultation(db);
+        //        _bll.saveConsultation(db);
 
-            Assert.AreEqual(true, true);
-        }
+        //        Assert.AreEqual(true, true);
+        //    }
 
         //[TestMethod]
         //public void getMember()
@@ -77,9 +80,23 @@ namespace UnitTest
         [TestMethod]
         public void DecryptPassword()
         {
-            string  password = clsUtility.Decrypt("b1l/WnI1RVR0J04xTgAaMkOI3flOHyTUGLjrU5UBanA=");
+            string  password = clsUtility.Decrypt("WjDSrRNJ5xlS9ngbxsvgYMxx6UPAdEIxq9+T6D/OcCQ=");
 
             Assert.IsNotNull(password);
+        }
+
+        [TestMethod]
+        public void encrypt()
+        {
+            //DateTime d = DateTime.Now.Date.ToString("MM-dd-yyyy");
+            string field = DateTime.Now.Date.ToString("MM/dd/yyyy");
+
+            string toEncrypt = field.Replace(" ", string.Empty);
+
+            string result = clsUtility.Encrypt(toEncrypt);
+
+            Assert.IsNotNull(result);
+
         }
     }
 }

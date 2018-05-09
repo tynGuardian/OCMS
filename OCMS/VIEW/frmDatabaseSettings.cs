@@ -35,7 +35,7 @@ namespace OCMS.VIEW
 
             if (newConnection.IsAvailable(newConnection.connectionString.ToString()))
             {
-                MessageBox.Show("Database Settings successfully change.", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Database Settings successfully change. In order to activate the system, kindly login again.", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

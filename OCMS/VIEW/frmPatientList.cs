@@ -193,32 +193,5 @@ namespace OCMS.VIEW
                 frmConsultation.ShowDialog();
             }
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                EmployeeBusiness _bll = new EmployeeBusiness();
-                List<EmployeeModel> listEncryptModel = new List<EmployeeModel>();
-
-                dgvPatient.DataSource = _bll.getPatientList();
-                listEncryptModel = _bll.getPatientList();
-
-                if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
-                {
-                    Type dgvType = dgvPatient.GetType();
-                    PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
-                      BindingFlags.Instance | BindingFlags.NonPublic);
-                    pi.SetValue(dgvPatient, true, null);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Invalid search" + " " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-        }
     }
 }
