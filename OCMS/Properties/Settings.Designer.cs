@@ -82,5 +82,16 @@ namespace OCMS.Properties {
                 this["Company"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP110\\DEVOPS;Initial Catalog=OCMS;User ID=sa;Password=KGkristineg" +
+            "uardian")]
+        public string OCMSConnectionString {
+            get {
+                return ((string)(this["OCMSConnectionString"]));
+            }
+        }
     }
 }

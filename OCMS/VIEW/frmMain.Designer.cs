@@ -183,7 +183,7 @@
             this.oMREPORTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.oMREPORTToolStripMenuItem.Size = new System.Drawing.Size(273, 24);
             this.oMREPORTToolStripMenuItem.Text = "&OM REPORT (By Range)";
-            //this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
+            this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
             // 
             // maintenanceToolStripMenuItem
             // 

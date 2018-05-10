@@ -67,13 +67,24 @@ namespace OCMS.VIEW
             }
             if (patientModel.diagnosis != "")
             {
+
                 lvDiagnosis.View = View.Details;
                 lvDiagnosis.Columns.Add("Diagnosis", 300);
-                string[] words = patientModel.diagnosis.Split(';');
-                foreach (string word in words)
+                lvDiagnosis.Columns.Add("Diag_Code", 300);
+
+                ListViewItem item;
+                string[] diagnosis = patientModel.diagnosis.Split(';');
+                string[] DiagCode = patientModel.DiagCode.Split(',');
+                for (int i = 0; i < diagnosis.Length; i++)
                 {
-                    lvDiagnosis.Items.Add(word);
+                    string[] arrMed = new string[2];
+                    arrMed[0] = diagnosis[i];
+                    arrMed[1] = DiagCode[i];
+                    item = new ListViewItem(arrMed);
+                    lvDiagnosis.Items.Add(item);
+                    lvDiagnosis.Columns.RemoveAt(0);
                 }
+                lvDiagnosis.Columns.RemoveAt(0);
             }
             disposition = patientModel.disposition;
             txtEmpName.Text = patientModel.EmpName;
@@ -156,7 +167,7 @@ namespace OCMS.VIEW
                 ConsultationModel consultationModel = new ConsultationModel();
 
                 consultationModel.ConsultatonId = consultationID;
-                consultationModel.GEID = GEID;
+                consultationModel.GEID = clsUtility.Encrypt(GEID);
                 consultationModel.MemberCode = membercode;
                 consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text);
                 consultationModel.TimeOut = Convert.ToDateTime(dtpTimeOut.Text + " " + dtpTimeOutTime.Text);

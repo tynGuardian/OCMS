@@ -13,6 +13,8 @@ namespace OCMS.Class
 {
     public class clsUtility
     {
+        const string DESKey = "AQWSEDRF";
+        const string DESIV = "HGFEDCBA";
 
         public static string Encrypt(string clearText)
         {
@@ -38,8 +40,7 @@ namespace OCMS.Class
         public static string Decrypt(string cipherText)
         {
             string EncryptionKey = "Medicard";
-            cipherText = cipherText.Replace(" ", "+");
-            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            byte[] cipherBytes = Convert.FromBase64String(cipherText.Replace(" ","+"));
             using (Aes encryptor = Aes.Create())
             {
                 Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
@@ -83,10 +84,12 @@ namespace OCMS.Class
             //put a breakpoint here and check datatable
             return dataTable;
         }
-        public static int GetAge(DateTime reference, DateTime birthday)
+        public static int GetAge(string reference, string birthday)
         {
-            int age = reference.Year - birthday.Year;
-            if (reference < birthday.AddYears(age)) age--;
+            DateTime a = Convert.ToDateTime(reference);
+            DateTime b = Convert.ToDateTime(birthday);
+            int age = a.Year - b.Year;
+            if (a < b.AddYears(age)) age--;
 
             return age;
         }

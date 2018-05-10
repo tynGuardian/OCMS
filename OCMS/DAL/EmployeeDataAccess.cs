@@ -7,6 +7,7 @@ using OCMS.MODEL;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using OCMS.Class;
 
 namespace OCMS.DAL
 {
@@ -42,7 +43,7 @@ namespace OCMS.DAL
                     EmployeeName = row.Field<string>("Name") ?? " ",
                     Sex = row.Field<string>("Sex") ?? " ",
                     //CS = row.Field<string>("CS") ?? " ",
-                    BirthDate = row.Field<DateTime>("Birthday").ToString()
+                    BirthDate = row.Field<DateTime>("Birthday").ToString("MM/dd/yyyy").Replace(" ",string.Empty)
                     //EffectiveDate = row.Field<DateTime>("Effective Date"),
                     //ValidityDate = row.Field<DateTime>("Validity Date"),
                     //Relation = row.Field<string>("Relation") ?? " ",
@@ -80,17 +81,17 @@ namespace OCMS.DAL
                     comm.CommandText = "dbo.SaveListOfEmployee";
                     comm.CommandType = CommandType.StoredProcedure;
 
-                    comm.Parameters.AddWithValue("@GEID", listMemModel[i].GEID);
+                    comm.Parameters.AddWithValue("@GEID", clsUtility.Encrypt(listMemModel[i].GEID));
                     //comm.Parameters.AddWithValue("@CostCenter", listMemModel[i].CostCenter);
                     comm.Parameters.AddWithValue("@LegalVehicle", listMemModel[i].LegalVehicle);
                     //comm.Parameters.AddWithValue("@MemberType", listMemModel[i].MemberType);
-                    comm.Parameters.AddWithValue("@Membercode", listMemModel[i].Membercode);
-                    comm.Parameters.AddWithValue("@EmployeeName", listMemModel[i].EmployeeName);
+                    comm.Parameters.AddWithValue("@Membercode", clsUtility.Encrypt(listMemModel[i].Membercode));
+                    comm.Parameters.AddWithValue("@EmployeeName", clsUtility.Encrypt(listMemModel[i].EmployeeName));
                     comm.Parameters.AddWithValue("@Sex", listMemModel[i].Sex);
                     //comm.Parameters.AddWithValue("@CS", listMemModel[i].CS);
-                    comm.Parameters.AddWithValue("@BirthDate", listMemModel[i].BirthDate);
+                    comm.Parameters.AddWithValue("@BirthDate", clsUtility.Encrypt(listMemModel[i].BirthDate));
                     comm.Parameters.AddWithValue("@ImportedDate", ImportedDate);
-                    comm.Parameters.AddWithValue("@ImportedBy", Class.clsGlobal.usercode);
+                    comm.Parameters.AddWithValue("@ImportedBy", clsGlobal.usercode);
                     //comm.Parameters.AddWithValue("@EffectiveDate", listMemModel[i].EffectiveDate);
                     //comm.Parameters.AddWithValue("@ValidityDate", listMemModel[i].ValidityDate);
                     //comm.Parameters.AddWithValue("@Relation", listMemModel[i].Relation);
@@ -170,11 +171,11 @@ namespace OCMS.DAL
                         while (dr.Read())
                         {
                             EmpDetailsModel = new EmployeeModel();
-                            EmpDetailsModel.GEID = dr["GEID"].ToString();
+                            EmpDetailsModel.GEID = clsUtility.Decrypt(dr["GEID"].ToString());
                             EmpDetailsModel.LegalVehicle = dr["LegalVehicle"].ToString();
-                            EmpDetailsModel.Membercode = dr["MemberCode"].ToString();
-                            EmpDetailsModel.EmployeeName = dr["EmployeeName"].ToString();
-                            EmpDetailsModel.BirthDate = dr["BirthDate"].ToString();
+                            EmpDetailsModel.Membercode = clsUtility.Decrypt(dr["MemberCode"].ToString());
+                            EmpDetailsModel.EmployeeName = clsUtility.Decrypt(dr["EmployeeName"].ToString());
+                            EmpDetailsModel.BirthDate = clsUtility.Decrypt(dr["BirthDate"].ToString());
                             EmpDetailsModel.Sex = dr["Sex"].ToString();
 
                             listEmpModel.Add(EmpDetailsModel);
@@ -218,8 +219,7 @@ namespace OCMS.DAL
                             EmpDetailsModel = new GetEmployeeDetailsModel();
 
                             EmpDetailsModel.LegalVehicle = dr["LegalVehicle"].ToString();
-                            EmpDetailsModel.EmpName = dr["EmployeeName"].ToString();
-
+                            EmpDetailsModel.EmpName = clsUtility.Decrypt(dr["EmployeeName"].ToString());
                             listEmpModel.Add(EmpDetailsModel);
                         }
                         myConnection.Close();
@@ -247,7 +247,7 @@ namespace OCMS.DAL
                 OleDb.Open();
 
                 DataTable dt = new DataTable();
-                OleDbDataAdapter OleDa = new OleDbDataAdapter(string.Format("select [GEID #], [Name], [Legal Vehicle] from [{0}$] where [GEID #] in (select [GEID #] from [{0}$] where [Member Type] = 'P' group by [GEID #] having count(*) = 2) and [Member Type] = 'P'", "Sheet1"), constr);
+                OleDbDataAdapter OleDa = new OleDbDataAdapter(string.Format("select [GEID #], [Name], [Legal Vehicle] from [{0}$] where [GEID #] in (select [GEID #] from [{0}$] where [Member Type] = 'P' group by [GEID #] having count(*) > 1) and [Member Type] = 'P'", "Sheet1"), constr);
                 OleDa.Fill(dt);
 
                 IList<GetDuplicateGEIDModel> items = dt.AsEnumerable().Select(row =>
@@ -283,26 +283,15 @@ namespace OCMS.DAL
 
                     SqlCommand cmd = new SqlCommand
                                     (
-                                        "SELECT[Emp_id]                               " +
-                                              ", a.[GEID]                             " +
-                                              ",[CostCenter]                          " +
-                                              ",[LegalVehicle]                        " +
-                                              ",[MemberType]                          " +
-                                              ",[Membercode]                          " +
-                                              ", a.[EmployeeName]                     " +
-                                              ",[Sex]                                 " +
-                                              ",[CS]                                  " +
-                                              ",[BirthDate]                           " +
-                                              ",[EffectiveDate]                       " +
-                                              ",[ValidityDate]                        " +
-                                              ",[Relation]                            " +
-                                              ",[PlanDescription]                     " +
-                                              ",[Area]                                " +
-                                              ", b.patient_complaints                 " +
-                                          "FROM[test_ocms].[dbo].[ocms_employee_mtbl] " +
-                                          "inner join[ocms_patient_complaints] b on a.GEID = b.GEID", myConnection
+                                        "SELECT                       " +
+                                              "[GEID]                 " +
+                                              ",[LegalVehicle]        " +
+                                              ",[Membercode]          " +
+                                              ",[EmployeeName]        " +
+                                              ",[Sex]                 " +
+                                              ",[BirthDate]           " +
+                                          "FROM[test_ocms].[dbo].[ocms_employee_mtbl] ", myConnection
                                     );
-
                     myConnection.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -313,6 +302,7 @@ namespace OCMS.DAL
                             employeeModel = new EmployeeModel();
 
                             employeeModel.GEID = dr["GEID"].ToString() ?? " ";
+                            employeeModel.BirthDate = dr["BirthDate"].ToString() ?? " ";
                             //employeeModel.CostCenter = dr["a.CostCenter"].ToString() ?? " ";
                             //employeeModel.LegalVehicle = dr["LegalVehicle"].ToString() ?? " ";
                             //employeeModel.MemberType = dr["MemberType"].ToString() ?? " ";

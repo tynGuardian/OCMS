@@ -34,11 +34,11 @@
             this.dgvPatient = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatient)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -110,6 +110,17 @@
             this.panel1.Size = new System.Drawing.Size(861, 74);
             this.panel1.TabIndex = 11;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(560, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnRefresh
             // 
             this.btnRefresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -163,16 +174,6 @@
             this.lblSearch.Size = new System.Drawing.Size(56, 17);
             this.lblSearch.TabIndex = 7;
             this.lblSearch.Text = "Search:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(560, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmPatientList
             // 
