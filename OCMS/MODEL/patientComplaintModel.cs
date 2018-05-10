@@ -28,5 +28,6 @@ namespace OCMS.MODEL
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MedicineValue { get; set; }
+        public string DiagCode { get; set; }
     }
 }

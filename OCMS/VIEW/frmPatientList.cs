@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using OCMS.Bussiness;
 using System.Reflection;
 using OCMS.MODEL;
-
+using OCMS.Class;
 namespace OCMS.VIEW
 {
     public partial class frmPatientList : Form
@@ -26,8 +26,16 @@ namespace OCMS.VIEW
         {
             PatientComplainBusiness _bll = new PatientComplainBusiness();
 
-            dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
-            listmodel1 = _bll.getPatientList(txtSearch.Text);
+            if (txtSearch.Text == "")
+            {
+                dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                listmodel1 = _bll.getPatientList(txtSearch.Text);
+            }
+            else
+            {
+                dgvPatient.DataSource = _bll.getPatientList(clsUtility.Encrypt(txtSearch.Text));
+                listmodel1 = _bll.getPatientList(clsUtility.Encrypt(txtSearch.Text));
+            }
             dgvPatient.Columns[0].Visible = false;
             dgvPatient.Columns[1].Visible = false;
             dgvPatient.Columns[2].Visible = false;
@@ -35,6 +43,8 @@ namespace OCMS.VIEW
             dgvPatient.Columns[10].Visible = false;
             dgvPatient.Columns[11].Visible = false;
             dgvPatient.Columns[12].Visible = false;
+            dgvPatient.Columns[13].Visible = false;
+            dgvPatient.Columns[14].Visible = false;
 
             dgvPatient.Columns[3].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[4].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
@@ -94,13 +104,13 @@ namespace OCMS.VIEW
             try
             {
                 PatientComplainBusiness _bll = new PatientComplainBusiness();
-                dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
-                //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList());
-                //dgvPatient.DataSource = utility;
-                //listmodel1 = _bll.getPatientList();
-                //(dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
-                //    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
-                //(dgvPatient.DataSource as DataTable).DefaultView.ToTable();
+                //dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList(""));
+                dgvPatient.DataSource = utility;
+                //listmodel1 = _bll.getPatientList("");
+                (dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
+                    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
+                (dgvPatient.DataSource as DataTable).DefaultView.ToTable();
 
             }
             catch (Exception ex)
@@ -185,8 +195,9 @@ namespace OCMS.VIEW
                     listPatientModel.Medicine = dgvPatient.Rows[e.RowIndex].Cells[12].Value.ToString() ?? "";
                     listPatientModel.Company = dgvPatient.Rows[e.RowIndex].Cells[7].Value.ToString() ?? "";
                     listPatientModel.diagnosis = dgvPatient.Rows[e.RowIndex].Cells[8].Value.ToString() ?? "";
-                    listPatientModel.CreatedDate = Convert.ToDateTime(dgvPatient.Rows[e.RowIndex].Cells[14].Value.ToString());
+                    listPatientModel.CreatedDate = Convert.ToDateTime(dgvPatient.Rows[e.RowIndex].Cells[15].Value.ToString());
                     listPatientModel.disposition = dgvPatient.Rows[e.RowIndex].Cells[9].Value.ToString() ?? "";
+                    listPatientModel.DiagCode = dgvPatient.Rows[e.RowIndex].Cells[13].Value.ToString() ?? "";
                 }
 
                 frmConsultation frmConsultation = new frmConsultation(listPatientModel);

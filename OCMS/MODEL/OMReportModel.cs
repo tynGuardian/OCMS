@@ -13,6 +13,7 @@ namespace OCMS.MODEL
         public DateTime? time_in { get; set; }
         public DateTime? time_out { get; set; }
         public int? Age { get; set; }
+        public string BirthDate { get; set; }
         public string gender { get; set; }
         public string complaint1 { get; set; }
         public string complaint2 { get; set; }

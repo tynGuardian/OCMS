@@ -297,7 +297,13 @@ namespace OCMS
             }
 
         }
-        
+
+        private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VIEW.frmOMReport objfrmOMReport = new VIEW.frmOMReport();
+            objfrmOMReport.StartPosition = FormStartPosition.CenterScreen;
+            objfrmOMReport.Show();
+        }
     }
 }
 

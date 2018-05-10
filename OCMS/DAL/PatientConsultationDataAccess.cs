@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using OCMS.MODEL;
 using System.Data;
+using OCMS.Class;
 
 namespace OCMS.DAL
 {
@@ -112,8 +113,8 @@ namespace OCMS.DAL
                             PatientComplaintModel = new PatientComplaintModel();
 
                             PatientComplaintModel.ConsultatonId = dr["consultaton_id"].ToString() ?? " ";
-                            PatientComplaintModel.geid = dr["geid"].ToString() ?? " ";
-                            PatientComplaintModel.EmpName = dr["EmployeeName"].ToString() ?? " ";
+                            PatientComplaintModel.geid = clsUtility.Decrypt(dr["geid"].ToString()) ?? " ";
+                            PatientComplaintModel.EmpName = clsUtility.Decrypt(dr["EmployeeName"].ToString()) ?? " ";
                             PatientComplaintModel.Complaints = dr["patient_complaints"].ToString() ?? " ";
                             PatientComplaintModel.Medicine = dr["medicine"].ToString() ?? " ";
                             PatientComplaintModel.CreatedBy = dr["created_by"].ToString() ?? " ";
@@ -123,6 +124,7 @@ namespace OCMS.DAL
                             PatientComplaintModel.diagnosis = dr["Diagnosis"].ToString() ?? " ";
                             PatientComplaintModel.disposition = dr["Disposition"].ToString() ?? " ";
                             PatientComplaintModel.MedicineValue = dr["medicinevalue"].ToString() ?? " ";
+                            PatientComplaintModel.DiagCode = dr["diagcode"].ToString() ?? " ";
 
                             listModel.Add(PatientComplaintModel);
 

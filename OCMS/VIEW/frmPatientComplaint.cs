@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OCMS.MODEL;
 using OCMS.Bussiness;
-
+using OCMS.Class;
 namespace OCMS.VIEW
 {
     public partial class frmPatientComplaint : Form
@@ -81,8 +81,8 @@ namespace OCMS.VIEW
                 else
                 {
                     PatientComplaintModel.ConsultatonId = Guid.NewGuid().ToString();
-                    PatientComplaintModel.EmpName = txtFullName.Text.ToUpper();
-                    PatientComplaintModel.geid = txtGEID.Text;
+                    PatientComplaintModel.EmpName = clsUtility.Encrypt(txtFullName.Text.ToUpper());
+                    PatientComplaintModel.geid = clsUtility.Encrypt(txtGEID.Text);
 
                     //Getting Complaints items on the listView
                     string complaints = "";
@@ -201,7 +201,7 @@ namespace OCMS.VIEW
         private void txtGEID_Leave(object sender, EventArgs e)
         {
             List<GetEmployeeDetailsModel> listEmpModel = new List<GetEmployeeDetailsModel>();
-            listEmpModel = EmpBusiness.GetEmployeeDetails(txtGEID.Text);
+            listEmpModel = EmpBusiness.GetEmployeeDetails(clsUtility.Encrypt(txtGEID.Text));
             if (listEmpModel.Count > 0)
             {
                 foreach (var item in listEmpModel)
