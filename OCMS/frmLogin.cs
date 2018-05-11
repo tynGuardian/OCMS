@@ -17,7 +17,7 @@ namespace OCMS
             InitializeComponent();
             //this.AcceptButton = btnLogin;
         }
-        
+
         private void patientMasterListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -55,12 +55,14 @@ namespace OCMS
             placeholder.Click += (sender, args) => { control.Focus(); };
 
             //disappear when the user starts typing
-            control.TextChanged += (sender, args) => {
+            control.TextChanged += (sender, args) =>
+            {
                 placeholder.Visible = string.IsNullOrEmpty(control.Text);
             };
 
             //stay the same size/location as the control
-            EventHandler updateSize = (sender, args) => {
+            EventHandler updateSize = (sender, args) =>
+            {
                 placeholder.Location = new Point(control.Location.X + 1, control.Location.Y);
                 placeholder.Size = new Size(control.Size.Width - 1, control.Size.Height);
             };
@@ -131,7 +133,8 @@ namespace OCMS
             //conn = clsUtility.Encrypt(conn.ToString());
 
             //string test = "Medicard!1";
-            //test = clsUtility.Encrypt(test.ToString());
+            //test = clsUtility.Encrypt(test.ToString());           
+
             DBResource newConnection = new DBResource();
 
             if (newConnection.IsAvailable(newConnection.connectionString.ToString()))
@@ -139,9 +142,6 @@ namespace OCMS
                 Cursor.Current = Cursors.AppStarting;
                 UsersBusiness usersbusiness = new UsersBusiness();
                 var user = new UsersModel();
-
-                //clsGlobal.userGlbl = textUsername.Text;
-                //TO Do, Add Role
 
                 user.usercode = textUsername.Text;
                 user.userpass = clsUtility.Encrypt(textPassword.Text);
@@ -154,24 +154,6 @@ namespace OCMS
                     objfrmMain.Closed += (s, args) => this.Close();
                     objfrmMain.ShowDialog();
 
-
-                    //if (Class.clsGlobal.lblrole == "Nurse")
-                    //{
-                    //    this.Hide();
-                    //    this.Close();
-                    //    frmMain objfrmMain = new frmMain();
-                    //    objfrmMain.ShowDialog();
-
-                    //    //patientMasterListToolStripMenuItem_Click(sender, e);
-
-                    //}
-                    //else
-                    //{
-                    //    this.Hide();
-                    //    frmMain objfrmMain = new frmMain();
-                    //    objfrmMain.Closed += (s, args) => this.Close();
-                    //    objfrmMain.ShowDialog();
-                    //}
                 }
                 else
                 {
@@ -183,7 +165,7 @@ namespace OCMS
             {
                 MessageBox.Show("Please check your database connection!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -213,14 +195,23 @@ namespace OCMS
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Close();
+            if (cmbRole.Text.Equals("activate"))
+            {
+                frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
+                cmbRole.Text = string.Empty;
+                objfrmDatabaseSettings.ShowDialog();
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            
+
         }
-        
+
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -335,6 +326,7 @@ namespace OCMS
                 frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
                 objfrmDatabaseSettings.ShowDialog();
             }
+
         }
 
         private void label3_Click_1(object sender, EventArgs e)
@@ -356,6 +348,7 @@ namespace OCMS
                 frmDatabaseSettings objfrmDatabaseSettings = new frmDatabaseSettings();
                 objfrmDatabaseSettings.ShowDialog();
             }
+
         }
     }
 }
