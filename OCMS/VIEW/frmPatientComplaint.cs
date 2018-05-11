@@ -164,7 +164,13 @@ namespace OCMS.VIEW
             cmbMedicine.DisplayMember = "genericName";
             cmbMedicine.ValueMember = "genericId";
             //END
-            
+
+            //BEGIN GET QUANTITY
+            cmbMedQuantity.DataSource = consultationBusiness.getQuantity();
+            cmbMedQuantity.DisplayMember = "Quantity";
+            cmbMedQuantity.ValueMember = "Quantity";
+            //END
+
         }
 
         private void cmbMedQuantity_SelectedIndexChanged(object sender, EventArgs e)

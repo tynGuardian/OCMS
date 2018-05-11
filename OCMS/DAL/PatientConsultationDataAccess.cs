@@ -191,5 +191,44 @@ namespace OCMS.DAL
             }
         }
 
+        public List<QuantityModel> getQuantity()
+        {
+            try
+            {
+                DBResource newConnection = new DBResource();
+
+                List<QuantityModel> listModel = new List<QuantityModel>();
+                QuantityModel quantityModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+                    string query = "dbo.GetAllQuantity";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            quantityModel = new QuantityModel();
+
+                            quantityModel.quantity = Convert.ToInt32(dr["Quantity"]);
+
+                            listModel.Add(quantityModel);
+                        }
+                        myConnection.Close();
+                    }
+                }
+
+                return listModel;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

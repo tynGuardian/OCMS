@@ -22,6 +22,11 @@ namespace OCMS.VIEW
 
         ConsultationBusiness _bll = new ConsultationBusiness();
 
+        public frmConsultation()
+        {
+            InitializeComponent();
+        }
+
         public frmConsultation(MemberModel model)
         {
             InitializeComponent();
@@ -30,12 +35,13 @@ namespace OCMS.VIEW
             txtGender.Text = model.Gender;
             txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
             membercode = model.MemberCode;
-            txtBday.Text = model.BDate;
+            //txtBday.Text = model.BDate;
         }
+
         public frmConsultation(PatientComplaintModel patientModel)
         {
             InitializeComponent();
-            if (patientModel.Complaints!="")
+            if (patientModel.Complaints != "")
             {
                 string[] words = patientModel.Complaints.Split(',');
                 foreach (string word in words)
@@ -90,11 +96,11 @@ namespace OCMS.VIEW
             txtEmpName.Text = patientModel.EmpName;
             txtCompany.Text = patientModel.Company;
             txtTimeIn.Text = Convert.ToDateTime(patientModel.CreatedDate).ToString();
-            
+
             consultationID = patientModel.ConsultatonId;
             GEID = patientModel.geid;
             membercode = patientModel.membercode;
-            
+
             //Manipulate Access Role
             if (clsGlobal.lblrole == "Nurse")
             {
@@ -130,6 +136,12 @@ namespace OCMS.VIEW
             cmbComplaint.ValueMember = "complaint";
             //END
 
+            //BEGIN GET QUANTITY
+            cmbMedQuantity.DataSource = compBusiness.getQuantity();
+            cmbMedQuantity.DisplayMember = "Quantity";
+            cmbMedQuantity.ValueMember = "Quantity";
+            //END
+
             if (disposition != "" || disposition != null)
             {
                 cmbDisposition.Text = disposition;
@@ -142,7 +154,7 @@ namespace OCMS.VIEW
 
         private void listComplaint_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            DialogResult msg = MessageBox.Show("Are you sure you want to remove this complaint ?", "OCMS", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this complaint ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (msg == DialogResult.Yes)
             {
@@ -179,7 +191,7 @@ namespace OCMS.VIEW
                 {
                     complaints += item.ToString() + ",";
                 }
-                if (complaints =="")
+                if (complaints == "")
                 {
                     complaints = "";
                     consultationModel.Complaints = complaints;
@@ -199,7 +211,7 @@ namespace OCMS.VIEW
                         medicine += itemRow.Text + "," + itemRow.SubItems[1].Text + ",";
                     }
                 }
-                if (medicine =="")
+                if (medicine == "")
                 {
                     medicine = "";
                     consultationModel.Medicine = medicine;
@@ -235,7 +247,7 @@ namespace OCMS.VIEW
                         consultationModel.DiagCode = diagnosis;
                     }
                 }
-                
+
                 _bll.saveConsultation(consultationModel);
                 MessageBox.Show("Successfully saved!", "OCMS", MessageBoxButtons.OK);
                 ClearAllText();
@@ -251,7 +263,7 @@ namespace OCMS.VIEW
 
         private void lvMedicine_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            DialogResult msg = MessageBox.Show("Are you sure you want to remove this medicine ?", "OCMS", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this medicine ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (msg == DialogResult.Yes)
             {
@@ -269,7 +281,7 @@ namespace OCMS.VIEW
 
         private void lvDiagnosis_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            DialogResult msg = MessageBox.Show("Are you sure you want to remove this diagnosis ?", "OCMS", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this diagnosis ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (msg == DialogResult.Yes)
             {
@@ -406,8 +418,8 @@ namespace OCMS.VIEW
             lvDiagnosis.View = View.Details;
             lvDiagnosis.Columns.Add("Diagnosis", 300);
             lvDiagnosis.Columns.Add("Diag_Code", 100);
-            
-            
+
+
             string[] arrMed = new string[2];
             ListViewItem item;
 
@@ -453,6 +465,24 @@ namespace OCMS.VIEW
                 }
 
             }
+        }
+
+        private void dtpTimeOut_ValueChanged(object sender, EventArgs e)
+        {
+            dtpTimeOut.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            dtpTimeOutTime.Text = DateTime.Now.ToString("HH:mm:ss tt");
+
+            txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            DateTime timeOut = dtpTimeOut.Value.ToUniversalTime();
+            DateTime timeIn = DateTime.Parse(txtTimeIn.Text).ToUniversalTime();
+
+            if (timeIn > timeOut)
+            {
+                dtpTimeOut.Value = DateTime.Now;
+                MessageBox.Show("Time Out cannot be less than your Time In", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
         }
     }
 }

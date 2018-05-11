@@ -182,15 +182,6 @@
         8PHy8/QN/gd3YtMDZlYAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>In compliance with Republic Act 10173 also known as the Data Privacy Act of 2012, we need your Consent to allow us to collect and process your information. We will only disclose and share your information with our accredited healthcare providers who may also be responsible in rendering appropriate medical services to you.
-
-Withholding or withdrawal of such Consent shall relieve us from our obligation to deliver the appropriate services to you.
-
-You are afforded with certain rights and protection in accordance with the said Act and you may visit www.medicardphils.com/privacy or email privacy@medicardphils.com for more information.
-
-By ticking the box below, we will consider that you agree to give your Consent to us.</value>
-  </data>
   <data name="btnPAddComplaint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERET
@@ -212,6 +203,15 @@ By ticking the box below, we will consider that you agree to give your Consent t
         Pp09q4sPiquGlzU3Y9qvh6dePLUVzgvB/wAAfh9puom9kg1DUPJkykN5cBo8+6qo3fQ5FdlTOsXVjy3t
         6HFDJsJCXNy39T2NEWNFRFCqowqgYAHpXlnqH//Z
 </value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>In compliance with Republic Act 10173 also known as the Data Privacy Act of 2012, we need your Consent to allow us to collect and process your information. We will only disclose and share your information with our accredited healthcare providers who may also be responsible in rendering appropriate medical services to you.
+
+Withholding or withdrawal of such Consent shall relieve us from our obligation to deliver the appropriate services to you.
+
+You are afforded with certain rights and protection in accordance with the said Act and you may visit www.medicardphils.com/privacy or email privacy@medicardphils.com for more information.
+
+By ticking the box below, we will consider that you agree to give your Consent to us.</value>
   </data>
   <data name="rectangleShape1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

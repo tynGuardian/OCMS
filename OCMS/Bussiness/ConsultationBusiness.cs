@@ -88,5 +88,20 @@ namespace OCMS.Bussiness
                 throw ex;
             }
         }
+
+        public List<QuantityModel> getQuantity()
+        {
+            try
+            {
+                PatientConsultationDataAccess patientConsultationDataAccess = new PatientConsultationDataAccess();
+                List<QuantityModel> quantList = patientConsultationDataAccess.getQuantity();
+                return quantList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

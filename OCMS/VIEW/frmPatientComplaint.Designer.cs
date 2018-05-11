@@ -120,11 +120,9 @@
             // 
             // cmbMedQuantity
             // 
+            this.cmbMedQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedQuantity.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedQuantity.FormattingEnabled = true;
-            this.cmbMedQuantity.Items.AddRange(new object[] {
-            "1",
-            "2"});
             this.cmbMedQuantity.Location = new System.Drawing.Point(377, 232);
             this.cmbMedQuantity.Name = "cmbMedQuantity";
             this.cmbMedQuantity.Size = new System.Drawing.Size(37, 24);
@@ -175,6 +173,7 @@
             // 
             this.cmbMedicine.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbMedicine.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbMedicine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedicine.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedicine.FormattingEnabled = true;
             this.cmbMedicine.Location = new System.Drawing.Point(111, 232);

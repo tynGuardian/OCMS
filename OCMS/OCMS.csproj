@@ -21,6 +21,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>OCMS</ProductName>
+    <PublisherName>Medicard Philipines Inc.</PublisherName>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
@@ -122,7 +124,6 @@
     <Compile Include="Bussiness\OMReportBusiness.cs" />
     <Compile Include="Bussiness\PatientComplainBusiness.cs" />
     <Compile Include="Bussiness\UsersBusiness.cs" />
-    <Compile Include="Class\AESManagedProc.cs" />
     <Compile Include="Class\clsMain.cs" />
     <Compile Include="Bussiness\ConsultationBusiness.cs" />
     <Compile Include="Bussiness\MemberBussiness.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="MODEL\MedicineModel.cs" />
     <Compile Include="MODEL\OMReportModel.cs" />
     <Compile Include="MODEL\PatientComplaintModel.cs" />
+    <Compile Include="MODEL\QuantityModel.cs" />
     <Compile Include="MODEL\RoleModel.cs" />
     <Compile Include="MODEL\UsersModel.cs" />
     <Compile Include="frmConfirmationPage.cs">

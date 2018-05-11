@@ -72,5 +72,19 @@ namespace OCMS.Bussiness
             }
         }
 
+        public List<QuantityModel> getQuantity()
+        {
+            try
+            {
+                List<QuantityModel> quantList = _dataAccess.getQuantity();
+                return quantList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }
