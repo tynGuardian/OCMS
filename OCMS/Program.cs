@@ -18,7 +18,7 @@ namespace OCMS
             //frmLogin objfrmLogin = new frmLogin();
             //objfrmLogin.ShowDialog();
 
-            frmPatientComplaint objfrmLogin = new frmPatientComplaint();
+            frmPatientList objfrmLogin = new frmPatientList();
             objfrmLogin.ShowDialog();
 
         }

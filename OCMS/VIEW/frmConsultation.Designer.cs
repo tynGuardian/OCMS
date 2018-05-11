@@ -65,6 +65,7 @@
             this.listComplaint = new System.Windows.Forms.ListBox();
             this.lblMed = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
+            this.txtTimeInTime = new System.Windows.Forms.TextBox();
             this.grpPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,10 +73,10 @@
             // grpPatient
             // 
             this.grpPatient.BackColor = System.Drawing.Color.Transparent;
+            this.grpPatient.Controls.Add(this.txtTimeInTime);
             this.grpPatient.Controls.Add(this.dtpTimeOutTime);
-            this.grpPatient.Controls.Add(this.dtpTimeOut);
-            this.grpPatient.Controls.Add(this.label2);
             this.grpPatient.Controls.Add(this.txtCompany);
+            this.grpPatient.Controls.Add(this.dtpTimeOut);
             this.grpPatient.Controls.Add(this.label1);
             this.grpPatient.Controls.Add(this.txtTimeIn);
             this.grpPatient.Controls.Add(this.txtEmpName);
@@ -84,7 +85,7 @@
             this.grpPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpPatient.Location = new System.Drawing.Point(11, 30);
             this.grpPatient.Name = "grpPatient";
-            this.grpPatient.Size = new System.Drawing.Size(468, 103);
+            this.grpPatient.Size = new System.Drawing.Size(468, 123);
             this.grpPatient.TabIndex = 0;
             this.grpPatient.TabStop = false;
             // 
@@ -92,7 +93,7 @@
             // 
             this.dtpTimeOutTime.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTimeOutTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpTimeOutTime.Location = new System.Drawing.Point(343, 67);
+            this.dtpTimeOutTime.Location = new System.Drawing.Point(244, 94);
             this.dtpTimeOutTime.Name = "dtpTimeOutTime";
             this.dtpTimeOutTime.Size = new System.Drawing.Size(99, 22);
             this.dtpTimeOutTime.TabIndex = 14;
@@ -102,10 +103,10 @@
             // 
             this.dtpTimeOut.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTimeOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTimeOut.Location = new System.Drawing.Point(243, 67);
+            this.dtpTimeOut.Location = new System.Drawing.Point(119, 94);
             this.dtpTimeOut.MinimumSize = new System.Drawing.Size(5, 5);
             this.dtpTimeOut.Name = "dtpTimeOut";
-            this.dtpTimeOut.Size = new System.Drawing.Size(96, 22);
+            this.dtpTimeOut.Size = new System.Drawing.Size(119, 22);
             this.dtpTimeOut.TabIndex = 13;
             this.dtpTimeOut.Value = new System.DateTime(2018, 4, 4, 0, 0, 0, 0);
             this.dtpTimeOut.ValueChanged += new System.EventHandler(this.dtpTimeOut_ValueChanged);
@@ -113,8 +114,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(168, 69);
+            this.label2.Location = new System.Drawing.Point(15, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 10;
@@ -145,9 +147,9 @@
             this.txtTimeIn.BackColor = System.Drawing.Color.White;
             this.txtTimeIn.Enabled = false;
             this.txtTimeIn.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeIn.Location = new System.Drawing.Point(66, 66);
+            this.txtTimeIn.Location = new System.Drawing.Point(120, 69);
             this.txtTimeIn.Name = "txtTimeIn";
-            this.txtTimeIn.Size = new System.Drawing.Size(96, 22);
+            this.txtTimeIn.Size = new System.Drawing.Size(118, 22);
             this.txtTimeIn.TabIndex = 7;
             // 
             // txtEmpName
@@ -253,7 +255,7 @@
             this.groupBox1.Controls.Add(this.lblMed);
             this.groupBox1.Controls.Add(this.lblQuantity);
             this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Book", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 140);
+            this.groupBox1.Location = new System.Drawing.Point(12, 144);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(460, 367);
             this.groupBox1.TabIndex = 27;
@@ -469,6 +471,16 @@
             this.lblQuantity.TabIndex = 28;
             this.lblQuantity.Text = "Quantity:";
             // 
+            // txtTimeInTime
+            // 
+            this.txtTimeInTime.BackColor = System.Drawing.Color.White;
+            this.txtTimeInTime.Enabled = false;
+            this.txtTimeInTime.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimeInTime.Location = new System.Drawing.Point(244, 69);
+            this.txtTimeInTime.Name = "txtTimeInTime";
+            this.txtTimeInTime.Size = new System.Drawing.Size(99, 22);
+            this.txtTimeInTime.TabIndex = 15;
+            // 
             // frmConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +490,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(487, 515);
             this.Controls.Add(this.btnSaveConsultation);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpPatient);
             this.Controls.Add(this.button1);
@@ -539,5 +552,6 @@
         private System.Windows.Forms.ListBox listComplaint;
         private System.Windows.Forms.Label lblMed;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.TextBox txtTimeInTime;
     }
 }

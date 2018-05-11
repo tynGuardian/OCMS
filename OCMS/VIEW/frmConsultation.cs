@@ -34,6 +34,7 @@ namespace OCMS.VIEW
             txtAge.Text = model.Age;
             txtGender.Text = model.Gender;
             txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            txtTimeInTime.Text = Convert.ToDateTime(txtTimeIn.Text).ToLocalTime().ToString();
             membercode = model.MemberCode;
             //txtBday.Text = model.BDate;
         }
@@ -95,7 +96,8 @@ namespace OCMS.VIEW
             disposition = patientModel.disposition;
             txtEmpName.Text = patientModel.EmpName;
             txtCompany.Text = patientModel.Company;
-            txtTimeIn.Text = Convert.ToDateTime(patientModel.CreatedDate).ToString();
+            txtTimeIn.Text = Convert.ToDateTime(patientModel.CreatedDate).ToString("MM/dd/yyyy");
+            txtTimeInTime.Text = Convert.ToDateTime(patientModel.CreatedDate).ToString("h:mm tt");
 
             consultationID = patientModel.ConsultatonId;
             GEID = patientModel.geid;
@@ -181,7 +183,7 @@ namespace OCMS.VIEW
                 consultationModel.ConsultatonId = consultationID;
                 consultationModel.GEID = GEID;
                 consultationModel.MemberCode = membercode;
-                consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text);
+                consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text).Date;
                 consultationModel.TimeOut = Convert.ToDateTime(dtpTimeOut.Text + " " + dtpTimeOutTime.Text);
                 consultationModel.Disposition = cmbDisposition.Text.ToString();
 
@@ -469,12 +471,8 @@ namespace OCMS.VIEW
 
         private void dtpTimeOut_ValueChanged(object sender, EventArgs e)
         {
-            dtpTimeOut.Text = DateTime.Now.ToString("MM/dd/yyyy");
-            dtpTimeOutTime.Text = DateTime.Now.ToString("HH:mm:ss tt");
-
-            txtTimeIn.Text = DateTime.Now.ToString("MM/dd/yyyy");
-            DateTime timeOut = dtpTimeOut.Value.ToUniversalTime();
-            DateTime timeIn = DateTime.Parse(txtTimeIn.Text).ToUniversalTime();
+            DateTime timeOut = dtpTimeOut.Value.Date;
+            DateTime timeIn = DateTime.Parse(txtTimeIn.Text).Date;
 
             if (timeIn > timeOut)
             {
