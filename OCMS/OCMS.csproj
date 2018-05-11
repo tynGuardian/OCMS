@@ -125,7 +125,6 @@
     <Compile Include="MODEL\PatientComplaintModel.cs" />
     <Compile Include="MODEL\RoleModel.cs" />
     <Compile Include="MODEL\UsersModel.cs" />
-    <Compile Include="Utilities.cs" />
     <Compile Include="frmConfirmationPage.cs">
       <SubType>Form</SubType>
     </Compile>

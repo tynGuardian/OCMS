@@ -45,18 +45,18 @@ namespace UnitTest
         //    Assert.IsNotNull(listMember);
         //}
 
-        [TestMethod]
-        public void GetMeberExcel()
-        {
-            MemberBussiness _bll = new MemberBussiness();
+        //[TestMethod]
+        //public void GetMeberExcel()
+        //{
+        //    MemberBussiness _bll = new MemberBussiness();
 
-            string filePath = "D:\\OCMS\\OH_MasterList\\CITIBANK SAVINGS, INC..xlsx";
-            string fileName = "CITIBANK SAVINGS, INC.";
+        //    string filePath = "D:\\OCMS\\OH_MasterList\\CITIBANK SAVINGS, INC..xlsx";
+        //    string fileName = "CITIBANK SAVINGS, INC.";
 
-            List<MemberModel> listMemModel = _bll.GetMemberExcel(filePath, fileName);
+        //    List<MemberModel> listMemModel = _bll.GetMemberExcel(filePath, fileName);
 
-            Assert.IsNotNull(listMemModel);
-        }
+        //    Assert.IsNotNull(listMemModel);
+        //}
 
         [TestMethod]
         public void savePatientComp()
@@ -78,9 +78,9 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void DecryptPassword()
+        public void DecryptPassword(string encrypt)
         {
-            string  password = clsUtility.Decrypt("WjDSrRNJ5xlS9ngbxsvgYMxx6UPAdEIxq9+T6D/OcCQ=");
+            string  password = clsUtility.Decrypt("6+ZFa85kU8GXl7B+QT1P2IqCyv+ag5z16LLICCSrwA4=");
 
             Assert.IsNotNull(password);
         }
@@ -89,7 +89,7 @@ namespace UnitTest
         public void encrypt()
         {
             //DateTime d = DateTime.Now.Date.ToString("MM-dd-yyyy");
-            string field = DateTime.Now.Date.ToString("MM/dd/yyyy");
+            string field = DateTime.Now.Date.ToString("1000243153");
 
             string toEncrypt = field.Replace(" ", string.Empty);
 
