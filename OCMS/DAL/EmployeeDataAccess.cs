@@ -22,7 +22,7 @@ namespace OCMS.DAL
                 List<EmployeeModel> listEmployeeModel = new List<EmployeeModel>();
 
                 String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                          FilePath + ";Extended Properties='Excel 12.0 XML;HDR=YES;IMEX=2;';";
+                                              FilePath + ";Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1;'";
 
                 OleDbConnection OleDb = new OleDbConnection(constr);
                 OleDb.Open();
@@ -81,15 +81,15 @@ namespace OCMS.DAL
                     comm.CommandText = "dbo.SaveListOfEmployee";
                     comm.CommandType = CommandType.StoredProcedure;
 
-                    comm.Parameters.AddWithValue("@GEID", clsUtility.Encrypt(listMemModel[i].GEID));
+                    comm.Parameters.AddWithValue("@GEID", listMemModel[i].GEID);
                     //comm.Parameters.AddWithValue("@CostCenter", listMemModel[i].CostCenter);
                     comm.Parameters.AddWithValue("@LegalVehicle", listMemModel[i].LegalVehicle);
                     //comm.Parameters.AddWithValue("@MemberType", listMemModel[i].MemberType);
-                    comm.Parameters.AddWithValue("@Membercode", clsUtility.Encrypt(listMemModel[i].Membercode));
-                    comm.Parameters.AddWithValue("@EmployeeName", clsUtility.Encrypt(listMemModel[i].EmployeeName));
+                    comm.Parameters.AddWithValue("@Membercode", listMemModel[i].Membercode);
+                    comm.Parameters.AddWithValue("@EmployeeName", listMemModel[i].EmployeeName);
                     comm.Parameters.AddWithValue("@Sex", listMemModel[i].Sex);
                     //comm.Parameters.AddWithValue("@CS", listMemModel[i].CS);
-                    comm.Parameters.AddWithValue("@BirthDate", clsUtility.Encrypt(listMemModel[i].BirthDate));
+                    comm.Parameters.AddWithValue("@BirthDate", listMemModel[i].BirthDate);
                     comm.Parameters.AddWithValue("@ImportedDate", ImportedDate);
                     comm.Parameters.AddWithValue("@ImportedBy", clsGlobal.usercode);
                     //comm.Parameters.AddWithValue("@EffectiveDate", listMemModel[i].EffectiveDate);
@@ -241,7 +241,7 @@ namespace OCMS.DAL
                 List<GetDuplicateGEIDModel> ListofDuplicate = new List<GetDuplicateGEIDModel>();
 
                 String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                          FilePath + ";Extended Properties='Excel 12.0 XML;HDR=YES;IMEX=2;';";
+                                              FilePath + ";Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1;'";
 
                 OleDbConnection OleDb = new OleDbConnection(constr);
                 OleDb.Open();
@@ -249,7 +249,7 @@ namespace OCMS.DAL
                 DataTable dt = new DataTable();
                 OleDbDataAdapter OleDa = new OleDbDataAdapter(string.Format("select [GEID #], [Name], [Legal Vehicle] from [{0}$] where [GEID #] in (select [GEID #] from [{0}$] where [Member Type] = 'P' group by [GEID #] having count(*) > 1) and [Member Type] = 'P'", "Sheet1"), constr);
                 OleDa.Fill(dt);
-
+                
                 IList<GetDuplicateGEIDModel> items = dt.AsEnumerable().Select(row =>
                 new GetDuplicateGEIDModel
                 {
