@@ -70,7 +70,7 @@ namespace OCMS.VIEW
                     }
                     else
                     {
-                        empdetails.UpdateEmployeeDetails(clsUtility.Encrypt(dgvEmployee.Rows[row.Index].Cells[1].Value.ToString()), dgvEmployee.Rows[row.Index].Cells[4].Value.ToString(), clsUtility.Encrypt(dgvEmployee.Rows[row.Index].Cells[2].Value.ToString()), clsUtility.Encrypt(dgvEmployee.Rows[row.Index].Cells[3].Value.ToString()), clsUtility.Encrypt(dgvEmployee.Rows[row.Index].Cells[5].Value.ToString()));
+                        empdetails.UpdateEmployeeDetails(dgvEmployee.Rows[row.Index].Cells[1].Value.ToString(), dgvEmployee.Rows[row.Index].Cells[4].Value.ToString(), dgvEmployee.Rows[row.Index].Cells[2].Value.ToString(), dgvEmployee.Rows[row.Index].Cells[3].Value.ToString(), dgvEmployee.Rows[row.Index].Cells[5].Value.ToString());
                     }
                 }
             }

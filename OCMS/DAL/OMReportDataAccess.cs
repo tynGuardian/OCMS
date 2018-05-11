@@ -32,13 +32,13 @@ namespace OCMS.DAL
                             while (dr.Read())
                             {
                                 OMReport = new OMReportModel();
-                                OMReport.Employee_id = clsUtility.Decrypt(dr["Employee_id"].ToString());
-                                OMReport.Employee_Name = clsUtility.Decrypt(dr["Employee_Name"].ToString());
+                                OMReport.Employee_id = dr["Employee_id"].ToString();
+                                OMReport.Employee_Name = dr["Employee_Name"].ToString();
                                 OMReport.created_date = Convert.ToDateTime(dr["date"]).ToShortDateString();
                                 OMReport.time_in = Convert.ToDateTime(dr["time_in"]);
                                 OMReport.time_out = Convert.ToDateTime(dr["time_out"]);
-                                OMReport.BirthDate = clsUtility.Decrypt(dr["BirthDate"].ToString());
-                                OMReport.Age = clsUtility.GetAge(DateTime.Now.ToString("MM/dd/yyyy"), clsUtility.Decrypt(dr["BirthDate"].ToString()));
+                                OMReport.BirthDate = dr["BirthDate"].ToString();
+                                OMReport.Age = clsUtility.GetAge(DateTime.Now.ToString("MM/dd/yyyy"), dr["BirthDate"].ToString());
                                 OMReport.gender = dr["gender"].ToString();
                                 OMReport.complaint1 = dr["complaint1"].ToString();
                                 OMReport.complaint2 = dr["complaint2"].ToString();

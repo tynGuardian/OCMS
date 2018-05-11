@@ -122,7 +122,6 @@
     <Compile Include="Bussiness\OMReportBusiness.cs" />
     <Compile Include="Bussiness\PatientComplainBusiness.cs" />
     <Compile Include="Bussiness\UsersBusiness.cs" />
-    <Compile Include="Class\AESManagedProc.cs" />
     <Compile Include="Class\clsMain.cs" />
     <Compile Include="Bussiness\ConsultationBusiness.cs" />
     <Compile Include="Bussiness\MemberBussiness.cs" />

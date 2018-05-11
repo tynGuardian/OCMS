@@ -113,8 +113,8 @@ namespace OCMS.DAL
                             PatientComplaintModel = new PatientComplaintModel();
 
                             PatientComplaintModel.ConsultatonId = dr["consultaton_id"].ToString() ?? " ";
-                            PatientComplaintModel.geid = clsUtility.Decrypt(dr["geid"].ToString()) ?? " ";
-                            PatientComplaintModel.EmpName = clsUtility.Decrypt(dr["EmployeeName"].ToString()) ?? " ";
+                            PatientComplaintModel.geid = dr["geid"].ToString() ?? " ";
+                            PatientComplaintModel.EmpName = dr["EmployeeName"].ToString() ?? " ";
                             PatientComplaintModel.Complaints = dr["patient_complaints"].ToString() ?? " ";
                             PatientComplaintModel.Medicine = dr["medicine"].ToString() ?? " ";
                             PatientComplaintModel.CreatedBy = dr["created_by"].ToString() ?? " ";

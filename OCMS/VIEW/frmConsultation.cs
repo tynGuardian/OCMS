@@ -167,7 +167,7 @@ namespace OCMS.VIEW
                 ConsultationModel consultationModel = new ConsultationModel();
 
                 consultationModel.ConsultatonId = consultationID;
-                consultationModel.GEID = clsUtility.Encrypt(GEID);
+                consultationModel.GEID = GEID;
                 consultationModel.MemberCode = membercode;
                 consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text);
                 consultationModel.TimeOut = Convert.ToDateTime(dtpTimeOut.Text + " " + dtpTimeOutTime.Text);
