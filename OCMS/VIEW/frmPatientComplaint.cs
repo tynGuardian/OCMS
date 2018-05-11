@@ -81,8 +81,8 @@ namespace OCMS.VIEW
                 else
                 {
                     PatientComplaintModel.ConsultatonId = Guid.NewGuid().ToString();
-                    PatientComplaintModel.EmpName = clsUtility.Encrypt(txtFullName.Text.ToUpper());
-                    PatientComplaintModel.geid = clsUtility.Encrypt(txtGEID.Text);
+                    PatientComplaintModel.EmpName = txtFullName.Text.ToUpper();
+                    PatientComplaintModel.geid = txtGEID.Text;
 
                     //Getting Complaints items on the listView
                     string complaints = "";
@@ -207,7 +207,7 @@ namespace OCMS.VIEW
         private void txtGEID_Leave(object sender, EventArgs e)
         {
             List<GetEmployeeDetailsModel> listEmpModel = new List<GetEmployeeDetailsModel>();
-            listEmpModel = EmpBusiness.GetEmployeeDetails(clsUtility.Encrypt(txtGEID.Text));
+            listEmpModel = EmpBusiness.GetEmployeeDetails(txtGEID.Text);
             if (listEmpModel.Count > 0)
             {
                 foreach (var item in listEmpModel)

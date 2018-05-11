@@ -171,11 +171,11 @@ namespace OCMS.DAL
                         while (dr.Read())
                         {
                             EmpDetailsModel = new EmployeeModel();
-                            EmpDetailsModel.GEID = clsUtility.Decrypt(dr["GEID"].ToString());
+                            EmpDetailsModel.GEID = dr["GEID"].ToString();
                             EmpDetailsModel.LegalVehicle = dr["LegalVehicle"].ToString();
-                            EmpDetailsModel.Membercode = clsUtility.Decrypt(dr["MemberCode"].ToString());
-                            EmpDetailsModel.EmployeeName = clsUtility.Decrypt(dr["EmployeeName"].ToString());
-                            EmpDetailsModel.BirthDate = clsUtility.Decrypt(dr["BirthDate"].ToString());
+                            EmpDetailsModel.Membercode = dr["MemberCode"].ToString();
+                            EmpDetailsModel.EmployeeName = dr["EmployeeName"].ToString();
+                            EmpDetailsModel.BirthDate = dr["BirthDate"].ToString();
                             EmpDetailsModel.Sex = dr["Sex"].ToString();
 
                             listEmpModel.Add(EmpDetailsModel);
@@ -219,7 +219,7 @@ namespace OCMS.DAL
                             EmpDetailsModel = new GetEmployeeDetailsModel();
 
                             EmpDetailsModel.LegalVehicle = dr["LegalVehicle"].ToString();
-                            EmpDetailsModel.EmpName = clsUtility.Decrypt(dr["EmployeeName"].ToString());
+                            EmpDetailsModel.EmpName = dr["EmployeeName"].ToString();
                             listEmpModel.Add(EmpDetailsModel);
                         }
                         myConnection.Close();

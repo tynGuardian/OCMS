@@ -33,8 +33,8 @@ namespace OCMS.VIEW
             }
             else
             {
-                dgvPatient.DataSource = _bll.getPatientList(clsUtility.Encrypt(txtSearch.Text));
-                listmodel1 = _bll.getPatientList(clsUtility.Encrypt(txtSearch.Text));
+                dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                listmodel1 = _bll.getPatientList(txtSearch.Text);
             }
             dgvPatient.Columns[0].Visible = false;
             dgvPatient.Columns[1].Visible = false;
@@ -105,13 +105,13 @@ namespace OCMS.VIEW
             try
             {
                 PatientComplainBusiness _bll = new PatientComplainBusiness();
-                //dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
-                DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList(""));
-                dgvPatient.DataSource = utility;
-                //listmodel1 = _bll.getPatientList("");
-                (dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
-                    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
-                (dgvPatient.DataSource as DataTable).DefaultView.ToTable();
+                dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList(""));
+                //dgvPatient.DataSource = utility;
+                ////listmodel1 = _bll.getPatientList("");
+                //(dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
+                //    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
+                //(dgvPatient.DataSource as DataTable).DefaultView.ToTable();
 
             }
             catch (Exception ex)
