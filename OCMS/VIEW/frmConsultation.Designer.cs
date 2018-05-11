@@ -109,7 +109,6 @@
             this.dtpTimeOut.Size = new System.Drawing.Size(119, 22);
             this.dtpTimeOut.TabIndex = 13;
             this.dtpTimeOut.Value = new System.DateTime(2018, 4, 4, 0, 0, 0, 0);
-            this.dtpTimeOut.ValueChanged += new System.EventHandler(this.dtpTimeOut_ValueChanged);
             // 
             // label2
             // 

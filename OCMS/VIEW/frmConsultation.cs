@@ -30,6 +30,7 @@ namespace OCMS.VIEW
         public frmConsultation(MemberModel model)
         {
             InitializeComponent();
+
             txtEmpName.Text = model.LName + ", " + model.FName + " " + model.MName;
             txtAge.Text = model.Age;
             txtGender.Text = model.Gender;
@@ -41,7 +42,8 @@ namespace OCMS.VIEW
 
         public frmConsultation(PatientComplaintModel patientModel)
         {
-            InitializeComponent();
+            InitializeComponent();            
+
             if (patientModel.Complaints != "")
             {
                 string[] words = patientModel.Complaints.Split(',');
@@ -151,6 +153,10 @@ namespace OCMS.VIEW
 
             dtpTimeOut.Text = DateTime.Now.ToString("MM/dd/yyyy");
             dtpTimeOutTime.Text = DateTime.Now.ToString("HH:mm:ss tt");
+
+            //DISABLE PREVIOUS DATE
+            dtpTimeOut.MinDate = DateTime.Now;
+
             AcceptButton = btnSaveConsultation;
         }
 
@@ -468,19 +474,6 @@ namespace OCMS.VIEW
 
             }
         }
-
-        private void dtpTimeOut_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime timeOut = dtpTimeOut.Value.Date;
-            DateTime timeIn = DateTime.Parse(txtTimeIn.Text).Date;
-
-            if (timeIn > timeOut)
-            {
-                dtpTimeOut.Value = DateTime.Now;
-                MessageBox.Show("Time Out cannot be less than your Time In", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-           
-        }
+        
     }
 }
