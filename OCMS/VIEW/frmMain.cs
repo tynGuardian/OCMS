@@ -251,7 +251,7 @@ namespace OCMS
                 ExistingDetails = _bll.GetEmployeeDetails();
                 if (ExistingDetails.Count > 0)
                 {
-                    MessageBox.Show("Please check the list of employee and update the correct details!", "OCMS", MessageBoxButtons.OK);
+                    MessageBox.Show("Please select the correct details of employee!", "OCMS", MessageBoxButtons.OK);
                     VIEW.frmEmployeeDetails objfrmEmployeeDetails = new VIEW.frmEmployeeDetails();
                     objfrmEmployeeDetails.StartPosition = FormStartPosition.CenterScreen;
                     objfrmEmployeeDetails.Show();

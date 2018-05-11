@@ -64,7 +64,8 @@ namespace OCMS.VIEW
                   BindingFlags.Instance | BindingFlags.NonPublic);
                 pi.SetValue(dgvPatient, true, null);
             }
-
+            //dgvPatient.RowsDefaultCellStyle.BackColor = Color.White;
+            //dgvPatient.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
         }
 
         private void dgvPatient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -204,6 +205,16 @@ namespace OCMS.VIEW
                 frmConsultation frmConsultation = new frmConsultation(listPatientModel);
                 frmConsultation.ShowDialog();
             }
+        }
+
+        private void dgvPatient_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvPatient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvPatient.CurrentRow.DefaultCellStyle.SelectionBackColor = Color.LightGray;
         }
     }
 }
