@@ -104,7 +104,7 @@ namespace OCMS.VIEW
 
                 //create a blank workbook
                 var workbook = exapp.Workbooks.Add(NsExcel.XlWBATemplate.xlWBATWorksheet);
-
+                
                 //or open one - this is no pleasant, but yue're probably interested in the first parameter
                 //string workbookPath = "D:/OMReportTemplate.xlsx";
                 //string workbookPath = Application.StartupPath + "/OMReportTemplate.xlsx";

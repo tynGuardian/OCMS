@@ -55,6 +55,7 @@ namespace OCMS.VIEW
             dgvPatient.Columns[11].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[13].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[14].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
+            dgvPatient.Columns[15].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
 
             if (!System.Windows.Forms.SystemInformation.TerminalServerSession)
             {

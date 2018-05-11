@@ -212,6 +212,7 @@ namespace OCMS
         {
             EmployeeBusiness _bll = new EmployeeBusiness();
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;";
             Cursor.Current = Cursors.WaitCursor;
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
