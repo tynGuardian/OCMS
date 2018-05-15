@@ -239,19 +239,19 @@ namespace OCMS
                     {
                         writer.WriteLine(listofDuplicate[i].GEID + " ; " + listofDuplicate[i].EmpName + " ; " + listofDuplicate[i].LegalVehicle);
                     }
-                    MessageBox.Show("Please check the list of duplicate GEID # in: " + fullpath, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please check the list of duplicate GEID # of the employee in: " + fullpath, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 writer.Close();
                 // Up to here
 
                 killExcel();
-                MessageBox.Show("Successfully Import List of Employee!", "OCMS", MessageBoxButtons.OK);
+                MessageBox.Show("Successfully Imported the List of Employee!", "OCMS", MessageBoxButtons.OK);
 
                 //Check if there is existing employee saved to database
                 ExistingDetails = _bll.GetEmployeeDetails();
                 if (ExistingDetails.Count > 0)
                 {
-                    MessageBox.Show("Please check the list of employee and update the correct details!", "OCMS", MessageBoxButtons.OK);
+                    MessageBox.Show("Please check the list of employee and choose the correct details!", "OCMS", MessageBoxButtons.OK);
                     VIEW.frmEmployeeDetails objfrmEmployeeDetails = new VIEW.frmEmployeeDetails();
                     objfrmEmployeeDetails.StartPosition = FormStartPosition.CenterScreen;
                     objfrmEmployeeDetails.Show();
