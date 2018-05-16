@@ -84,6 +84,8 @@ namespace OCMS
                 createUserLoginToolStripMenuItem.Enabled = false;
                 userListToolStripMenuItem.Enabled = false;
                 addCompanyDeploymentToolStripMenuItem.Enabled = false;
+                reportToolStripMenuItem.Visible = false;
+                reportToolStripMenuItem.Enabled = false;
             }
 
             if (ApplicationDeployment.IsNetworkDeployed)
