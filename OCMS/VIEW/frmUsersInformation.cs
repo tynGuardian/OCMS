@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using OCMS.DAL;
 using OCMS.Bussiness;
 using OCMS.MODEL;
 using OCMS.Class;
@@ -26,7 +20,7 @@ namespace OCMS.VIEW
             {
                 chkPrivilege.Visible = false;
                 btnSave.Location = new Point(149, 284);
-                button1.Location = new Point(230, 284);
+                btnCancel.Location = new Point(230, 284);
                 groupBox1.Size = new Size(325, 326);
                 this.Size = new Size(347, 346);
             }
@@ -76,16 +70,13 @@ namespace OCMS.VIEW
                         if (btnSave.Text == "Save")
                         {
                             MessageBox.Show("Users information successfully save.", "OCMS", MessageBoxButtons.OK);
+                            ClearAlltext();
                         }
                         else
                         {
                             MessageBox.Show("Successfully update users information.", "OCMS", MessageBoxButtons.OK);
+                            ClearAlltext();
                         }
-
-                        //this.Hide();
-                        //frmMain objfrmMain = new frmMain();
-                        //objfrmMain.Closed += (s, args) => this.Close();
-                        //objfrmMain.ShowDialog();
                     }
                     else
                     {
@@ -126,16 +117,13 @@ namespace OCMS.VIEW
                         if (btnSave.Text == "Save")
                         {
                             MessageBox.Show("Users information successfully save.", "OCMS", MessageBoxButtons.OK);
+                            ClearAlltext();
                         }
                         else
                         {
                             MessageBox.Show("Successfully update users information.", "OCMS", MessageBoxButtons.OK);
+                            ClearAlltext();
                         }
-
-                        //this.Hide();
-                        //frmMain objfrmMain = new frmMain();
-                        //objfrmMain.Closed += (s, args) => this.Close();
-                        //objfrmMain.ShowDialog();
                     }
                     else
                     {
@@ -154,15 +142,6 @@ namespace OCMS.VIEW
             cmbRole.DataSource = usersdata.getRole(1);
             cmbRole.DisplayMember = "role";
             cmbRole.ValueMember = "role";
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //frmLogin objfrmLogin = new frmLogin();
-            //objfrmLogin.Closed += (s, args) => this.Close();
-            //objfrmLogin.ShowDialog();
-            Close();
         }
 
         private void btnSave_Click_1(object sender, EventArgs e)
@@ -193,10 +172,6 @@ namespace OCMS.VIEW
             {
                 btnSave_Click_1(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                Close();
-            }
         }
 
         private void textLname_KeyDown(object sender, KeyEventArgs e)
@@ -204,13 +179,6 @@ namespace OCMS.VIEW
             if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click_1(sender, e);
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
             }
         }
 
@@ -220,13 +188,6 @@ namespace OCMS.VIEW
             {
                 btnSave_Click_1(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
-            }
         }
 
         private void textMname_KeyDown(object sender, KeyEventArgs e)
@@ -234,13 +195,6 @@ namespace OCMS.VIEW
             if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click_1(sender, e);
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
             }
         }
 
@@ -250,13 +204,6 @@ namespace OCMS.VIEW
             {
                 btnSave_Click_1(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
-            }
         }
 
         private void cmbRole_KeyDown(object sender, KeyEventArgs e)
@@ -264,13 +211,6 @@ namespace OCMS.VIEW
             if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click_1(sender, e);
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
             }
         }
 
@@ -280,13 +220,6 @@ namespace OCMS.VIEW
             {
                 btnSave_Click_1(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
-            }
         }
 
         private void textPassword_KeyDown(object sender, KeyEventArgs e)
@@ -294,13 +227,6 @@ namespace OCMS.VIEW
             if (e.KeyCode == Keys.Enter)
             {
                 btnSave_Click_1(sender, e);
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
             }
         }
 
@@ -310,13 +236,13 @@ namespace OCMS.VIEW
             {
                 btnSave_Click_1(sender, e);
             }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                this.Hide();
-                frmLogin objfrmLogin = new frmLogin();
-                objfrmLogin.Closed += (s, args) => this.Close();
-                objfrmLogin.ShowDialog();
-            }
+            //else if (e.KeyCode == Keys.Escape)
+            //{
+            //    this.Hide();
+            //    frmLogin objfrmLogin = new frmLogin();
+            //    objfrmLogin.Closed += (s, args) => this.Close();
+            //    objfrmLogin.ShowDialog();
+            //}
         }
         public void ClearAlltext()
         {
@@ -328,6 +254,11 @@ namespace OCMS.VIEW
             textPassword.Text = "";
             textCpassword.Text = "";
             chkPrivilege.Checked = false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

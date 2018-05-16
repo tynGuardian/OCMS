@@ -54,11 +54,11 @@ namespace OCMS.VIEW
                         if (report_count > 0)
                         {
                             ListToExcel(listOfEmployees);
-                            MessageBox.Show("Successfully Generate Report!", "OCMS",MessageBoxButtons.OK);
+                            MessageBox.Show("You have successfully generate the report!", "OCMS",MessageBoxButtons.OK);
                         }
                         else
                         {
-                            MessageBox.Show("No record found!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No record found! Kindly choose another date range.", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
@@ -70,14 +70,14 @@ namespace OCMS.VIEW
                         }
                         else
                         {
-                            MessageBox.Show("No record found!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No record found! Kindly choose another date range.", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to display report!" + " ," + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to display report!. Kindly coordinate this to you IT Department." + " ," + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Cursor.Current = Cursors.Default;
@@ -212,7 +212,7 @@ namespace OCMS.VIEW
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to display report!" + " ," + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to display report! Kindly coordinate this to your IT Department." + " ," + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

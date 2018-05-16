@@ -41,85 +41,80 @@ namespace OCMS
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
-            windowToolStripMenuItem.Visible = false;
-            closeChildToolStripMenuItem.Visible = false;
-            //MOD BY KNG
-            if (Properties.Settings.Default.Company == "")
-            {
-                toolStripLabel4.Text = "Company: " ;
-            }
-            else
-            {
-                toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
-            }
 
-            if (clsGlobal.lblprivilege == "Power User")
+            try
             {
+                toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
+                windowToolStripMenuItem.Visible = false;
+                closeChildToolStripMenuItem.Visible = false;
+                //MOD BY KNG
                 if (Properties.Settings.Default.Company == "")
                 {
-                    MessageBox.Show("Please don't forget to update the company in Maintenance -> Company Deployment -> Press Ok", "OCMS", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    toolStripLabel4.Text = "Company: ";
                 }
-                windowToolStripMenuItem.Visible = false;
-                windowToolStripMenuItem.Enabled = false;
-                patientMasterListToolStripMenuItem.Visible = false;
-                patientMasterListToolStripMenuItem.Enabled = false;
-                importEmployeeToolStripMenuItem.Visible = false;
-                importEmployeeToolStripMenuItem.Enabled = false;
-                reportToolStripMenuItem.Visible = false;
-                reportToolStripMenuItem.Enabled = false;
-                closeChildToolStripMenuItem.Visible = false;
-                closeChildToolStripMenuItem.Enabled = false;
-                userListToolStripMenuItem.Visible = false;
-                userListToolStripMenuItem.Enabled = false;
-            }
-            else if (clsGlobal.lblprivilege == "Admin")
-            {
-                addCompanyDeploymentToolStripMenuItem.Visible = false;
-                addCompanyDeploymentToolStripMenuItem.Enabled = false;
-            }
-            else if (clsGlobal.lblprivilege == "User")
-            {
-                maintenanceToolStripMenuItem.Visible = false;
-                createUserLoginToolStripMenuItem.Enabled = false;
-                userListToolStripMenuItem.Enabled = false;
-                addCompanyDeploymentToolStripMenuItem.Enabled = false;
-                reportToolStripMenuItem.Visible = false;
-                reportToolStripMenuItem.Enabled = false;
-            }
+                else
+                {
+                    toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
+                }
 
-            if (ApplicationDeployment.IsNetworkDeployed)
-            {
-                AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                SystemVersion = AssemblyVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            }
-            else
-            {
-                SystemVersion = Application.ProductVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            }
+                if (clsGlobal.lblprivilege == "Power User")
+                {
+                    if (Properties.Settings.Default.Company == "")
+                    {
+                        MessageBox.Show("Please don't forget to assign a company." + "\n" + "Go to Maintenance, select Company Deployment, encode the Company Name, then Press Ok." + "\n" +
+                            "Or simply press Ctrl + D, encode the Company Name, then Press Ok", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    windowToolStripMenuItem.Visible = false;
+                    windowToolStripMenuItem.Enabled = false;
+                    patientMasterListToolStripMenuItem.Visible = false;
+                    patientMasterListToolStripMenuItem.Enabled = false;
+                    importEmployeeToolStripMenuItem.Visible = false;
+                    importEmployeeToolStripMenuItem.Enabled = false;
+                    reportToolStripMenuItem.Visible = false;
+                    reportToolStripMenuItem.Enabled = false;
+                    closeChildToolStripMenuItem.Visible = false;
+                    closeChildToolStripMenuItem.Enabled = false;
+                    userListToolStripMenuItem.Visible = false;
+                    userListToolStripMenuItem.Enabled = false;
+                }
+                else if (clsGlobal.lblprivilege == "Admin")
+                {
+                    addCompanyDeploymentToolStripMenuItem.Visible = false;
+                    addCompanyDeploymentToolStripMenuItem.Enabled = false;
+                }
+                else if (clsGlobal.lblprivilege == "User")
+                {
+                    maintenanceToolStripMenuItem.Visible = false;
+                    createUserLoginToolStripMenuItem.Enabled = false;
+                    userListToolStripMenuItem.Enabled = false;
+                    addCompanyDeploymentToolStripMenuItem.Enabled = false;
+                    reportToolStripMenuItem.Visible = false;
+                    reportToolStripMenuItem.Enabled = false;
+                }
 
-            tmr = new System.Windows.Forms.Timer();
-            tmr.Interval = 1000;
-            tmr.Tick += new EventHandler(tmr_Tick);
-            tmr.Enabled = true;
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                    SystemVersion = AssemblyVersion.ToString();
+                    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+                }
+                else
+                {
+                    SystemVersion = Application.ProductVersion.ToString();
+                    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+                }
+
+                tmr = new System.Windows.Forms.Timer();
+                tmr.Interval = 1000;
+                tmr.Tick += new EventHandler(tmr_Tick);
+                tmr.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kindly coordinate this to your IT Department, " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw new Exception(ex.InnerException.Message);
+            }
         }
-        //public Version AssemblyVersion
-        //{
-        //    get
-        //    {
-        //        if(ApplicationDeployment.IsNetworkDeployed)
-        //        {
-        //            return ApplicationDeployment.CurrentDeployment.CurrentVersion;
-        //        }
-        //        else
-        //        {
-        //            return Application.ProductVersion.ToString();
-        //        }
-        //    }
-
-        //}
 
         private void mnuWindowCascade_Click(object sender, EventArgs e)
         {
@@ -146,14 +141,18 @@ namespace OCMS
 
         private void mnuFileExit_Click(object sender, EventArgs e)
         {
-            //Close();
-            //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
-            //objfrmConfirmationPage.ShowDialog();
-            
-            this.Hide();
-            frmLogin objfrmLogin = new frmLogin();
-            objfrmLogin.Closed += (s, args) => this.Close();
-            objfrmLogin.ShowDialog();
+            try
+            {
+                this.Hide();
+                frmLogin objfrmLogin = new frmLogin();
+                objfrmLogin.Closed += (s, args) => this.Close();
+                objfrmLogin.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kindly coordinate this to your IT Department, " + ex.Message, "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw new Exception(ex.InnerException.Message);
+            }
         }
 
         private void closeChildToolStripMenuItem_Click(object sender, EventArgs e)
@@ -172,11 +171,6 @@ namespace OCMS
                         _objOmList.Close();
                     }
                 }
-                //else
-                //{
-                //    closeChildToolStripMenuItem.Enabled = false;
-                //}
-
             }
             catch (Exception ex)
             {
@@ -195,8 +189,6 @@ namespace OCMS
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-
-                //frmOMList.dgvMember.DataSource = _bll.GetMemberExcel(filePath, fileName);
 
                 frmOMList.excelMemModel = _bll.GetMemberExcel(filePath, fileName);
                 frmOMList.MdiParent = this;
@@ -237,7 +229,7 @@ namespace OCMS
                 string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
                 List<GetDuplicateGEIDModel> listofDuplicate;
                 List<EmployeeModel> ExistingDetails;
-                
+
                 _bll.GetEmployeeExcel(filePath, fileName);
                 _bll.SaveListEmployee();
 
@@ -251,7 +243,7 @@ namespace OCMS
                 writer.WriteLine("GEID Number ; Employee Name ; Legal Vehicle");
                 if (listofDuplicate.Count > 0)
                 {
-                    
+
                     for (int i = 0; i <= listofDuplicate.Count - 1; i++)
                     {
                         writer.WriteLine(listofDuplicate[i].GEID + " ; " + listofDuplicate[i].EmpName + " ; " + listofDuplicate[i].LegalVehicle);
@@ -279,7 +271,7 @@ namespace OCMS
 
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void createUserLoginToolStripMenuItem_Click(object sender, EventArgs e)
@@ -290,7 +282,7 @@ namespace OCMS
             objFrmUserInfo.StartPosition = FormStartPosition.CenterScreen;
             objFrmUserInfo.Show();
         }
-       
+
         private void tmr_Tick(object sender, EventArgs e)
         {
             toolStripLabel3.Text = "Date and Time: " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:tt");
