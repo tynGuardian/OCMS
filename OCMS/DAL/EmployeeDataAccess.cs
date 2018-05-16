@@ -92,6 +92,7 @@ namespace OCMS.DAL
                     comm.Parameters.AddWithValue("@BirthDate", listMemModel[i].BirthDate);
                     comm.Parameters.AddWithValue("@ImportedDate", ImportedDate);
                     comm.Parameters.AddWithValue("@ImportedBy", clsGlobal.usercode);
+                    comm.Parameters.AddWithValue("@Key", "Medicard");
                     //comm.Parameters.AddWithValue("@EffectiveDate", listMemModel[i].EffectiveDate);
                     //comm.Parameters.AddWithValue("@ValidityDate", listMemModel[i].ValidityDate);
                     //comm.Parameters.AddWithValue("@Relation", listMemModel[i].Relation);
@@ -134,6 +135,7 @@ namespace OCMS.DAL
                 comm.Parameters.AddWithValue("@EmployeeName", empname);
                 comm.Parameters.AddWithValue("@BirthDate", bdate);
                 comm.Parameters.AddWithValue("@UpdateBy", Class.clsGlobal.usercode);
+                comm.Parameters.AddWithValue("@key", "Medicard");
 
                 comm.ExecuteNonQuery();
                 comm.Dispose();
@@ -161,7 +163,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetEmployeeDetails '',0";
+                    string query = "dbo.GetEmployeeDetails '',0,'Medicard'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 
@@ -207,7 +209,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetEmployeeDetails'" + GEID + "',1";
+                    string query = "dbo.GetEmployeeDetails'" + GEID + "',1,'Medicard'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 

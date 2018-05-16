@@ -189,7 +189,7 @@ namespace OCMS.VIEW
                 consultationModel.ConsultatonId = consultationID;
                 consultationModel.GEID = GEID;
                 consultationModel.MemberCode = membercode;
-                consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text).Date;
+                consultationModel.TimeIn = Convert.ToDateTime(txtTimeIn.Text + " " + txtTimeInTime.Text);
                 consultationModel.TimeOut = Convert.ToDateTime(dtpTimeOut.Text + " " + dtpTimeOutTime.Text);
                 consultationModel.Disposition = cmbDisposition.Text.ToString();
 

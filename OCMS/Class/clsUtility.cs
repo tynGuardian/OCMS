@@ -86,12 +86,21 @@ namespace OCMS.Class
         }
         public static int GetAge(string reference, string birthday)
         {
-            DateTime a = Convert.ToDateTime(reference);
-            DateTime b = Convert.ToDateTime(birthday);
-            int age = a.Year - b.Year;
-            if (a < b.AddYears(age)) age--;
+            int age;
+            if (birthday == string.Empty)
+            {
+                age = 0;
+                return age;
+            }
+            else
+            {
+                DateTime a = Convert.ToDateTime(reference);
+                DateTime b = Convert.ToDateTime(birthday);
+                age = a.Year - b.Year;
+                if (a < b.AddYears(age)) age--;
 
-            return age;
+                return age;
+            }
         }
     }
 }

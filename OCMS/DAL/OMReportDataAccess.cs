@@ -22,7 +22,7 @@ namespace OCMS.DAL
 
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
-                    string query = "dbo.GenerateOMReport '" + Convert.ToDateTime(datefrom).ToShortDateString() + "','" + Convert.ToDateTime(dateto).ToShortDateString() + "'";
+                    string query = "dbo.GenerateOMReport '" + Convert.ToDateTime(datefrom).ToShortDateString() + "','" + Convert.ToDateTime(dateto).ToShortDateString() + "','Medicard'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())

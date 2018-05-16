@@ -45,6 +45,7 @@ namespace OCMS.DAL
                 }
 
                 comm.Parameters.AddWithValue("@role", Class.clsGlobal.lblrole);
+                comm.Parameters.AddWithValue("@key", "Medicard");
 
                 comm.ExecuteNonQuery();
                 newConnection.DBClose();

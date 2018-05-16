@@ -331,10 +331,10 @@ namespace OCMS
 
         private void label3_Click_1(object sender, EventArgs e)
         {
-            Hide();
-            frmUsersInformation objFrmUserInfo = new frmUsersInformation();
-            objFrmUserInfo.Closed += (s, args) => this.Close();
-            objFrmUserInfo.ShowDialog();
+            //Hide();
+            //frmUsersInformation objFrmUserInfo = new frmUsersInformation();
+            //objFrmUserInfo.Closed += (s, args) => this.Close();
+            //objFrmUserInfo.ShowDialog();
         }
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)

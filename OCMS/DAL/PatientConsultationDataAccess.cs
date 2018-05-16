@@ -34,6 +34,7 @@ namespace OCMS.DAL
                 comm.Parameters.AddWithValue("@medicine", model.Medicine);
                 comm.Parameters.AddWithValue("@isAgree", model.Agree);
                 comm.Parameters.AddWithValue("@company", model.Company);
+                comm.Parameters.AddWithValue("@key", "Medicard");
 
                 comm.ExecuteNonQuery();
                 newConnection.DBClose();
@@ -101,7 +102,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetMembersPerAccount '" + search +"'";
+                    string query = "dbo.GetMembersPerAccount '" + search +"','Medicard'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 

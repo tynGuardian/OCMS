@@ -65,7 +65,7 @@ namespace OCMS.VIEW
                     Application.DoEvents();
                     if (result == true)
                     {
-                        MessageBox.Show("You cannot select multiple reference for employee details!", "OCMS", MessageBoxButtons.OK);
+                        MessageBox.Show("Please select only one reference!", "OCMS", MessageBoxButtons.OK);
                         return;
                     }
                     else
@@ -74,7 +74,7 @@ namespace OCMS.VIEW
                     }
                 }
             }
-            MessageBox.Show("Successfully Update Employee Details!", "OCMS", MessageBoxButtons.OK);
+            MessageBox.Show("Successfully Update Employee Information!", "OCMS", MessageBoxButtons.OK);
             this.Close();
         }
         
@@ -99,6 +99,11 @@ namespace OCMS.VIEW
                 return false;
             }
 
+        }
+
+        private void dgvEmployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvEmployee.CurrentRow.DefaultCellStyle.SelectionBackColor = Color.LightGray;
         }
     }
 }

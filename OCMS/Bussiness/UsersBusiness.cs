@@ -11,11 +11,11 @@ namespace OCMS.Bussiness
     {
         UsersDataAccess usersdata = new UsersDataAccess();
         UsersDataAccess validateuser = new UsersDataAccess();
-        public bool SaveUsersInfo(UsersModel usersmodel)
+        public bool SaveUsersInfo(UsersModel usersmodel, int isupdate)
         {
             try
             {
-                if (usersdata.SaveUsersInformation(usersmodel) == true)
+                if (usersdata.SaveUsersInformation(usersmodel, isupdate) == true)
                 {
                     return true;
                 }
@@ -62,6 +62,39 @@ namespace OCMS.Bussiness
 
                 throw ex;
             }
+        }
+        public List <UsersModel> getUsers(string filter)
+        {
+            try
+            {
+                List<UsersModel> UserList = usersdata.getUsersList(filter);
+
+                return UserList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public bool UserActivation(UsersModel usersmodel)
+        {
+            try
+            {
+                if (usersdata.UserActivation(usersmodel) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
