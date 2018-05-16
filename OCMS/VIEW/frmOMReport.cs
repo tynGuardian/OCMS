@@ -38,7 +38,7 @@ namespace OCMS.VIEW
                 }
                 else if(textBox1.Text == "")
                 {
-                    MessageBox.Show("Don't leave file path to save blank!", "OCMS",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Don't leave file path blank!", "OCMS",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
                 else
                 { 

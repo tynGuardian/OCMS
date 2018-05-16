@@ -136,7 +136,7 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("OnSite Clinic Management System version " + Application.ProductVersion.ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
+            MessageBox.Show("On-Site Clinic Management System version " + Application.ProductVersion.ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)

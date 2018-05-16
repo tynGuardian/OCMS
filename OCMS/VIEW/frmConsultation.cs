@@ -474,6 +474,22 @@ namespace OCMS.VIEW
 
             }
         }
-        
+        private void listComplaint_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to remove this complaint ?", "OCMS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (msg == DialogResult.Yes)
+            {
+                ListBox.SelectedObjectCollection selectedItems = new ListBox.SelectedObjectCollection(listComplaint);
+                selectedItems = listComplaint.SelectedItems;
+
+                if (listComplaint.SelectedIndex != -1)
+                {
+                    for (int i = selectedItems.Count - 1; i >= 0; i--)
+                        listComplaint.Items.Remove(selectedItems[i]);
+                }
+
+            }
+        }
     }
 }

@@ -459,6 +459,7 @@
             this.listComplaint.Name = "listComplaint";
             this.listComplaint.Size = new System.Drawing.Size(359, 55);
             this.listComplaint.TabIndex = 34;
+            this.listComplaint.DoubleClick += new System.EventHandler(this.listComplaint_DoubleClick);
             // 
             // lblMed
             // 
