@@ -125,6 +125,7 @@ namespace OCMS.VIEW
                     {
                         if (btnSave.Text == "Save")
                         {
+                            ClearAlltext();
                             MessageBox.Show("Users information successfully save.", "OCMS", MessageBoxButtons.OK);
                         }
                         else

@@ -158,6 +158,7 @@ namespace OCMS
                 else
                 {
                     MessageBox.Show("Kindly check login privilege, username and password!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ClearText();
                 }
                 Cursor.Current = Cursors.Default;
             }
@@ -349,6 +350,11 @@ namespace OCMS
                 objfrmDatabaseSettings.ShowDialog();
             }
 
+        }
+        public void ClearText()
+        {
+            textUsername.Text = "";
+            textPassword.Text = "";
         }
     }
 }
