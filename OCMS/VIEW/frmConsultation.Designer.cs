@@ -30,15 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultation));
             this.grpPatient = new System.Windows.Forms.GroupBox();
+            this.txtTimeInTime = new System.Windows.Forms.TextBox();
             this.dtpTimeOutTime = new System.Windows.Forms.DateTimePicker();
-            this.dtpTimeOut = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtCompany = new System.Windows.Forms.TextBox();
+            this.dtpTimeOut = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTimeIn = new System.Windows.Forms.TextBox();
             this.txtEmpName = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtGender = new System.Windows.Forms.TextBox();
             this.btnSaveConsultation = new System.Windows.Forms.Button();
             this.txtAge = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.listComplaint = new System.Windows.Forms.ListBox();
             this.lblMed = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
-            this.txtTimeInTime = new System.Windows.Forms.TextBox();
             this.grpPatient.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +89,16 @@
             this.grpPatient.TabIndex = 0;
             this.grpPatient.TabStop = false;
             // 
+            // txtTimeInTime
+            // 
+            this.txtTimeInTime.BackColor = System.Drawing.Color.White;
+            this.txtTimeInTime.Enabled = false;
+            this.txtTimeInTime.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimeInTime.Location = new System.Drawing.Point(244, 69);
+            this.txtTimeInTime.Name = "txtTimeInTime";
+            this.txtTimeInTime.Size = new System.Drawing.Size(99, 22);
+            this.txtTimeInTime.TabIndex = 15;
+            // 
             // dtpTimeOutTime
             // 
             this.dtpTimeOutTime.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,6 +108,16 @@
             this.dtpTimeOutTime.Size = new System.Drawing.Size(99, 22);
             this.dtpTimeOutTime.TabIndex = 14;
             this.dtpTimeOutTime.Value = new System.DateTime(2018, 4, 4, 0, 0, 0, 0);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCompany.Location = new System.Drawing.Point(120, 39);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(326, 22);
+            this.txtCompany.TabIndex = 9;
             // 
             // dtpTimeOut
             // 
@@ -109,27 +129,6 @@
             this.dtpTimeOut.Size = new System.Drawing.Size(119, 22);
             this.dtpTimeOut.TabIndex = 13;
             this.dtpTimeOut.Value = new System.DateTime(2018, 4, 4, 0, 0, 0, 0);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Time Out:";
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.BackColor = System.Drawing.Color.White;
-            this.txtCompany.Enabled = false;
-            this.txtCompany.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompany.Location = new System.Drawing.Point(120, 39);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(326, 22);
-            this.txtCompany.TabIndex = 9;
             // 
             // label1
             // 
@@ -180,6 +179,17 @@
             this.lblName.Size = new System.Drawing.Size(116, 17);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Employee Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Time Out:";
             // 
             // txtGender
             // 
@@ -469,16 +479,6 @@
             this.lblQuantity.Size = new System.Drawing.Size(65, 17);
             this.lblQuantity.TabIndex = 28;
             this.lblQuantity.Text = "Quantity:";
-            // 
-            // txtTimeInTime
-            // 
-            this.txtTimeInTime.BackColor = System.Drawing.Color.White;
-            this.txtTimeInTime.Enabled = false;
-            this.txtTimeInTime.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeInTime.Location = new System.Drawing.Point(244, 69);
-            this.txtTimeInTime.Name = "txtTimeInTime";
-            this.txtTimeInTime.Size = new System.Drawing.Size(99, 22);
-            this.txtTimeInTime.TabIndex = 15;
             // 
             // frmConsultation
             // 

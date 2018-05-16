@@ -15,16 +15,18 @@ namespace OCMS.VIEW
     {
         private bool sortAscending = false;
         List<PatientComplaintModel> listmodel1 = new List<PatientComplaintModel>();
+        PatientComplainBusiness _bll = new PatientComplainBusiness();
 
         public frmPatientList()
         {
             InitializeComponent();
             txtSearch.Focus();
+            dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
         }
 
         private void frmPatientList_Load(object sender, EventArgs e)
         {
-            PatientComplainBusiness _bll = new PatientComplainBusiness();
+            
 
             if (txtSearch.Text == "")
             {
@@ -45,6 +47,8 @@ namespace OCMS.VIEW
             dgvPatient.Columns[12].Visible = false;
             dgvPatient.Columns[13].Visible = false;
             dgvPatient.Columns[14].Visible = false;
+
+            //dgvPatient.Columns[3].Width = 108;
 
             dgvPatient.Columns[3].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
             dgvPatient.Columns[4].HeaderCell.Style.Font = new Font("Franklin Gothic Book", 10, FontStyle.Bold);
@@ -107,6 +111,7 @@ namespace OCMS.VIEW
             {
                 PatientComplainBusiness _bll = new PatientComplainBusiness();
                 dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                listmodel1 = _bll.getPatientList(txtSearch.Text);
                 //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList(""));
                 //dgvPatient.DataSource = utility;
                 ////listmodel1 = _bll.getPatientList("");
@@ -130,6 +135,7 @@ namespace OCMS.VIEW
                 txtSearch.Text = "";
                 Cursor = Cursors.WaitCursor;
                 dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
+                listmodel1 = _bll.getPatientList(txtSearch.Text);
                 Cursor = Cursors.Default;
                 //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList());
                 //dgvPatient.DataSource = utility;

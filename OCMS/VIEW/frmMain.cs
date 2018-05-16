@@ -42,7 +42,8 @@ namespace OCMS
         private void frmMain_Load(object sender, EventArgs e)
         {
             toolStripLabel1.Text = "Current User: " + clsGlobal.usercode;
-            
+            windowToolStripMenuItem.Visible = false;
+            closeChildToolStripMenuItem.Visible = false;
             //MOD BY KNG
             if (Properties.Settings.Default.Company == "")
             {
@@ -55,20 +56,34 @@ namespace OCMS
 
             if (clsGlobal.lblprivilege == "Power User")
             {
+                if (Properties.Settings.Default.Company == "")
+                {
+                    MessageBox.Show("Please don't forget to update the company in Maintenance -> Company Deployment -> Press Ok", "OCMS", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
                 windowToolStripMenuItem.Visible = false;
-                reportToolStripMenuItem.Visible = false;
+                windowToolStripMenuItem.Enabled = false;
                 patientMasterListToolStripMenuItem.Visible = false;
+                patientMasterListToolStripMenuItem.Enabled = false;
                 importEmployeeToolStripMenuItem.Visible = false;
+                importEmployeeToolStripMenuItem.Enabled = false;
+                reportToolStripMenuItem.Visible = false;
+                reportToolStripMenuItem.Enabled = false;
                 closeChildToolStripMenuItem.Visible = false;
+                closeChildToolStripMenuItem.Enabled = false;
+                userListToolStripMenuItem.Visible = false;
+                userListToolStripMenuItem.Enabled = false;
             }
             else if (clsGlobal.lblprivilege == "Admin")
             {
                 addCompanyDeploymentToolStripMenuItem.Visible = false;
+                addCompanyDeploymentToolStripMenuItem.Enabled = false;
             }
             else if (clsGlobal.lblprivilege == "User")
             {
-                createUserLoginToolStripMenuItem.Visible = false;
-                addCompanyDeploymentToolStripMenuItem.Visible = false;
+                maintenanceToolStripMenuItem.Visible = false;
+                createUserLoginToolStripMenuItem.Enabled = false;
+                userListToolStripMenuItem.Enabled = false;
+                addCompanyDeploymentToolStripMenuItem.Enabled = false;
             }
 
             if (ApplicationDeployment.IsNetworkDeployed)
@@ -267,6 +282,8 @@ namespace OCMS
 
         private void createUserLoginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UsersModel UserList = new UsersModel();
+
             VIEW.frmUsersInformation objFrmUserInfo = new VIEW.frmUsersInformation();
             objFrmUserInfo.StartPosition = FormStartPosition.CenterScreen;
             objFrmUserInfo.Show();
@@ -301,9 +318,20 @@ namespace OCMS
 
         private void oMREPORTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             VIEW.frmOMReport objfrmOMReport = new VIEW.frmOMReport();
             objfrmOMReport.StartPosition = FormStartPosition.CenterScreen;
             objfrmOMReport.Show();
+            Cursor = Cursors.Default;
+        }
+
+        private void userListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            VIEW.frmUserList objfrmUserList = new VIEW.frmUserList();
+            objfrmUserList.StartPosition = FormStartPosition.CenterScreen;
+            objfrmUserList.Show();
+            Cursor = Cursors.Default;
         }
     }
 }

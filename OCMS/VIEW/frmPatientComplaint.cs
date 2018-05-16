@@ -74,9 +74,9 @@ namespace OCMS.VIEW
             Cursor.Current = Cursors.AppStarting;
             try
             {
-                if (txtGEID.Text =="" && txtFullName.Text == "")
+                if (txtGEID.Text =="" || txtFullName.Text == "" || cmbCompany.Text == "")
                 {
-                    MessageBox.Show("Don't leave blank the GEID and Employee Name!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill up all required fields!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

@@ -45,6 +45,7 @@
             this.oMREPORTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCompanyDeploymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
@@ -181,14 +182,15 @@
             this.oMREPORTToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("oMREPORTToolStripMenuItem.Image")));
             this.oMREPORTToolStripMenuItem.Name = "oMREPORTToolStripMenuItem";
             this.oMREPORTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.oMREPORTToolStripMenuItem.Size = new System.Drawing.Size(273, 24);
-            this.oMREPORTToolStripMenuItem.Text = "&OM REPORT (By Range)";
+            this.oMREPORTToolStripMenuItem.Size = new System.Drawing.Size(404, 24);
+            this.oMREPORTToolStripMenuItem.Text = "Clinic &Operation utilization report (By Range)";
             this.oMREPORTToolStripMenuItem.Click += new System.EventHandler(this.oMREPORTToolStripMenuItem_Click);
             // 
             // maintenanceToolStripMenuItem
             // 
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createUserLoginToolStripMenuItem,
+            this.userListToolStripMenuItem,
             this.addCompanyDeploymentToolStripMenuItem});
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
             this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(104, 25);
@@ -197,15 +199,25 @@
             // createUserLoginToolStripMenuItem
             // 
             this.createUserLoginToolStripMenuItem.Name = "createUserLoginToolStripMenuItem";
+            this.createUserLoginToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.createUserLoginToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
-            this.createUserLoginToolStripMenuItem.Text = "Create User Login";
+            this.createUserLoginToolStripMenuItem.Text = "&Create User Login";
             this.createUserLoginToolStripMenuItem.Click += new System.EventHandler(this.createUserLoginToolStripMenuItem_Click);
+            // 
+            // userListToolStripMenuItem
+            // 
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
+            this.userListToolStripMenuItem.Text = "View Users &List";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
             // 
             // addCompanyDeploymentToolStripMenuItem
             // 
             this.addCompanyDeploymentToolStripMenuItem.Name = "addCompanyDeploymentToolStripMenuItem";
+            this.addCompanyDeploymentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.addCompanyDeploymentToolStripMenuItem.Size = new System.Drawing.Size(267, 24);
-            this.addCompanyDeploymentToolStripMenuItem.Text = "Update Company Deployment";
+            this.addCompanyDeploymentToolStripMenuItem.Text = "Company &Deployment";
             this.addCompanyDeploymentToolStripMenuItem.Click += new System.EventHandler(this.addCompanyDeploymentToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem2
@@ -359,6 +371,7 @@
         private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCompanyDeploymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createUserLoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userListToolStripMenuItem;
     }
 }
 

@@ -65,7 +65,7 @@ namespace OCMS.VIEW
                     {
                         if (report_count > 0)
                         {
-                            CreateExcelDocument(listOfEmployees, textBox1.Text + "\\OM Report from " + DTPfrom.Value.ToShortDateString().Replace((char)47, (char)45) + " to " + DTPTo.Value.ToShortDateString().Replace((char)47, (char)45) + "a.xlsx");
+                            CreateExcelDocument(listOfEmployees, textBox1.Text + "\\" + Properties.Settings.Default.Company + "_Clinic Operation utilization report from " + DTPfrom.Value.ToShortDateString().Replace((char)47, (char)45) + " to " + DTPTo.Value.ToShortDateString().Replace((char)47, (char)45) + "a.xlsx");
                             MessageBox.Show("Successfully Generate Report!", "OCMS", MessageBoxButtons.OK);
                         }
                         else
@@ -202,7 +202,7 @@ namespace OCMS.VIEW
 
                     ++counter;
                 }
-                workbook.SaveAs(textBox1.Text + "\\" + Properties.Settings.Default.Company + "_OM Report from " + DTPfrom.Value.ToShortDateString().Replace((char)47, (char)45) + " to " + DTPTo.Value.ToShortDateString().Replace((char)47, (char)45),NsExcel.XlFileFormat.xlWorkbookNormal);
+                workbook.SaveAs(textBox1.Text + "\\" + Properties.Settings.Default.Company + "_Clinic Operation utilization report from " + DTPfrom.Value.ToShortDateString().Replace((char)47, (char)45) + " to " + DTPTo.Value.ToShortDateString().Replace((char)47, (char)45),NsExcel.XlFileFormat.xlWorkbookNormal);
 
                 exapp.Quit();
                 exapp = null;

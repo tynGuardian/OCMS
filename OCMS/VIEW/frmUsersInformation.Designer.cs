@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsersInformation));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkPrivilege = new System.Windows.Forms.CheckBox();
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.chkPrivilege);
             this.groupBox1.Controls.Add(this.cmbRole);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label15);
@@ -89,10 +91,21 @@
             this.groupBox1.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(325, 328);
+            this.groupBox1.Size = new System.Drawing.Size(325, 347);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Information";
+            // 
+            // chkPrivilege
+            // 
+            this.chkPrivilege.AutoSize = true;
+            this.chkPrivilege.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkPrivilege.Location = new System.Drawing.Point(13, 285);
+            this.chkPrivilege.Name = "chkPrivilege";
+            this.chkPrivilege.Size = new System.Drawing.Size(275, 21);
+            this.chkPrivilege.TabIndex = 43;
+            this.chkPrivilege.Text = "Give access to create/manage user accounts";
+            this.chkPrivilege.UseVisualStyleBackColor = true;
             // 
             // cmbRole
             // 
@@ -138,7 +151,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(230, 288);
+            this.button1.Location = new System.Drawing.Point(230, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 29);
             this.button1.TabIndex = 36;
@@ -249,7 +262,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(149, 288);
+            this.btnSave.Location = new System.Drawing.Point(149, 310);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 29);
             this.btnSave.TabIndex = 33;
@@ -378,7 +391,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(347, 354);
+            this.ClientSize = new System.Drawing.Size(347, 368);
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -421,5 +434,6 @@
         private System.Windows.Forms.TextBox textLname;
         private System.Windows.Forms.TextBox textMname;
         private System.Windows.Forms.TextBox textFname;
+        private System.Windows.Forms.CheckBox chkPrivilege;
     }
 }

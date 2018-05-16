@@ -11,7 +11,7 @@ namespace OCMS.DAL
 {
     public class UsersDataAccess
     {
-        public bool SaveUsersInformation(UsersModel UsersModel)
+        public bool SaveUsersInformation(UsersModel UsersModel, int isupdate)
         {
             try
             {
@@ -33,6 +33,7 @@ namespace OCMS.DAL
                 comm.Parameters.AddWithValue("@LicenseNo", UsersModel.licenseno);
                 comm.Parameters.AddWithValue("@Privilege", UsersModel.privilege);
                 comm.Parameters.AddWithValue("@active", UsersModel.active);
+                comm.Parameters.AddWithValue("@isUpdate", isupdate);
                 result = comm.ExecuteNonQuery();
                 newConnection.DBClose();
                 if (result > 0)
@@ -121,6 +122,94 @@ namespace OCMS.DAL
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+        public List<UsersModel> getUsersList(string filter)
+        {
+            try
+            {
+
+                DBResource newConnection = new DBResource();
+
+                List<UsersModel> ListUser = new List<UsersModel>();
+                UsersModel UserModel;
+
+                using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
+                {
+
+                    string query = "dbo.GetUsersList " + filter + "";
+                    SqlCommand cmd = new SqlCommand(query, myConnection);
+                    myConnection.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+
+                        while (dr.Read())
+                        {
+                            UserModel = new UsersModel();
+                            UserModel.lastname = dr["last_name"].ToString().Trim();
+                            UserModel.firstname = dr["first_name"].ToString().Trim();
+                            UserModel.middlename = dr["middle_name"].ToString().Trim();
+                            UserModel.userpass = dr["user_password"].ToString().Trim();
+                            UserModel.usercode = dr["user_code"].ToString();
+                            UserModel.role = dr["role"].ToString().Trim();
+                            if (dr.GetBoolean(dr.GetOrdinal("active")) == true)
+                            {
+                                UserModel.active = 1;
+                                UserModel.displayactive = "YES";
+                            }
+                            else
+                            {
+                                UserModel.active = 0;
+                                UserModel.displayactive = "NO";
+                            }
+                            UserModel.privilege = dr["privilege"].ToString().Trim();
+                            UserModel.licenseno = dr["license_no"].ToString().Trim();
+                            ListUser.Add(UserModel);
+                        }
+                        myConnection.Close();
+                    }
+
+                }
+                return ListUser;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public bool UserActivation(UsersModel UsersModel)
+        {
+            try
+            {
+                int result;
+                DBResource newConnection = new DBResource();
+                newConnection.DBOpen();
+
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = DBResource.conn;
+                comm.CommandText = "dbo.UserActivation";
+                comm.CommandType = CommandType.StoredProcedure;
+
+                comm.Parameters.AddWithValue("@usercode", UsersModel.usercode);
+                comm.Parameters.AddWithValue("@active", UsersModel.active);
+               
+                result = comm.ExecuteNonQuery();
+                newConnection.DBClose();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

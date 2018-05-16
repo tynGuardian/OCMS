@@ -54,7 +54,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvPatient.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPatient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPatient.BackgroundColor = System.Drawing.Color.White;
             this.dgvPatient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -76,9 +76,7 @@
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
             this.dgvPatient.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvPatient.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -166,9 +164,9 @@
             this.lblSearch.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(19, 13);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(56, 17);
+            this.lblSearch.Size = new System.Drawing.Size(116, 17);
             this.lblSearch.TabIndex = 7;
-            this.lblSearch.Text = "Search:";
+            this.lblSearch.Text = "Search by Name:";
             // 
             // frmPatientList
             // 

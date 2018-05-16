@@ -24,7 +24,7 @@
     <ProductName>OCMS</ProductName>
     <PublisherName>Medicard Philipines Inc.</PublisherName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>27</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -233,6 +233,12 @@
     <Compile Include="VIEW\frmProgress.Designer.cs">
       <DependentUpon>frmProgress.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\frmUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\frmUserList.Designer.cs">
+      <DependentUpon>frmUserList.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\frmUsersInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmProgress.resx">
       <DependentUpon>frmProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\frmUserList.resx">
+      <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmUsersInformation.resx">
       <DependentUpon>frmUsersInformation.cs</DependentUpon>
