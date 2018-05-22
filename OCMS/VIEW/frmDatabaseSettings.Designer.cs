@@ -158,6 +158,7 @@
             this.ClientSize = new System.Drawing.Size(463, 163);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDatabaseSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database Settings";

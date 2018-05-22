@@ -138,7 +138,7 @@ namespace OCMS.DAL
                 using (SqlConnection myConnection = new SqlConnection(newConnection.connectionString.ToString()))
                 {
 
-                    string query = "dbo.GetUsersList " + filter + "";
+                    string query = "dbo.GetUsersList '" + filter + "'";
                     SqlCommand cmd = new SqlCommand(query, myConnection);
                     myConnection.Open();
 

@@ -57,7 +57,20 @@ namespace OCMS.VIEW
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            LoadInfo();
+            if (textSearch.Text.Trim() != "" || string.IsNullOrWhiteSpace(textSearch.Text) == false)
+            {
+                if (btnSearch.Text == "Search")
+                {
+                    btnSearch.Text = "Refresh";
+                    LoadInfo();
+                }
+                else
+                {
+                    btnSearch.Text = "Search";
+                    textSearch.Text = "";
+                    LoadInfo();
+                }
+            }
         }
         public void LoadInfo()
         {
@@ -142,5 +155,20 @@ namespace OCMS.VIEW
             }
         }
 
+        private void textSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(sender, e);
+            }
+        }
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (textSearch.Text != "")
+            {
+                btnSearch.Text = "Search";
+            }
+        }
     }
 }

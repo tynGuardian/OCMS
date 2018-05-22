@@ -136,7 +136,18 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("On-Site Clinic Management System version " + Application.ProductVersion.ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                SystemVersion = AssemblyVersion.ToString();
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+            }
+            else
+            {
+                SystemVersion = Application.ProductVersion.ToString();
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+            }
+            MessageBox.Show("On-Site Clinic Management System version " + SystemVersion /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
@@ -211,8 +222,11 @@ namespace OCMS
         {
             Cursor = Cursors.WaitCursor;
             VIEW.frmPatientList objfrmpatientlist = new VIEW.frmPatientList();
-            objfrmpatientlist.MdiParent = this;
-            objfrmpatientlist.WindowState = FormWindowState.Maximized;
+            objfrmpatientlist.TopLevel = false;
+            Controls.Add(objfrmpatientlist);
+            objfrmpatientlist.FormBorderStyle = FormBorderStyle.None;
+            objfrmpatientlist.Dock = DockStyle.Fill;
+            objfrmpatientlist.BringToFront();
             objfrmpatientlist.Show();
             Cursor = Cursors.Default;
         }

@@ -24,7 +24,7 @@
     <ProductName>OCMS</ProductName>
     <PublisherName>Medicard Philipines Inc.</PublisherName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -65,7 +65,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ocmsicon.ico</ApplicationIcon>
+    <ApplicationIcon>medicine_dnU_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -296,8 +296,11 @@
     <EmbeddedResource Include="VIEW\frmUsersInformation.resx">
       <DependentUpon>frmUsersInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="icon1_iDI_icon.ico" />
     <Content Include="logo_4ys_icon.ico" />
+    <Content Include="medicine_dnU_icon.ico" />
     <Content Include="ocmsicon.ico" />
+    <Content Include="ocmsicon2.ico" />
     <Content Include="ocmslogo_Q8n_icon.ico" />
     <Content Include="OMReportTemplate.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

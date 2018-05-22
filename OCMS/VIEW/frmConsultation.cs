@@ -91,9 +91,10 @@ namespace OCMS.VIEW
                     arrMed[1] = DiagCode[i];
                     item = new ListViewItem(arrMed);
                     lvDiagnosis.Items.Add(item);
-                    lvDiagnosis.Columns.RemoveAt(0);
                 }
-                lvDiagnosis.Columns.RemoveAt(0);
+                lvDiagnosis.Columns.RemoveAt(1);
+                lvDiagnosis.Columns.RemoveAt(1);
+                lvDiagnosis.Columns.RemoveAt(1);
             }
             disposition = patientModel.disposition;
             txtEmpName.Text = patientModel.EmpName;
@@ -244,6 +245,7 @@ namespace OCMS.VIEW
                             diagnosis += itemRow.SubItems[1].Text + ",";
                         }
                     }
+
                     if (diagnosis == "")
                     {
                         diagnosis = "";

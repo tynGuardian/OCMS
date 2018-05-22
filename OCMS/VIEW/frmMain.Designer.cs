@@ -117,8 +117,7 @@
             // closeChildToolStripMenuItem
             // 
             this.closeChildToolStripMenuItem.Name = "closeChildToolStripMenuItem";
-            this.closeChildToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+L";
-            this.closeChildToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.closeChildToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.closeChildToolStripMenuItem.Size = new System.Drawing.Size(295, 26);
             this.closeChildToolStripMenuItem.Text = "C&lose Child";
             this.closeChildToolStripMenuItem.Click += new System.EventHandler(this.closeChildToolStripMenuItem_Click);
