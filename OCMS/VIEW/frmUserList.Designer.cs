@@ -121,7 +121,7 @@
             this.btnDeactivate.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeactivate.Location = new System.Drawing.Point(391, 15);
             this.btnDeactivate.Name = "btnDeactivate";
-            this.btnDeactivate.Size = new System.Drawing.Size(106, 23);
+            this.btnDeactivate.Size = new System.Drawing.Size(114, 23);
             this.btnDeactivate.TabIndex = 8;
             this.btnDeactivate.Text = "Deactivate User";
             this.btnDeactivate.UseVisualStyleBackColor = true;
@@ -140,6 +140,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgvUserList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUserList";
             this.Load += new System.EventHandler(this.frmUserList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
