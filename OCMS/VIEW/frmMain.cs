@@ -10,7 +10,8 @@ using OCMS.Class;
 using System.Deployment.Application;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
-
+using System.Configuration;
+using System.Reflection;
 namespace OCMS
 {
     public partial class frmMain : Form
@@ -96,13 +97,25 @@ namespace OCMS
                 {
                     AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
                     SystemVersion = AssemblyVersion.ToString();
-                    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
                 }
                 else
                 {
                     SystemVersion = Application.ProductVersion.ToString();
-                    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
                 }
+                //Properties.Settings.Default.Version = SystemVersion;
+                //Properties.Settings.Default.Save();
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+                config.AppSettings.Settings.Remove("Version");
+                var entry = config.AppSettings.Settings["Version"];
+                if (entry == null)
+                    config.AppSettings.Settings.Add("Version", SystemVersion);
+                else
+                    config.AppSettings.Settings["Version"].Value = SystemVersion;
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + ConfigurationManager.AppSettings["Version"].ToString() + ")";
 
                 tmr = new System.Windows.Forms.Timer();
                 tmr.Interval = 1000;
@@ -136,18 +149,18 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            if (ApplicationDeployment.IsNetworkDeployed)
-            {
-                AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                SystemVersion = AssemblyVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            }
-            else
-            {
-                SystemVersion = Application.ProductVersion.ToString();
-                this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            }
-            MessageBox.Show("On-Site Clinic Management System version " + SystemVersion /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
+            //if (ApplicationDeployment.IsNetworkDeployed)
+            //{
+            //    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+            //    SystemVersion = AssemblyVersion.ToString();
+            //    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+            //}
+            //else
+            //{
+            //    SystemVersion = Application.ProductVersion.ToString();
+            //    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
+            //}
+            MessageBox.Show("On-Site Clinic Management System version " + ConfigurationManager.AppSettings["Version"].ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
