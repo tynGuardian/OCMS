@@ -15,7 +15,7 @@ namespace OCMS.Class
         public static string FirstName;
         public static frmConfirmationPage g_objfrmConfirmationPage;
         public static string userGlbl;
-
+        public static string SystemVersion;
 
         public sealed class Global
         {

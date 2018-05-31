@@ -93,30 +93,24 @@ namespace OCMS
                     reportToolStripMenuItem.Enabled = false;
                 }
 
-                if (ApplicationDeployment.IsNetworkDeployed)
+                //if (ApplicationDeployment.IsNetworkDeployed)
+                //{
+                //    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                //    SystemVersion = AssemblyVersion.ToString();
+                //}
+                //else
+                //{
+                //    SystemVersion = Application.ProductVersion.ToString();
+                //}
+                string path = AppDomain.CurrentDomain.BaseDirectory.ToString() + "/SystemVersion.txt";
+                
+                string[] lines = File.ReadAllLines(path);
+
+                foreach (string line in lines)
                 {
-                    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                    SystemVersion = AssemblyVersion.ToString();
+                    clsGlobal.SystemVersion = line;
                 }
-                else
-                {
-                    SystemVersion = Application.ProductVersion.ToString();
-                }
-                //Properties.Settings.Default.Version = SystemVersion;
-                //Properties.Settings.Default.Save();
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-                config.AppSettings.Settings.Remove("Version");
-                var entry = config.AppSettings.Settings["Version"];
-                if (entry == null)
-                    config.AppSettings.Settings.Add("Version", SystemVersion);
-                else
-                    config.AppSettings.Settings["Version"].Value = SystemVersion;
-                config.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection("appSettings");
-
-                this.Text = "On-Site Clinic Management System Ver. " + "(" + ConfigurationManager.AppSettings["Version"].ToString() + ")";
-
+                this.Text = "On-Site Clinic Management System Ver. " + "(" + clsGlobal.SystemVersion + ")";
                 tmr = new System.Windows.Forms.Timer();
                 tmr.Interval = 1000;
                 tmr.Tick += new EventHandler(tmr_Tick);
@@ -160,7 +154,7 @@ namespace OCMS
             //    SystemVersion = Application.ProductVersion.ToString();
             //    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
             //}
-            MessageBox.Show("On-Site Clinic Management System version " + ConfigurationManager.AppSettings["Version"].ToString() /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
+            MessageBox.Show("On-Site Clinic Management System version " + clsGlobal.SystemVersion /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)

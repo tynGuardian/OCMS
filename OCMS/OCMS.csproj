@@ -24,7 +24,7 @@
     <ProductName>OCMS</ProductName>
     <PublisherName>Medicard Philipines Inc.</PublisherName>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>40</ApplicationRevision>
+    <ApplicationRevision>41</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -246,6 +246,9 @@
       <DependentUpon>frmUsersInformation.cs</DependentUpon>
     </Compile>
     <Content Include="rx_circle.ico" />
+    <Content Include="SystemVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
