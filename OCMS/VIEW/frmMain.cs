@@ -4,14 +4,9 @@ using System.Windows.Forms;
 using OCMS.Bussiness;
 using OCMS.MODEL;
 using System.Collections.Generic;
-using System.Threading;
 using System.ComponentModel;
 using OCMS.Class;
-using System.Deployment.Application;
-using Microsoft.VisualBasic;
 using System.Diagnostics;
-using System.Configuration;
-using System.Reflection;
 namespace OCMS
 {
     public partial class frmMain : Form
@@ -92,16 +87,6 @@ namespace OCMS
                     reportToolStripMenuItem.Visible = false;
                     reportToolStripMenuItem.Enabled = false;
                 }
-
-                //if (ApplicationDeployment.IsNetworkDeployed)
-                //{
-                //    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-                //    SystemVersion = AssemblyVersion.ToString();
-                //}
-                //else
-                //{
-                //    SystemVersion = Application.ProductVersion.ToString();
-                //}
                 string path = AppDomain.CurrentDomain.BaseDirectory.ToString() + "/SystemVersion.txt";
                 
                 string[] lines = File.ReadAllLines(path);
@@ -143,18 +128,7 @@ namespace OCMS
 
         private void mnuHelpAbout_Click(object sender, EventArgs e)
         {
-            //if (ApplicationDeployment.IsNetworkDeployed)
-            //{
-            //    AssemblyVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
-            //    SystemVersion = AssemblyVersion.ToString();
-            //    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            //}
-            //else
-            //{
-            //    SystemVersion = Application.ProductVersion.ToString();
-            //    this.Text = "On-Site Clinic Management System Ver. " + "(" + SystemVersion + ")";
-            //}
-            MessageBox.Show("On-Site Clinic Management System version " + clsGlobal.SystemVersion /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
+          MessageBox.Show("On-Site Clinic Management System version " + clsGlobal.SystemVersion /*Assembly.GetExecutingAssembly().GetName().Version.ToString()*/, "OCMS");
         }
 
         private void mnuFileExit_Click(object sender, EventArgs e)
