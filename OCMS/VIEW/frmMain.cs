@@ -53,7 +53,7 @@ namespace OCMS
                     toolStripLabel4.Text = "Company: " + Properties.Settings.Default.Company;
                 }
 
-                if (clsGlobal.lblprivilege == "Power User")
+                if (clsGlobal.lblprivilege.ToUpper() == "Power User".ToUpper())
                 {
                     if (Properties.Settings.Default.Company == "")
                     {
@@ -73,12 +73,12 @@ namespace OCMS
                     userListToolStripMenuItem.Visible = false;
                     userListToolStripMenuItem.Enabled = false;
                 }
-                else if (clsGlobal.lblprivilege == "Admin")
+                else if (clsGlobal.lblprivilege.ToUpper() == "Admin".ToUpper())
                 {
                     //addCompanyDeploymentToolStripMenuItem.Visible = false;
                     addCompanyDeploymentToolStripMenuItem.Enabled = false;
                 }
-                else if (clsGlobal.lblprivilege == "User")
+                else if (clsGlobal.lblprivilege.ToUpper() == "User".ToUpper())
                 {
                     maintenanceToolStripMenuItem.Visible = false;
                     createUserLoginToolStripMenuItem.Enabled = false;
