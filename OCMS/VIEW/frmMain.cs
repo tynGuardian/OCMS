@@ -75,7 +75,6 @@ namespace OCMS
                 }
                 else if (clsGlobal.lblprivilege.ToUpper() == "Admin".ToUpper())
                 {
-                    //addCompanyDeploymentToolStripMenuItem.Visible = false;
                     addCompanyDeploymentToolStripMenuItem.Enabled = false;
                 }
                 else if (clsGlobal.lblprivilege.ToUpper() == "User".ToUpper())
