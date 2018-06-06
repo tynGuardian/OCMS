@@ -48,7 +48,7 @@ namespace OCMS.VIEW
         
         public void SaveUsersInformation()
         {
-            if (clsGlobal.lblprivilege == "Power User")
+            if (clsGlobal.lblprivilege.ToUpper() == "Power User".ToUpper())
             {
                 clsGlobal.lblrole = cmbRole.Text;
                 if (textPassword.Text == textCpassword.Text)
@@ -88,7 +88,7 @@ namespace OCMS.VIEW
                     MessageBox.Show("Password not Match!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else if(clsGlobal.lblprivilege =="Admin")
+            else if(clsGlobal.lblprivilege.ToUpper() == "Admin".ToUpper())
             {
                 clsGlobal.lblrole = cmbRole.Text;
                 if (textPassword.Text == textCpassword.Text)

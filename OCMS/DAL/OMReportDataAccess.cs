@@ -34,6 +34,7 @@ namespace OCMS.DAL
                                 OMReport = new OMReportModel();
                                 OMReport.Employee_id = dr["Employee_id"].ToString();
                                 OMReport.Employee_Name = dr["Employee_Name"].ToString();
+                                OMReport.Legal_Vehicle = dr["Legal_Vehicle"].ToString();
                                 OMReport.created_date = Convert.ToDateTime(dr["date"]).ToShortDateString();
                                 OMReport.time_in = Convert.ToDateTime(dr["time_in"]);
                                 OMReport.time_out = Convert.ToDateTime(dr["time_out"]);

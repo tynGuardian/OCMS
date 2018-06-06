@@ -9,6 +9,7 @@ namespace OCMS.MODEL
     {
         public string Employee_id { get; set; }
         public string Employee_Name { get; set; }
+        public string Legal_Vehicle { get; set; }
         public string created_date { get; set; }
         public DateTime? time_in { get; set; }
         public DateTime? time_out { get; set; }

@@ -137,65 +137,69 @@ namespace OCMS.VIEW
 
                     cellName = "C" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = "'" + item.created_date;
+                    range.Value2 = item.Legal_Vehicle;
 
                     cellName = "D" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = "'" + Convert.ToDateTime(item.time_in).ToShortTimeString();
+                    range.Value2 = "'" + item.created_date;
 
                     cellName = "E" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = "'" + Convert.ToDateTime(item.time_out).ToShortTimeString();
+                    range.Value2 = "'" + Convert.ToDateTime(item.time_in).ToShortTimeString();
 
                     cellName = "F" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.Age;
+                    range.Value2 = "'" + Convert.ToDateTime(item.time_out).ToShortTimeString();
 
                     cellName = "G" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.gender;
+                    range.Value2 = item.Age;
 
                     cellName = "H" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.complaint1;
+                    range.Value2 = item.gender;
 
                     cellName = "I" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.Medicine1;
+                    range.Value2 = item.complaint1;
 
                     cellName = "J" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.quantity1;
+                    range.Value2 = item.Medicine1;
 
                     cellName = "K" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.complaint2;
+                    range.Value2 = item.quantity1;
 
                     cellName = "L" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.Medicine2;
+                    range.Value2 = item.complaint2;
 
                     cellName = "M" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.quantity2;
+                    range.Value2 = item.Medicine2;
 
                     cellName = "N" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.complaint3;
+                    range.Value2 = item.quantity2;
 
                     cellName = "O" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.Medicine3;
+                    range.Value2 = item.complaint3;
 
                     cellName = "P" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.quantity3;
+                    range.Value2 = item.Medicine3;
 
                     cellName = "Q" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
-                    range.Value2 = item.disposition;
+                    range.Value2 = item.quantity3;
 
                     cellName = "R" + counter.ToString();
+                    range = sheet.get_Range(cellName, cellName);
+                    range.Value2 = item.disposition;
+
+                    cellName = "S" + counter.ToString();
                     range = sheet.get_Range(cellName, cellName);
                     range.Value2 = item.diagnosis;
 
