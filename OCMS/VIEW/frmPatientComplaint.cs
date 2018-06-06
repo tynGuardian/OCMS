@@ -184,6 +184,12 @@ namespace OCMS.VIEW
             {
                 MessageBox.Show("Please select quantity!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            if (lvMedicine.Items.Count > 2)
+            {
+                btnAdd.Enabled = false;
+                MessageBox.Show("Maximum Medicine encoded", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 //Add items
@@ -245,10 +251,10 @@ namespace OCMS.VIEW
 
         private void frmPatientComplaint_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
-            objfrmConfirmationPage.Closed += (s, args) => this.Close();
-            objfrmConfirmationPage.Show();
+            //this.Hide();
+            //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
+            //objfrmConfirmationPage.Closed += (s, args) => this.Close();
+            //objfrmConfirmationPage.Show();
         }
 
         private void txtGEID_KeyPress(object sender, KeyPressEventArgs e)

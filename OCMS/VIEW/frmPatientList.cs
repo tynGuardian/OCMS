@@ -68,8 +68,7 @@ namespace OCMS.VIEW
                   BindingFlags.Instance | BindingFlags.NonPublic);
                 pi.SetValue(dgvPatient, true, null);
             }
-            //dgvPatient.RowsDefaultCellStyle.BackColor = Color.White;
-            //dgvPatient.AlternatingRowsDefaultCellStyle.BackColor = Color.LightBlue;
+            
         }
 
         private void dgvPatient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,15 +108,10 @@ namespace OCMS.VIEW
         {
             try
             {
+
                 PatientComplainBusiness _bll = new PatientComplainBusiness();
                 dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
                 listmodel1 = _bll.getPatientList(txtSearch.Text);
-                //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList(""));
-                //dgvPatient.DataSource = utility;
-                ////listmodel1 = _bll.getPatientList("");
-                //(dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
-                //    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
-                //(dgvPatient.DataSource as DataTable).DefaultView.ToTable();
 
             }
             catch (Exception ex)
@@ -137,12 +131,6 @@ namespace OCMS.VIEW
                 dgvPatient.DataSource = _bll.getPatientList(txtSearch.Text);
                 listmodel1 = _bll.getPatientList(txtSearch.Text);
                 Cursor = Cursors.Default;
-                //DataTable utility = Class.clsUtility.ToDataTable(_bll.getPatientList());
-                //dgvPatient.DataSource = utility;
-                //listmodel1 = _bll.getPatientList();
-                //(dgvPatient.DataSource as DataTable).DefaultView.RowFilter =
-                //    string.Format("EmpName LIKE '%{0}%'", txtSearch.Text);
-                //(dgvPatient.DataSource as DataTable).DefaultView.ToTable();
 
             }
             catch (Exception ex)

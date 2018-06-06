@@ -13,7 +13,7 @@ namespace OCMS.Class
         public static string usercode;
         public static string LastName;
         public static string FirstName;
-        public static frmConfirmationPage g_objfrmConfirmationPage;
+        //public static frmConfirmationPage g_objfrmConfirmationPage;
         public static string userGlbl;
         public static string SystemVersion;
 

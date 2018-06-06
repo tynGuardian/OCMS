@@ -25,11 +25,11 @@ namespace OCMS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Close();
+            //this.Hide();
+            //this.Close();
 
-            frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
-            objfrmConfirmationPage.ShowDialog();
+            //frmConfirmationPage objfrmConfirmationPage = new frmConfirmationPage();
+            //objfrmConfirmationPage.ShowDialog();
         }
         public static Label SetPlaceholder(Control control, string text)
         {

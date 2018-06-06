@@ -42,7 +42,7 @@ namespace OCMS.VIEW
 
         public frmConsultation(PatientComplaintModel patientModel)
         {
-            InitializeComponent();            
+            InitializeComponent();
 
             if (patientModel.Complaints != "")
             {
@@ -401,6 +401,12 @@ namespace OCMS.VIEW
             {
                 MessageBox.Show("Please select quantity!", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            if (lvMedicine.Items.Count > 3)
+            {
+                btnAdd.Enabled = false;
+                MessageBox.Show("Maximum Medicine encoded", "OCMS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 //Add items
@@ -412,12 +418,10 @@ namespace OCMS.VIEW
                 ListViewItem item;
 
                 arrMed[0] = cmbMedicine.Text.ToString().ToUpper();
-                //arrMed[1] = txtMedQuantity.Text.ToString();
                 arrMed[1] = cmbMedQuantity.Text.ToString().ToUpper();
 
                 item = new ListViewItem(arrMed);
                 lvMedicine.Items.Add(item);
-                //txtMedQuantity.Clear();
             }
         }
 

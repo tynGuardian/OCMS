@@ -150,12 +150,6 @@
     <Compile Include="MODEL\QuantityModel.cs" />
     <Compile Include="MODEL\RoleModel.cs" />
     <Compile Include="MODEL\UsersModel.cs" />
-    <Compile Include="frmConfirmationPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConfirmationPage.Designer.cs">
-      <DependentUpon>frmConfirmationPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="VIEW\frmDatabaseSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,12 +175,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OCMSDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="VIEW\frmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -252,9 +240,6 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfirmationPage.resx">
-      <DependentUpon>frmConfirmationPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmDatabaseSettings.resx">
       <DependentUpon>frmDatabaseSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmOMList.resx">
       <DependentUpon>frmOMList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\frmConsultation.resx">
       <DependentUpon>frmConsultation.cs</DependentUpon>
