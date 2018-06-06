@@ -306,9 +306,6 @@
     <Content Include="ocmsicon.ico" />
     <Content Include="ocmsicon2.ico" />
     <Content Include="ocmslogo_Q8n_icon.ico" />
-    <Content Include="OMReportTemplate.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="App.config" />
     <None Include="OCMSDataSet.xsc">
       <DependentUpon>OCMSDataSet.xsd</DependentUpon>
@@ -322,6 +319,9 @@
       <DependentUpon>OCMSDataSet.xsd</DependentUpon>
     </None>
     <None Include="OCMS_TemporaryKey.pfx" />
+    <Content Include="OMReportTemplate.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
